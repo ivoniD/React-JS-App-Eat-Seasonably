@@ -2,24 +2,32 @@ import './Login.css'
 
 //import HomeCSS from "./Home.module.css";
 export const Login = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const {email, password} = Object.fromEntries(new FormData(e.target));
+    console.log(email);
+    console.log(password);
+  };
+
   return(
     <>
   <div className="cont">
-    <div className="form sign-in">
+    <form className="form sign-in" onSubmit={onSubmit}>
       <h2>Welcome</h2>
       <label>
         <span>Email</span>
-        <input type="email" />
+        <input type="email" name="email" />
       </label>
       <label>
         <span>Password</span>
-        <input type="password" />
+        <input type="password" name="password" />
       </label>
       <p className="forgot-pass">dont match</p>
-      <button type="button" className="submit">
+      <button type="submit" className="submit">
         Sign In
       </button>
-    </div>
+    </form>
     <div className="sub-cont">
       <div className="img">
         <div className="img__text m--up">

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import './Seasons.css'
 export const Seasons = () => {
   return (
     <>
@@ -6,7 +7,7 @@ export const Seasons = () => {
       <div className="seasons">
         <div className="grid_4">
           <Link to="/spring/food" className="gall_item">
-            <img className='seasonImg' src="images/SEASONS/spring_4.jpg" alt="" />
+            <img className='seasonImg seasonImage' src="images/SEASONS/spring_4.jpg" alt="" />
           </Link>
           <Link to="/spring/food" className="spring" >
             SPRING
