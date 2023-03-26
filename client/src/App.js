@@ -10,25 +10,35 @@ import {useEffect, useState} from 'react'
 import './App.css'
 
 
-import { Products } from "./components/Products/Products";
 import { Facts } from "./components/Facts/Facts";
 import { Edit } from "./components/Edit/Edit";
 import { Profile } from "./components/Profile/Profile";
+import { SummerProducts } from "./components/Products/SummerProducts/SummerProducts";
+import { AutumnProducts } from "./components/Products/AutumnProducts/AutumnProducts";
+import { SpringProducts } from "./components/Products/SpringProducts/SpringProducts";
+import { WinterProducts } from "./components/Products/WinterProducts/WinterProducts";
+
+
 
 function App() {
 
-  const [summerFood, setSummerFood] = useState([])
-  const [summerFacts, setSummerFacts] = useState([])
-  // const [summerFood, setSummerFood] = useState([])
-  // const [summerFood, setSummerFood] = useState([])
+  const [springFood, setSpringFood] = useState([]);
+  const [summerFood, setSummerFood] = useState([]);
+  // const [summerFacts, setSummerFacts] = useState([]);
+  const [autumnFood, setAutumnFood] = useState([]);
+  const [winterFood, setWinterFood] = useState([]);
+
 
   useEffect(() => {
-    fetch('http://localhost:3030/jsonstore/seasons/summer')
+    fetch('http://localhost:3030/jsonstore/seasons')
        .then((res) => res.json())
        .then((data) => {
-          // console.log(data.food);
-          setSummerFood(data.food);
-          setSummerFacts(data.fats)
+          // console.log(data.summer.food);
+          setSummerFood(data.summer.food);
+          setAutumnFood(data.autumn.food);
+          setSpringFood(data.spring.food);
+          setWinterFood(data.winter.food);
+
        })
       //  .catch((err) => {
       //     console.log(err.message);
@@ -36,10 +46,10 @@ function App() {
  },[]);
 
  
- console.log('---');
- console.log(summerFood);
- console.log('---');
- console.log(summerFacts);
+//  console.log('---');
+//  console.log(summerFood);
+//  console.log('---');
+//  console.log(summerFacts);
   return (
 <div className="content">
 
@@ -60,7 +70,10 @@ function App() {
 <Route path='/create' element={<CreateNew />}  />
 <Route path = '/' element={<Home />} />
 <Route path= '/facts' element= {<Facts/>} />
-<Route path='/spring/food' element = {<Products data={summerFood} />} />
+<Route path='/summer/food' element = {<SummerProducts data={summerFood} />} />
+<Route path='/autumn/food' element = {<AutumnProducts data={autumnFood} />} />
+<Route path='/spring/food' element = {<SpringProducts data={springFood} />} />
+<Route path='/winter/food' element = {<WinterProducts data={winterFood} />} />
 <Route path='/edit' element = {<Edit />} />
 <Route path='/profil' element = {<Profile />} />
 

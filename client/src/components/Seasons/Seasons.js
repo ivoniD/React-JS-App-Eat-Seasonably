@@ -1,43 +1,43 @@
-
+import { Link } from "react-router-dom"
 export const Seasons = () => {
   return (
     <>
 
       <div className="seasons">
         <div className="grid_4">
-          <a href="#" className="gall_item">
+          <Link to="/spring/food" className="gall_item">
             <img className='seasonImg' src="images/SEASONS/spring_4.jpg" alt="" />
-          </a>
-          <a href="#" className="spring" >
+          </Link>
+          <Link to="/spring/food" className="spring" >
             SPRING
-          </a>
+          </Link>
           <div className="clear" />
         </div>
         <div className="grid_4">
-          <a href="#" className="gall_item">
+          <Link to="/summer/food" className="gall_item">
             <img className='seasonImg' src="images/SEASONS/summer.jpg" alt="" />
-          </a>
-          <a href="#" className="summer">
+          </Link>
+          <Link to="/summer/food" className="summer">
             SUMMER 
-          </a>
+          </Link>
           <div className="clear" />
         </div>
         <div className="grid_4">
-          <a href="images/big3.jpg" className="gall_item">
+          <Link to="/autumn/food" className="gall_item">
             <img className='seasonImg' src="images/SEASONS/autumn.jpg" alt="" />
-          </a>
-          <a href="#" className="autumn">
+          </Link>
+          <Link to="/autumn/food" className="autumn">
             AUTUMN
-          </a>
+          </Link>
           <div className="clear" />
         </div>
         <div className="grid_4">
-          <a href="images/big3.jpg" className="gall_item">
+          <Link to="/winter/food" className="gall_item">
             <img className='seasonImg' src="images/SEASONS/winter.jpg" alt="" />
-          </a>
-          <a href="#" className="winter">
+          </Link>
+          <Link to="/winter/food" className="winter">
             WINTER
-          </a>
+          </Link>
           <div className="clear" />
         </div>
       </div>
