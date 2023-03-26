@@ -1,0 +1,12 @@
+.headerEl{
+  background-color: rgb(6, 80, 58);
+}
+
+.main-title{
+  color: brown;
+  font-size:2.5rem;
+  text-transform: uppercase;
+  margin-top: 39px;
+  margin-left: 37px;
+  text-shadow: 1px 3px 7px #02301dbd;
+}

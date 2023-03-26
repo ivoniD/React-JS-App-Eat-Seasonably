@@ -1,0 +1,28 @@
+
+/* ///// */
+
+
+.block1 {
+  text-align: center;
+  padding: 49px 0;
+  color: black;
+  font-size: 1rem;
+}
+.btnMore {
+  color: black;
+}
+
+.factRow {
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+
+
+.num  {
+
+  border: 2px solid #a81818;
+}
+

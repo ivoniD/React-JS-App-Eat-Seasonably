@@ -1,0 +1,40 @@
+/* input {
+  display: block;
+
+  margin-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  text-align: center;
+} */
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  background: #8b8b8b;
+
+}
+
+.formInput{
+  width: 80%;
+} 
+
+.submitBtn{
+  margin-left: 25%;
+}
+
+.container{
+  margin-top: 5%;
+  margin-right: 12%;
+}
+
+.createCont {
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 1000px;
+  height: 300px;
+  /* margin: 0 auto 50px; */
+  background: #fff;
+  box-shadow: -10px -10px 15px rgba(14, 13, 13, 0.3), 10px 10px 15px rgba(8, 7, 7, 0.15), inset -10px -10px 15px rgba(255, 255, 255, 0.3), inset 10px 10px 15px rgba(70, 70, 70, 0.15);
+  margin-top: 3%;
+  margin-left: 20%;
+}

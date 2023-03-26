@@ -1,0 +1,16 @@
+/* .row{
+  width: 20%;
+  height: 10%;
+}
+
+.row {
+  width: 100%;
+  overflow: hidden;
+} */
+
+.grid_4 {
+  width: 18%;
+  float: left;
+  box-sizing: border-box;
+  padding: 50 10px;
+}

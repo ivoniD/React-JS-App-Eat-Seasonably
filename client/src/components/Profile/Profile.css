@@ -1,0 +1,45 @@
+
+
+.skills .personalInfo {
+  font-family: 'Economica', sans-serif;
+    margin-top: 30px;
+    width: 20%;
+}
+.skills {
+    background: rgb(6, 80, 58);
+    color: #f5f5f5;
+    width: 40%;
+}
+.about, .skills, .education, .languages, .contact, .experience {
+    padding: 40px;
+    min-height: 330px;
+}
+.shadow {
+  text-shadow: 1px 1px #000;
+}
+.bold {
+  font-weight: bold;
+}
+.personName {
+  width: 60%;
+  font-size: 24px;
+  text-align: left;
+  margin-bottom: -25px;
+}
+.personEmail {
+  text-align: left;
+  font-size: 25px;
+}
+.fav{
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'Economica', sans-serif;
+  font-size: 2rem;
+  margin-top: -35px;
+  margin-bottom: 30px;
+}
+.favFood{
+  text-align: center;
+  color: rgb(255, 136, 0);
+  font-size: 1rem;
+}
