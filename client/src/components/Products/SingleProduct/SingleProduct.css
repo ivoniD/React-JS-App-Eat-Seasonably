@@ -1,0 +1,15 @@
+.details {
+  font-style: italic;
+}
+
+.dtl {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.4s;
+  color: rgb(255, 0, 0);
+  border-color: rgb(124, 12, 12);
+  font-style: normal;
+}
+

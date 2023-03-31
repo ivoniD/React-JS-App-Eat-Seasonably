@@ -17,72 +17,65 @@ import { SummerProducts } from "./components/Products/SummerProducts/SummerProdu
 import { AutumnProducts } from "./components/Products/AutumnProducts/AutumnProducts";
 import { SpringProducts } from "./components/Products/SpringProducts/SpringProducts";
 import { WinterProducts } from "./components/Products/WinterProducts/WinterProducts";
+import { ProductDetails } from "./components/ProductDetails/ProductDetails";
 
 
 
 function App() {
 
-  const [springFood, setSpringFood] = useState([]);
-  const [summerFood, setSummerFood] = useState([]);
-  // const [summerFacts, setSummerFacts] = useState([]);
-  const [autumnFood, setAutumnFood] = useState([]);
-  const [winterFood, setWinterFood] = useState([]);
+  const [springProducts, setSpringProducts] = useState([]);
+  const [summerProdusts, setSummerProdusts] = useState([]);
+  const [autumnProdusts, setAutumnProdusts] = useState([]);
+  const [winterProdusts, setWinterProducts] = useState([]);
 
 
   useEffect(() => {
-    fetch('http://localhost:3030/jsonstore/seasons')
+    fetch('http://localhost:3030/data/seasons')
        .then((res) => res.json())
        .then((data) => {
-          // console.log(data.summer.food);
-          setSummerFood(data.summer.food);
-          setAutumnFood(data.autumn.food);
-          setSpringFood(data.spring.food);
-          setWinterFood(data.winter.food);
+        let spring = data.filter(x => x.season == 'spring')
+        let summer = data.filter(x => x.season == 'summer')
+        let autumn = data.filter(x => x.season == 'autumn')
+        let winter = data.filter(x => x.season == 'winter')
 
+        setSpringProducts(spring)
+        setSummerProdusts(summer)
+        setAutumnProdusts(autumn)
+        setWinterProducts(winter)
        })
       //  .catch((err) => {
       //     console.log(err.message);
       //  });
  },[]);
 
- 
-//  console.log('---');
-//  console.log(summerFood);
-//  console.log('---');
-//  console.log(summerFacts);
+
+
   return (
 <div className="content">
 
 <Header/>
+
 <Routes>
+    <Route path = '/' element={<Home />} />
+    <Route path='/login' element={<Login />}/>
+    <Route path='/register' element={<Register />}/>
 
-
-{/* <Login /> */}
-{/* <Register /> */}
-
-{/* <Seasons /> */}
-
-
-
-<Route path='/seasons' element={<Seasons />}/>
-<Route path='/login' element={<Login />}/>
-<Route path='/register' element={<Register />}/>
-<Route path='/create' element={<CreateNew />}  />
-<Route path = '/' element={<Home />} />
-<Route path= '/facts' element= {<Facts/>} />
-<Route path='/summer/food' element = {<SummerProducts data={summerFood} />} />
-<Route path='/autumn/food' element = {<AutumnProducts data={autumnFood} />} />
-<Route path='/spring/food' element = {<SpringProducts data={springFood} />} />
-<Route path='/winter/food' element = {<WinterProducts data={winterFood} />} />
-<Route path='/edit' element = {<Edit />} />
-<Route path='/profil' element = {<Profile />} />
-
+    <Route path='/seasons' element={<Seasons />}/>
+    <Route path='/create' element={<CreateNew />}  />
+  
+    <Route path= '/facts' element= {<Facts/>} />
+    <Route path='/catalog/summer' element = {<SummerProducts data={summerProdusts} />} />
+    <Route path='/catalog/autumn' element = {<AutumnProducts data={autumnProdusts} />} />
+    <Route path='/catalog/spring' element = {<SpringProducts data={springProducts} />} />
+    <Route path='catalog/winter' element = {<WinterProducts data={winterProdusts} />} />
+    <Route path='/edit' element = {<Edit />} />
+    <Route path='/profil' element = {<Profile />} />
+    {/* <Route path='/' */}
+    <Route path='/catalog/:season/:prodId' element = {<ProductDetails />} />
 </Routes>
+
 </div>
   
-
-
-
   );
 }
 

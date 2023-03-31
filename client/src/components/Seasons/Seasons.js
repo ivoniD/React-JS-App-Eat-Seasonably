@@ -6,37 +6,37 @@ export const Seasons = () => {
 
       <div className="seasons">
         <div className="grid_4">
-          <Link to="/spring/food" className="gall_item">
+          <Link to="/catalog/spring" className="gall_item">
             <img className='seasonImg seasonImage' src="images/SEASONS/spring_4.jpg" alt="" />
           </Link>
-          <Link to="/spring/food" className="spring" >
+          <Link to="/catalog/spring" className="spring" >
             SPRING
           </Link>
           <div className="clear" />
         </div>
         <div className="grid_4">
-          <Link to="/summer/food" className="gall_item">
+          <Link to="/catalog/summer" className="gall_item">
             <img className='seasonImg' src="images/SEASONS/summer.jpg" alt="" />
           </Link>
-          <Link to="/summer/food" className="summer">
+          <Link to="/catalog/summer" className="summer">
             SUMMER 
           </Link>
           <div className="clear" />
         </div>
         <div className="grid_4">
-          <Link to="/autumn/food" className="gall_item">
+          <Link to="/catalog/autumn" className="gall_item">
             <img className='seasonImg' src="images/SEASONS/autumn.jpg" alt="" />
           </Link>
-          <Link to="/autumn/food" className="autumn">
+          <Link to="/catalog/autumn" className="autumn">
             AUTUMN
           </Link>
           <div className="clear" />
         </div>
         <div className="grid_4">
-          <Link to="/winter/food" className="gall_item">
+          <Link to="/catalog/winter" className="gall_item">
             <img className='seasonImg' src="images/SEASONS/winter.jpg" alt="" />
           </Link>
-          <Link to="/winter/food" className="winter">
+          <Link to="/catalog/winter" className="winter">
             WINTER
           </Link>
           <div className="clear" />

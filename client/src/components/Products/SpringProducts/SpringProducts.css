@@ -1,0 +1,55 @@
+.products{
+  margin-top: 5%;
+}
+.prod{
+  margin-left: 50px;
+  margin-right: -100px;
+  margin-bottom: 50px;
+}
+
+.prodImg {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 20%;
+  margin-right: 40%;
+  margin-left: 20%;
+}
+
+.details {
+  /* background-color: #ffd5009f; */
+  margin-top: 5px;
+  margin-right: 40%;
+  display: block;
+  float: right;
+  color: #070707;
+  font-size: 14px;
+  line-height: 36px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 55px;
+  border-radius: 80%;
+
+}
+
+.springFood {
+  font-family: 'Economica', sans-serif;
+  font-weight: 400;
+  font-size: 6rem;
+  text-shadow: 4px 8px 12px #272727;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: #44d40b;
+  margin-top: 20px;
+  margin-left: 50%;
+  margin-bottom: 110px;
+  text-shadow: 5px 5px 0px #50ffc5, 
+    10px 10px 0px #fffc62, 
+
+
+}
