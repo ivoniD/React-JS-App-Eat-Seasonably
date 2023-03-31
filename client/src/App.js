@@ -13,35 +13,35 @@ import './App.css'
 import { Facts } from "./components/Facts/Facts";
 import { Edit } from "./components/Edit/Edit";
 import { Profile } from "./components/Profile/Profile";
-import { SummerProducts } from "./components/Products/SummerProducts/SummerProducts";
-import { AutumnProducts } from "./components/Products/AutumnProducts/AutumnProducts";
-import { SpringProducts } from "./components/Products/SpringProducts/SpringProducts";
-import { WinterProducts } from "./components/Products/WinterProducts/WinterProducts";
 import { ProductDetails } from "./components/ProductDetails/ProductDetails";
-
+import { SeasonallProducts } from "./components/Seasons/SeasonallProducts/SeasonallProducts";
+import { ProductsContext } from "./contexts/ProductsContext";
 
 
 function App() {
 
-  const [springProducts, setSpringProducts] = useState([]);
-  const [summerProdusts, setSummerProdusts] = useState([]);
-  const [autumnProdusts, setAutumnProdusts] = useState([]);
-  const [winterProdusts, setWinterProducts] = useState([]);
+
+  // const [springProducts, setSpringProducts] = useState([]);
+  // const [summerProdusts, setSummerProdusts] = useState([]);
+  // const [autumnProdusts, setAutumnProdusts] = useState([]);
+  // const [winterProdusts, setWinterProducts] = useState([]);
+  const [seasonProducts, setSeasonProducts] = useState([]);
 
 
   useEffect(() => {
     fetch('http://localhost:3030/data/seasons')
        .then((res) => res.json())
        .then((data) => {
-        let spring = data.filter(x => x.season == 'spring')
-        let summer = data.filter(x => x.season == 'summer')
-        let autumn = data.filter(x => x.season == 'autumn')
-        let winter = data.filter(x => x.season == 'winter')
+        setSeasonProducts(data)
+        // let spring = data.filter(x => x.season == 'spring')
+        // let summer = data.filter(x => x.season == 'summer')
+        // let autumn = data.filter(x => x.season == 'autumn')
+        // let winter = data.filter(x => x.season == 'winter')
 
-        setSpringProducts(spring)
-        setSummerProdusts(summer)
-        setAutumnProdusts(autumn)
-        setWinterProducts(winter)
+        // setSpringProducts(spring)
+        // setSummerProdusts(summer)
+        // setAutumnProdusts(autumn)
+        // setWinterProducts(winter)
        })
       //  .catch((err) => {
       //     console.log(err.message);
@@ -51,6 +51,7 @@ function App() {
 
 
   return (
+    <ProductsContext.Provider value={seasonProducts}>
 <div className="content">
 
 <Header/>
@@ -64,18 +65,18 @@ function App() {
     <Route path='/create' element={<CreateNew />}  />
   
     <Route path= '/facts' element= {<Facts/>} />
-    <Route path='/catalog/summer' element = {<SummerProducts data={summerProdusts} />} />
-    <Route path='/catalog/autumn' element = {<AutumnProducts data={autumnProdusts} />} />
-    <Route path='/catalog/spring' element = {<SpringProducts data={springProducts} />} />
-    <Route path='catalog/winter' element = {<WinterProducts data={winterProdusts} />} />
+    <Route path='/catalog/:season' element = {<SeasonallProducts data={seasonProducts} />} />
+    {/* <Route path='/catalog/autumn' element = {<AutumnProducts data={seasonProducts} />} />
+    <Route path='/catalog/spring' element = {<SpringProducts data={seasonProducts} />} />
+    <Route path='catalog/winter' element = {<WinterProducts data={seasonProducts} />} /> */}
     <Route path='/edit' element = {<Edit />} />
     <Route path='/profil' element = {<Profile />} />
     {/* <Route path='/' */}
-    <Route path='/catalog/:season/:prodId' element = {<ProductDetails />} />
+    <Route path='/catalog/:season/:prodId' element = {<ProductDetails data={seasonProducts}/>} />
 </Routes>
 
 </div>
-  
+</ProductsContext.Provider>
   );
 }
 
