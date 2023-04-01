@@ -268,10 +268,10 @@ input {
     color: #455a81;
 }
 
-/* .sign-in {
+.sign-in {
     -webkit-transition-timing-function: ease-out;
     transition-timing-function: ease-out;
-} */
+}
 
 .cont.s--signup .sign-in {
     -webkit-transition-timing-function: ease-in-out;

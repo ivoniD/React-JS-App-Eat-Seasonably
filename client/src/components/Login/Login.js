@@ -1,13 +1,28 @@
 import './Login.css'
+import { Link } from 'react-router-dom';
+import { login } from '../../services/authService';
+import {useNavigate} from 'react-router-dom'
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
-//import HomeCSS from "./Home.module.css";
 export const Login = () => {
+  const {userLogin} = useContext(AuthContext)
+  const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
 
     const {email, password} = Object.fromEntries(new FormData(e.target));
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
+    login(email, password)
+      .then(authData => {
+        console.log(authData);
+        userLogin(authData)
+        navigate('/')
+      })
+      .catch(() => {
+        navigate('/404') //TODO 
+      })
   };
 
   return(
@@ -35,7 +50,7 @@ export const Login = () => {
           <h3></h3>
         </div>
         <div className="img__btn">
-          <span className="m--up">Sign Up</span>
+        <Link to='/register'><span className="m--up">Sign Up</span></Link>
         </div>
       </div>
     </div>

@@ -1335,7 +1335,8 @@
     var seedData = {
         seasons: {
             "d953e5fb": 
-            {"_id": "d953e5fb", 
+            {"_id": "d953e5fb",
+            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8", 
             "season": "spring",
             "name": "spinaci", 
             "imageUrl": "https://www.ilgiornaledelcibo.it/wp-content/uploads/2019/02/spinaci-proprieta.jpg",
@@ -1343,6 +1344,7 @@
             },
             "ee90697398a0": {
                 "_id": "ee90697398a0", 
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "spring",
                     "name": "cherry", 
                     "imageUrl": 
@@ -1350,7 +1352,8 @@
                     "description": "che che cheeerryyyy"
             },
             "cf46757a585": 
-            {"_id": "cf46757a585", 
+            {"_id": "cf46757a585",
+            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
             "season": "summer",
              "name": "strawberry", 
              "imageUrl": "http://clv.h-cdn.co/assets/15/22/2048x2048/square-1432664914-strawberry-facts1.jpg",
@@ -1358,13 +1361,15 @@
             },
             "fgfd56chn76": {
                 "_id": "fgfd56chn76", 
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "summer",
                 "name": "blueberry", 
                 "imageUrl": "https://www.tastingtable.com/img/gallery/15-types-of-blueberries-and-what-makes-them-unique/l-intro-1656439699.jpg", 
                 "description": "blue blue bluebeeerryyyy"
             },
             "56r5yg": {
-                "_id": "56r5yg", 
+                "_id": "56r5yg",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "season": "autumn",
                 "name": "apple", 
                 "imageUrl": "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/05/03114105/7-5.jpg", 
@@ -1372,34 +1377,39 @@
             },
             "11378732932": {
                 "_id": "11378732932", 
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "autumn",
                 "name": "pumpkin", 
                 "imageUrl": "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2019/11/a-bunch-of-pumpkins-in-a-box.jpg?w=1155&h=1734", 
                 "description": "pum pum pummpkiiin"
             },
             "gty743": {
-                "_id": "gty743", 
+                "_id": "gty743",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "season": "winter",
                 "name": "orange", 
                 "imageUrl": "https://www.bhg.com/thmb/kErCUI58WFaAAjWnAhjFqgQ7w68=/2000x0/filters:no_upscale():strip_icc()/types-of-oranges-4d6a86c11fe14668ad798774e16697f8.jpg", 
                 "description": "oo oooo ooorangee"
             },
             "jdd749djs": {
-                "_id": "jdd749djs", 
+                "_id": "jdd749djs",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8", 
                 "season": "winter",
                 "name": "cauliflower", 
                 "imageUrl": "https://img.taste.com.au/DBCUD8iO/taste/2007/05/cauliflower-181864-2.jpg", 
                 "description": "caul caul cauuulifloooowerrr"
             },
             "357jf4s": {
-                "_id": "357jf4s", 
+                "_id": "357jf4s",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "season": "spring",
                 "name": "radishes", 
                 "imageUrl": "https://www.southernliving.com/thmb/82kujfn4Oh1fAjpTEYmIYOfn2jE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2610701_Radis_Opener_003-2000-018b1100993346138a7fcaa6ccc184d8.jpg", 
                 "description": "raa raa radiiisheeees"
             },
             "357jf4s": {
-                "_id": "357jf4s", 
+                "_id": "357jf4s",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "summer",
                 "name": "watermelon", 
                 "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2019/07/Watermelon-slices-eaecaae.jpg", 

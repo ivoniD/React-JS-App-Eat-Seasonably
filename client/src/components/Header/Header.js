@@ -1,7 +1,11 @@
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 import './Header.css'
 import { Routes, Route, Link } from 'react-router-dom'
 
 export const Header = () => {
+  const {user} = useContext(AuthContext)
+  // console.log(`user: ${user.accessToken}`);
   return(
     <header className ="headerEl">
     <section id="stuck_container"className ="headerEl">
@@ -27,24 +31,19 @@ export const Header = () => {
                   <li>
                     <Link to="/facts">Did you know</Link>
                   </li>
-                  <li>
-                    <Link to="/create">Create</Link>
-                  </li>
-                  <li>
+                  {/* <li>
                     <Link to="/edit">Edit</Link>
-                  </li>
-                  <li>
-                    <Link to="/login">Login</Link>
-                  </li>
-                  <li>
-                    <Link to="/register">Register</Link>
-                  </li>
-                  <li>
-                    <Link to="/profil">Profil</Link>
-                  </li>
-                  <li>
-                    <Link to="index-4.html">Logout</Link>
-                  </li>
+                  </li> */}
+                  {Object.keys(user).length === 0
+                  ? <>
+                      <li><Link to="/login">Login</Link></li>
+                      <li><Link to="/register">Register</Link></li>
+                    </>
+                  : <>
+                      <li><Link to="/create">Create</Link></li>
+                      <li><Link to="/profil">Profil</Link></li>
+                      <li><Link to="index-4.html">Logout</Link></li>
+                    </> }
                 </ul>
               </nav>
               <div className="clear" />

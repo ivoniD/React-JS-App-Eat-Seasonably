@@ -1,27 +1,30 @@
 import { Link } from "react-router-dom"
 import './ProductDetails.css'
 import { useParams } from "react-router-dom"
+import { useContext } from 'react';
+import { ProductsContext } from "../../../contexts/ProductsContext";
 
 export const ProductDetails = () => {
   const {prodId, season} = useParams()
+  const data = useContext(ProductsContext);
 
-  console.log(prodId);
-  console.log(season);
+  const product = data.filter(x => x._id === prodId)
+console.log(product);
+
   return (
     <>
 
         <div className="info-section">
             <div className="game-header">
-                <img className="game-img" src='https://thumbs.dreamstime.com/b/environment-earth-day-hands-trees-growing-seedlings-bokeh-green-background-female-hand-holding-tree-nature-field-gra-130247647.jpg' />
-                <h2>FOOD NAME</h2>
+                <img className="game-img" src={product[0].imageUrl} />
+                <h2>{product[0].name}</h2>
                 {/* <span className="levels">MaxLevel: {}</span> */}
-                <p className="type">FOOOOD</p>
+                <p className="type">{product[0].season}</p>
                 <h2>Country</h2>
             <p className="type">BULGARIA</p>
             </div>
             <p className="text">
-            Environment Earth Day In the hands of trees growing seedlings. 
-            Bokeh green Background Female hand holding tree on nature field grass Forest conservation concept
+            {product[0].description}
             </p>
       
 

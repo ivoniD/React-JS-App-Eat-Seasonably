@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import './SingleProduct.css'
+
+
+
 export const SingleProduct = (props) => {
   console.log(`x ${props}`);
 return(

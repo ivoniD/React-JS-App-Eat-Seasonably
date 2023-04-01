@@ -34,7 +34,7 @@
 
 }
 
-.autumnFood {
+.autumn-food {
   font-family: 'Economica', sans-serif;
   font-weight: 400;
   font-size: 6rem;
@@ -52,7 +52,7 @@
     10px 10px 0px #fffc62, 
 }
 
-.springFood {
+.spring-food {
   font-family: 'Economica', sans-serif;
   font-weight: 400;
   font-size: 6rem;
@@ -70,7 +70,7 @@
     10px 10px 0px #fffc62, 
 }
 
-.seasonName {
+.summer-food {
   font-family: 'Economica', sans-serif;
   font-weight: 400;
   font-size: 6rem;
@@ -89,7 +89,7 @@
     10px 10px 0px #fffc62, 
 }
 
-.winterFood {
+.winter-food {
   font-family: 'Economica', sans-serif;
   font-weight: 400;
   font-size: 6rem;
