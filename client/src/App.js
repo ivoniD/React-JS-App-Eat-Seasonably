@@ -18,6 +18,7 @@ import { SeasonallProducts } from "./components/Products/SeasonallProducts/Seaso
 import { ProductsContext } from "./contexts/ProductsContext";
 import { AuthContext } from "./contexts/AuthContext";
 import * as productService from './services/productsService'
+import { Logout } from "./components/Logout/Logout";
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
@@ -59,6 +60,7 @@ function App() {
           <Route path='/catalog/:season' element = {<SeasonallProducts data={seasonProducts} />} />
           <Route path='/edit' element = {<Edit />} />
           <Route path='/profil' element = {<Profile />} />
+          <Route path='/logout' element= {<Logout />}/>
           <Route path='/catalog/:season/:prodId' element = {<ProductDetails data={seasonProducts}/>} />
       </Routes>
 

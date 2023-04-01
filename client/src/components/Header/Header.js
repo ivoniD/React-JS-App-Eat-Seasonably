@@ -42,7 +42,7 @@ export const Header = () => {
                   : <>
                       <li><Link to="/create">Create</Link></li>
                       <li><Link to="/profil">Profil</Link></li>
-                      <li><Link to="index-4.html">Logout</Link></li>
+                      <li><Link to="/logout">Logout</Link></li>
                     </> }
                 </ul>
               </nav>
