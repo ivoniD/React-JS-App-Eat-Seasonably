@@ -19,10 +19,11 @@ import { ProductsContext } from "./contexts/ProductsContext";
 import { AuthContext } from "./contexts/AuthContext";
 import * as productService from './services/productsService'
 import { Logout } from "./components/Logout/Logout";
+import { useLocalStorage } from "./services/useLocalStorage";
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
-  const [user, setUser] = useState({})
+  const [user, setUser] = useLocalStorage('user', {})
 
   useEffect(() => {
       productService.getAll()
