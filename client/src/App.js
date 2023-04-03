@@ -7,6 +7,7 @@ import { Seasons } from "./components/Seasons/Seasons";
 import { Route, Routes } from 'react-router-dom';
 import { Home } from "./components/Home/Home";
 import {useEffect, useState} from 'react'
+import { useNavigate } from 'react-router-dom';
 import './App.css'
 
 
@@ -24,6 +25,7 @@ import { useLocalStorage } from "./services/useLocalStorage";
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
   const [user, setUser] = useLocalStorage('user', {})
+  const navigate = useNavigate()
 
   useEffect(() => {
       productService.getAll()
@@ -36,14 +38,17 @@ function App() {
     //TODO if ....
     setUser(user)
   }
+
   const userLogout = () => {
     setUser({})
   }
+  const addNewProductHandler = (newProduct) => {
+      setSeasonProducts(state => [...state, {...newProduct}]);
+      navigate('/seasons')
+  }
 
   // const productDeleteHandler = async (prodId) => {
-  //     await removeProduct(prodId);
-      
-
+  //     await removeProduct(prodId);  
   //     setSeasonProducts(oldState => oldState.filter(x => x._id !== prodId))
   // } 
 
@@ -59,7 +64,7 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/seasons' element={<Seasons />}/>
-          <Route path='/create' element={<CreateNew />}  />
+          <Route path='/create' element={<CreateNew addNewProductHandler={addNewProductHandler} />}  />
           <Route path= '/facts' element= {<Facts/>} />
           <Route path='/catalog/:season' element = {<SeasonallProducts data={seasonProducts} />} />
           <Route path='/edit' element = {<Edit />} />

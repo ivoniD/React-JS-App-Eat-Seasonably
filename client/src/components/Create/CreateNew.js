@@ -1,6 +1,22 @@
 import './CreateNew.css'
+import { create } from '../../services/productsService';
 
-export const CreateNew = () => {
+export const CreateNew = (props) => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const productData = Object.fromEntries(new FormData(e.target))
+
+    create(productData)
+    .then(result => {
+      console.log(result);
+      props.addNewProductHandler(result)
+    })
+    // console.log(productData);
+
+    
+  }
+
   return(
     <div className="content createCont">
   <div className="container">
@@ -14,17 +30,18 @@ export const CreateNew = () => {
       </div>
 
         <div className="box">
-          <h2 className="heading">Create New Fact</h2>
+          <h2 className="heading">Add New Seasonal Product</h2>
           <form
             className="mb-5"
             method="post"
             id="contactForm"
             name="contactForm"
+            onSubmit = {onSubmit}
           >
             <div className="row">
               <div className="col-md-6 form-group">
                 <label htmlFor="name" className="col-form-label">
-                  Title*
+                  Name*
                 </label>
                 <input
                   type="text"
@@ -39,36 +56,35 @@ export const CreateNew = () => {
                 <label htmlFor="budget" className="col-form-label">
                  Season*
                 </label>
-                <select className="custom-select" id="budget" name="budget">
+                <select className="custom-select"name="season">
                   <option selected="">Choose...</option>
-                  <option value="$1000 below">SPRING</option>
-                  <option value="$2,000 - $5,000">SUMMER</option>
-                  <option value="$5,000 - $15,000">AUTUMN</option>
-                  <option value="$15,000 - $25,000">WINTER</option>
+                  <option value='spring'>SPRING</option>
+                  <option value='summer'>SUMMER</option>
+                  <option value='autumn'>AUTUMN</option>
+                  <option value='winter'>WINTER</option>
                 </select>
               </div>
-              {/* <div className="col-md-6 form-group">
-                <label htmlFor="name" className="col-form-label">
-                  Image 
+              <div className="col-md-6 form-group">
+                <label htmlFor="imageUrl" className="col-form-label">
+                  Image*
                 </label>
                 <input
                   type="text"
                   className="formInput"
-                  name="organization"
-                  id="organization"
-                  // placeholder="Season"
+                  name="imageUrl"
                 />
-              </div> */}
+              </div>
+
             </div>
             
             <div className="row">
               <div className="col-md-12 form-group">
                 <label htmlFor="message" className="col-form-label">
-                  Fact description *
+                  Description *
                 </label>
                 <textarea
                   className="formInput"
-                  name="message"
+                  name="description"
                   id="message"
                   cols={30}
                   rows={7}
@@ -91,7 +107,7 @@ export const CreateNew = () => {
             </div>
           </form>
           <div id="form-message-warning mt-4" />
-          <p className="formInput" id="form-message-success">Your message was sent, thank you!</p>
+          <p className="error-message" id="form-message-success">Your message was sent, thank you!</p>
         </div>
 
     </div>
