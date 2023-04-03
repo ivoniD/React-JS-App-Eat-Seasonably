@@ -35,6 +35,9 @@ function App() {
     //TODO if ....
     setUser(user)
   }
+  const userLogout = () => {
+    setUser({})
+  }
 
   // const productDeleteHandler = async (prodId) => {
   //     await removeProduct(prodId);
@@ -45,7 +48,7 @@ function App() {
 
   return (
   <ProductsContext.Provider value={seasonProducts}>
-  <AuthContext.Provider value={{user, userLogin}}>
+  <AuthContext.Provider value={{user, userLogin, userLogout}}>
     <div className="content">
 
       <Header/>

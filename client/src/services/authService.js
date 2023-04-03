@@ -17,12 +17,13 @@ export const logout = async (accessToken) => {
                 'X-Authorization': accessToken
             }
         });
-
-        return response;
+        //response.status === 204 ??
+            return response;
+        
     } catch (error) {
         console.log(error);
     }
 };
 
-export const register = (email, password) =>
-    request.post(`${baseUrl}/register`, {email, password});
+export const register = (name, email, password) =>
+    request.post(`${baseUrl}/register`, {name, email, password});

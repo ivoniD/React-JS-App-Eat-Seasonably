@@ -6,12 +6,13 @@ import { AuthContext } from "../../contexts/AuthContext"
 
 export const Logout = () => {
   const navigate = useNavigate()
-  const {user} = useContext(AuthContext)
+  const {user, userLogout} = useContext(AuthContext)
   // console.log(`accessToken: ${user.accessToken}`);
 
   useEffect(() => {
     logout(user.accessToken)
       .then(() => {
+        userLogout()
         navigate('/')
       })
       .catch((err) => {
