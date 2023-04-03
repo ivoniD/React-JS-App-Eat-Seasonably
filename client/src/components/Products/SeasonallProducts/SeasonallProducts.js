@@ -20,7 +20,7 @@ export const SeasonallProducts = () => {
   {season === 'winter' && <div className="seasonName winter-food">  Winter seasonall food</div>}
 
 
-      {data.filter(x => x.season === season).map(x => <SingleProduct {...x} />)} 
+      {data.filter(x => x.season === season).map(x => <SingleProduct key={x._id} {...x} />)} 
         
       </div>
   )

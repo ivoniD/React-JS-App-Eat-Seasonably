@@ -1,6 +1,14 @@
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
+import { ProductsContext } from '../../contexts/ProductsContext';
 import './Profile.css'
 
 export const Profile = () => {
+const {user} = useContext(AuthContext);
+const data = useContext(ProductsContext)
+
+const userFtuits = data.filter(x => x._ownerId === user._id);
+
   return(
     <>
 
@@ -14,16 +22,17 @@ export const Profile = () => {
             alt="templatemo easy profile"
           />
           <hr />
-          <h2 className="personName tm-title bold shadow">Robyn Rihanna </h2>
-          <h2 className="personEmail white bold shadow">rihanna@abv.bg</h2>
+          <h2 className="personName tm-title bold shadow">{user.name} </h2>
+          <h2 className="personEmail white bold shadow">{user.email}</h2>
         </div>
     <div className="row">
       <div className="col-md-6 col-sm-12">
         <div className="skills">
-          <h2 className="fav">Favourite Season Foods</h2>
+          <h2 className="fav">My Season Foods</h2>
           <ul>
-            <li className="favFood">Strawbery</li>
-            <li className="favFood">Cherry</li>
+            {userFtuits && userFtuits.map(x => <li key={x._id} className="favFood">{x.name}</li>)}
+            {/* <li className="favFood">Strawbery</li>
+            <li className="favFood">Cherry</li> */}
           </ul>
         </div>
       </div>
