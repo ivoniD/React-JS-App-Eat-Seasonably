@@ -1,7 +1,12 @@
 import './CreateNew.css'
 import { create } from '../../services/productsService';
+import { useContext } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
 
-export const CreateNew = (props) => {
+
+export const CreateNew = () => {
+const {addNewProductHandler} = useContext(ProductsContext)
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -10,7 +15,7 @@ export const CreateNew = (props) => {
     create(productData)
     .then(result => {
       console.log(result);
-      props.addNewProductHandler(result)
+      addNewProductHandler(result)
     })
     // console.log(productData);
 
@@ -58,10 +63,10 @@ export const CreateNew = (props) => {
                 </label>
                 <select className="custom-select"name="season">
                   <option selected="">Choose...</option>
-                  <option defaultValue='spring'>SPRING</option>
-                  <option defaultValue='summer'>SUMMER</option>
-                  <option defaultValue='autumn'>AUTUMN</option>
-                  <option defaultValue='winter'>WINTER</option>
+                  <option value='spring'>SPRING</option>
+                  <option value='summer'>SUMMER</option>
+                  <option value='autumn'>AUTUMN</option>
+                  <option value='winter'>WINTER</option>
                 </select>
               </div>
               <div className="col-md-6 form-group">
@@ -80,7 +85,7 @@ export const CreateNew = (props) => {
             <div className="row">
               <div className="col-md-12 form-group">
                 <label htmlFor="message" className="col-form-label">
-                  Description *
+                  Benefits *
                 </label>
                 <textarea
                   className="formInput"

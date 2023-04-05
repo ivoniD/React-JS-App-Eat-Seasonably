@@ -5,9 +5,9 @@ import './Profile.css'
 
 export const Profile = () => {
 const {user} = useContext(AuthContext);
-const data = useContext(ProductsContext)
+const {seasonProducts} = useContext(ProductsContext)
 
-const userFtuits = data.filter(x => x._ownerId === user._id);
+const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
 
   return(
     <>

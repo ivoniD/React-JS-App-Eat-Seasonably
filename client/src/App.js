@@ -9,7 +9,7 @@ import { Home } from "./components/Home/Home";
 import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './App.css'
-
+import { useLocation } from 'react-router-dom'
 
 import { Facts } from "./components/Facts/Facts";
 import { Edit } from "./components/Edit/Edit";
@@ -21,11 +21,14 @@ import { AuthContext } from "./contexts/AuthContext";
 import * as productService from './services/productsService'
 import { Logout } from "./components/Logout/Logout";
 import { useLocalStorage } from "./services/useLocalStorage";
+import { NotFound } from "./components/NotFound/NotFound";
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
   const [user, setUser] = useLocalStorage('user', {})
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  // const location = useLocation();
+  // const isNotFound = location.pathname === '*';
 
   useEffect(() => {
       productService.getAll()
@@ -46,31 +49,39 @@ function App() {
       setSeasonProducts(state => [...state, {...newProduct}]);
       navigate('/seasons')
   }
+  
 
+  const editProduct = (prodId, prodData) => {
+    setSeasonProducts(state => state.map(x => x._id === prodId ? prodData : x))
+  }
+
+  
+  const contextValue = { seasonProducts, addNewProductHandler, editProduct};
   // const productDeleteHandler = async (prodId) => {
   //     await removeProduct(prodId);  
   //     setSeasonProducts(oldState => oldState.filter(x => x._id !== prodId))
   // } 
 
   return (
-  <ProductsContext.Provider value={seasonProducts}>
+  <ProductsContext.Provider value={contextValue}>
   <AuthContext.Provider value={{user, userLogin, userLogout}}>
     <div className="content">
 
-      <Header/>
+    <Header />
 
       <Routes>
           <Route path = '/' element={<Home />} />
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/seasons' element={<Seasons />}/>
-          <Route path='/create' element={<CreateNew addNewProductHandler={addNewProductHandler} />}  />
+          <Route path='/create' element={<CreateNew  />}  />
           <Route path= '/facts' element= {<Facts/>} />
-          <Route path='/catalog/:season' element = {<SeasonallProducts data={seasonProducts} />} />
-          <Route path='/edit' element = {<Edit />} />
+          <Route path='/catalog/:season' element = {<SeasonallProducts/>} />
+          <Route path='/catalog/:season/:prodId/edit' element = {<Edit />} />
           <Route path='/profil' element = {<Profile />} />
           <Route path='/logout' element= {<Logout />}/>
-          <Route path='/catalog/:season/:prodId' element = {<ProductDetails data={seasonProducts}/>} />
+          <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
+          {/* <Route path="*" element= {<NotFound />} /> */}
       </Routes>
 
     </div>

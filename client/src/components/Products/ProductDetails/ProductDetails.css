@@ -60,12 +60,25 @@
 
 } */
 
-.type {
-
-  color: #000000;
-  font-size: 19px;
-  margin-left: 425px;
+.name-product {
+  color: #880000;
+  font-size: 2.5rem;
   position: static;
+  text-transform: uppercase;
+}
+
+.name-season {
+  color: #350b00ad;
+  font-size: 1.8rem;
+  position: static;
+  text-transform: uppercase;
+  
+}
+.health{
+  color: #153000;
+  text-align: left;
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+
 }
 
 .game-img {
@@ -91,8 +104,13 @@
 }
 
 .text {
-  font-size: 18px;
-  color: #302f2f;
+  font-size: 19px;
+  color: #2c2b2b;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-bottom: 45px;
+  margin-top: 25px;
+  padding-bottom: 25px;
 }
 
 /* .movie_social {

@@ -1,9 +1,35 @@
 import './Edit.css'
-
+import { useContext, useEffect, useState } from 'react';
+import { ProductsContext } from '../../contexts/ProductsContext';
+import { useParams, useNavigate } from 'react-router-dom';
+import { edit, getOne } from '../../services/productsService'; 
 
 export const Edit = () => {
-  
+  const [currentProd, setCurrentProd] = useState({})
+  const { editProduct } = useContext(ProductsContext)
+  const {season, prodId} = useParams();
+  const navigate = useNavigate()
 
+  useEffect(() => {
+    getOne(prodId)
+      .then(productData => {
+          setCurrentProd(productData)
+      })
+  }, [])
+
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const productData = Object.fromEntries(new FormData(e.target))
+
+    edit(prodId, productData)
+    .then(result => {
+      console.log(result);
+      editProduct(prodId, result)
+      navigate(`/catalog/${season}/${prodId}`)
+    })
+  }
   
   return(
     <div className="content createCont">
@@ -18,23 +44,25 @@ export const Edit = () => {
       </div>
 
         <div className="box">
-          <h2 className="heading">Edit Fact</h2>
+          <h2 className="heading">Edit</h2>
           <form
             className="mb-5"
             method="post"
             id="contactForm"
             name="contactForm"
+            onSubmit={onSubmit}
           >
             <div className="row">
               <div className="col-md-6 form-group">
                 <label htmlFor="name" className="col-form-label">
-                  Title*
+                  Name*
                 </label>
                 <input
                   type="text"
                   className="formInput"
                   name="name"
                   id="name"
+                  defaultValue={currentProd.name}
                   // placeholder="Name of Dish"
                 />
               </div>
@@ -43,40 +71,38 @@ export const Edit = () => {
                 <label htmlFor="budget" className="col-form-label">
                  Season*
                 </label>
-                <select className="custom-select" id="budget" name="budget">
-                  <option selected="">Choose...</option>
-                  <option value="$1000 below">SPRING</option>
-                  <option value="$2,000 - $5,000">SUMMER</option>
-                  <option value="$5,000 - $15,000">AUTUMN</option>
-                  <option value="$15,000 - $25,000">WINTER</option>
+                <select className="custom-select" id="budget" name="season" >
+                  <option >{currentProd.season}</option>
+                  <option value="SPRING">SPRING</option>
+                  <option value="SUMMER">SUMMER</option>
+                  <option value="AUTUMN">AUTUMN</option>
+                  <option value="WINTER">WINTER</option>
                 </select>
               </div>
-              {/* <div className="col-md-6 form-group">
-                <label htmlFor="name" className="col-form-label">
-                  Image 
+              <div className="col-md-6 form-group">
+                <label htmlFor="imageUrl" className="col-form-label">
+                  Image*
                 </label>
                 <input
                   type="text"
                   className="formInput"
-                  name="organization"
-                  id="organization"
-                  // placeholder="Season"
+                  name="imageUrl"
+                  defaultValue={currentProd.imageUrl}
                 />
-              </div> */}
+              </div>
             </div>
-            
             <div className="row">
               <div className="col-md-12 form-group">
                 <label htmlFor="message" className="col-form-label">
-                  Fact description *
+                  Benefits *
                 </label>
                 <textarea
                   className="formInput"
-                  name="message"
+                  name="description"
                   id="message"
                   cols={30}
                   rows={7}
-                  defaultValue={""}
+                  defaultValue={currentProd.description}
                 />
               </div>
             </div>
@@ -95,7 +121,7 @@ export const Edit = () => {
             </div>
           </form>
           <div id="form-message-warning mt-4" />
-          <p className="formInput" id="form-message-success">Your message was sent, thank you!</p>
+          {/* <p className="formInput" id="form-message-success">Your message was sent, thank you!</p> */}
         </div>
 
     </div>
