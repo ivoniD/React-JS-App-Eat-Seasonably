@@ -53,6 +53,7 @@ function App() {
 
   const editProduct = (prodId, prodData) => {
     setSeasonProducts(state => state.map(x => x._id === prodId ? prodData : x))
+    navigate('/seasons')
   }
 
   

@@ -2,7 +2,7 @@ import './Edit.css'
 import { useContext, useEffect, useState } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import { useParams, useNavigate } from 'react-router-dom';
-import { edit, getOne } from '../../services/productsService'; 
+import * as productsService from '../../services/productsService'; 
 
 export const Edit = () => {
   const [currentProd, setCurrentProd] = useState({})
@@ -11,25 +11,31 @@ export const Edit = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getOne(prodId)
+    productsService.getOne(prodId)
       .then(productData => {
-          setCurrentProd(productData)
+        setCurrentProd(productData)
+
+        // console.log(productData);
+          
       })
   }, [])
-
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     const productData = Object.fromEntries(new FormData(e.target))
 
-    edit(prodId, productData)
+
+    productsService.edit(prodId, productData)
     .then(result => {
-      console.log(result);
+      // console.log(result);
       editProduct(prodId, result)
       navigate(`/catalog/${season}/${prodId}`)
     })
   }
+
+ 
+
   
   return(
     <div className="content createCont">
@@ -73,10 +79,10 @@ export const Edit = () => {
                 </label>
                 <select className="custom-select" id="budget" name="season" >
                   <option >{currentProd.season}</option>
-                  <option value="SPRING">SPRING</option>
-                  <option value="SUMMER">SUMMER</option>
-                  <option value="AUTUMN">AUTUMN</option>
-                  <option value="WINTER">WINTER</option>
+                  <option value="spring">SPRING</option>
+                  <option value="summer">SUMMER</option>
+                  <option value="autumn">AUTUMN</option>
+                  <option value="winter">WINTER</option>
                 </select>
               </div>
               <div className="col-md-6 form-group">

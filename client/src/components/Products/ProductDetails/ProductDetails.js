@@ -1,21 +1,28 @@
 import { Link } from "react-router-dom"
 import './ProductDetails.css'
 import { useParams } from "react-router-dom"
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ProductsContext } from "../../../contexts/ProductsContext";
 import { AuthContext } from "../../../contexts/AuthContext";
+import { getOne } from "../../../services/productsService";
 
 export const ProductDetails = () => {
+  const [ currentProd, setCurrentProd] = useState({})  
   const {prodId, season} = useParams()
   const {seasonProducts} = useContext(ProductsContext);
   const {user} = useContext(AuthContext);
 
-  const product = seasonProducts.filter(x => x._id === prodId)
+useEffect(() => {
+    getOne(prodId)
+    .then(result => {
+        setCurrentProd(result)
+    })
+}, [])
 
-//  const isOwner = user._id === product[0].ownerId
- console.log(user.name && user._id === product[0]._ownerId);
+//   const product = seasonProducts.filter(x => x._id === prodId)
+
  console.log(user._id);
- console.log(product[0]._ownerId);
+ console.log(currentProd._ownerId);
 
   return (
     <>
@@ -23,17 +30,17 @@ export const ProductDetails = () => {
 
         <div className="info-section">
             <div className="game-header">
-                <img className="game-img" alt="product img" src={product[0].imageUrl} />
-                <h2 className="name-product">{product[0].name}</h2>
+                <img className="game-img" alt="product img" src={currentProd.imageUrl} />
+                <h2 className="name-product">{currentProd.name}</h2>
            {/* <span className="levels">MaxLevel: {}</span> */}
                 {/* <p className="type">{product[0].season}</p> */}
-                <h2 className="name-season">{product[0].season}</h2>
+                <h2 className="name-season">{currentProd.season}</h2>
             {/* <p className="type"></p> */}
             </div>
             <div className="details-comments">
             <h2 className="health">Health Benefits</h2>
             <p className="text">
-            {product[0].description}
+            {currentProd.description}
             </p>
             </div>
      
@@ -51,9 +58,9 @@ export const ProductDetails = () => {
                     <p className="no-comment">No comments.</p>
                 } */}
             {/* </div> */} 
-{(user.name && user._id === product[0]._ownerId) &&
+{(user.name && user._id === currentProd._ownerId) &&
     <div className="buttons">
-                <Link to={`/catalog/${season}/${product[0]._id}/edit`}  className="button">
+                <Link to={`/catalog/${season}/${currentProd._id}/edit`}  className="button">
                     Edit
                 </Link>
                 <Link to="#" className="button">
