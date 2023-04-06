@@ -14,7 +14,7 @@ const {addNewProductHandler} = useContext(ProductsContext)
 
     create(productData)
     .then(result => {
-      console.log(result);
+      console.log(result.season);
       addNewProductHandler(result)
     })
     // console.log(productData);

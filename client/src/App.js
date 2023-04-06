@@ -9,7 +9,7 @@ import { Home } from "./components/Home/Home";
 import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import './App.css'
-import { useLocation } from 'react-router-dom'
+import {PrivateRoute}  from "./components/common/PrivateRoute";
 
 import { Facts } from "./components/Facts/Facts";
 import { Edit } from "./components/Edit/Edit";
@@ -47,7 +47,7 @@ function App() {
   }
   const addNewProductHandler = (newProduct) => {
       setSeasonProducts(state => [...state, {...newProduct}]);
-      navigate('/seasons')
+      navigate(`/catalog/${newProduct.season}`)
   }
   
 
@@ -78,14 +78,14 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/seasons' element={<Seasons />}/>
-          <Route path='/create' element={<CreateNew  />}  />
+          <Route path='/create' element={<PrivateRoute><CreateNew /></PrivateRoute>}  />
           <Route path= '/facts' element= {<Facts/>} />
           <Route path='/catalog/:season' element = {<SeasonallProducts/>} />
-          <Route path='/catalog/:season/:prodId/edit' element = {<Edit />} />
-          <Route path='/profil' element = {<Profile />} />
-          <Route path='/logout' element= {<Logout />}/>
-          <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
-          {/* <Route path="*" element= {<NotFound />} /> */}
+          <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><Edit /></PrivateRoute>} />
+          <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
+          <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
+          <Route path='/catalog/:season/:prodId' element = {<PrivateRoute><ProductDetails/></PrivateRoute>} />
+          <Route path="*" element= {<NotFound />} />
       </Routes>
 
     </div>

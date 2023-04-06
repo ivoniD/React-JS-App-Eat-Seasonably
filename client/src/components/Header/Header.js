@@ -23,10 +23,10 @@ export const Header = () => {
               <nav>
                 <ul className="sf-menu">
                   <li className="current">
-                    <Link to="/">Home</Link>
+                    <Link className='nav-btns' to="/">Home</Link>
                   </li>
                   <li>
-                    <Link to="/seasons">Season Foods</Link>
+                    <Link className='nav' to="/seasons">Season Products</Link>
                   </li>
                   {/* <li>
                     <Link to="/facts">Did you know</Link>
@@ -36,13 +36,13 @@ export const Header = () => {
                   </li> */}
                   {Object.keys(user).length === 0
                   ? <>
-                      <li><Link to="/login">Login</Link></li>
-                      <li><Link to="/register">Register</Link></li>
+                      <li><Link className='nav-btns' to="/login">Login</Link></li>
+                      <li><Link className='nav-btns' to="/register">Register</Link></li>
                     </>
                   : <>
-                      <li><Link to="/create">Create</Link></li>
-                      <li><Link to="/profil">Profile</Link></li>
-                      <li><Link to="/logout">Logout</Link></li>
+                      <li><Link className='nav-btns' to="/create">Create</Link></li>
+                      <li><Link className='nav-btns' to="/profil">Profile</Link></li>
+                      <li><Link className='nav-btns' to="/logout">Logout</Link></li>
                     </> }
                 </ul>
               </nav>

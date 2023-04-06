@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import './Profile.css'
+import { Link } from 'react-router-dom';
 
 export const Profile = () => {
 const {user} = useContext(AuthContext);
@@ -30,7 +31,7 @@ const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
         <div className="skills">
           <h2 className="fav">My Season Foods</h2>
           <ul>
-            {userFtuits && userFtuits.map(x => <li key={x._id} className="favFood">{x.name}</li>)}
+            {userFtuits && userFtuits.map(x => <li> <Link to={`/catalog/summer/${x._id}`} key={x._id} className="favFood">{x.name}</Link></li>)}
             {/* <li className="favFood">Strawbery</li>
             <li className="favFood">Cherry</li> */}
           </ul>

@@ -29,7 +29,7 @@ export const Login = () => {
     <>
   <div className="cont">
     <form className="form sign-in" onSubmit={onSubmit}>
-      <h2>Welcome</h2>
+      <h2>Login</h2>
       <label>
         <span>Email</span>
         <input type="email" name="email" />

@@ -20,7 +20,7 @@ useEffect(() => {
 }, [])
 
     const productDeletehandler = () => {
-        const deleteIt = window.confirm('Click YES if you want to delete this product!')
+        const deleteIt = window.confirm('Do you want to delete this product!')
         if(deleteIt){
             del(prodId)
                 .then(() => {

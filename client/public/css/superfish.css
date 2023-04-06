@@ -58,9 +58,9 @@ nav {
 	text-align: center;
 }
 
-.sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li>a:hover {
+/* .sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li>a:hover {
 	color: #aaccaa;
-}
+} */
  
 .sf-menu>li>ul>li>a.sf-with-ul:after {
 	content: '';

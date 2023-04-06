@@ -1,12 +1,37 @@
 .headerEl{
   background-color: rgb(6, 80, 58);
+  
 }
 
 .main-title{
-  color: brown;
-  font-size:2.5rem;
+  color: rgb(150, 17, 0);
+  font-size:3rem;
   text-transform: uppercase;
-  margin-top: 39px;
-  margin-left: 37px;
-  text-shadow: 1px 3px 7px #02301dbd;
+  text-align: center;
+  margin-top: 32px;
+  margin-left: 30px;
+  /* margin-left: 100px; */
+  text-shadow: 1px 1px 2px #02301dbd;
 }
+
+.nav-btns{
+  text-decoration: none;
+}
+
+
+.nav-btns:hover,
+.nav:hover {
+  text-decoration: none;
+  color: rgb(212, 122, 122);
+}
+
+.nav-btns:active,
+.nav:active {
+  text-decoration: none;
+  color: rgb(212, 122, 122);
+}
+
+/* .main-title{
+text-align: left;
+padding-top: 50%;
+} */
