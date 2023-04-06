@@ -56,16 +56,19 @@ function App() {
     navigate('/seasons')
   }
 
+  const deleteProduct = (prodId, season) => {
+    setSeasonProducts(oldState => oldState.filter(x => x._id !== prodId))
+    navigate(`/catalog/${season}`)
+} 
   
-  const contextValue = { seasonProducts, addNewProductHandler, editProduct};
-  // const productDeleteHandler = async (prodId) => {
-  //     await removeProduct(prodId);  
-  //     setSeasonProducts(oldState => oldState.filter(x => x._id !== prodId))
-  // } 
+
+
+  const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct};
+  const authContextValue = { user, userLogin, userLogout};
 
   return (
-  <ProductsContext.Provider value={contextValue}>
-  <AuthContext.Provider value={{user, userLogin, userLogout}}>
+  <ProductsContext.Provider value={productContextValue}>
+  <AuthContext.Provider value={authContextValue}>
     <div className="content">
 
     <Header />

@@ -1,23 +1,34 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './ProductDetails.css'
 import { useParams } from "react-router-dom"
 import { useContext, useEffect, useState } from 'react';
 import { ProductsContext } from "../../../contexts/ProductsContext";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { getOne } from "../../../services/productsService";
+import { getOne, del } from "../../../services/productsService";
 
 export const ProductDetails = () => {
   const [ currentProd, setCurrentProd] = useState({})  
   const {prodId, season} = useParams()
-  const {seasonProducts} = useContext(ProductsContext);
+  const {deleteProduct, seasonProducts} = useContext(ProductsContext);
   const {user} = useContext(AuthContext);
-
+const navigate = useNavigate()
 useEffect(() => {
     getOne(prodId)
     .then(result => {
         setCurrentProd(result)
     })
 }, [])
+
+    const productDeletehandler = () => {
+        const deleteIt = window.confirm('Click YES if you want to delete this product!')
+        if(deleteIt){
+            del(prodId)
+                .then(() => {
+                    deleteProduct(prodId, season)
+                })
+        }
+    }   
+    
 
 //   const product = seasonProducts.filter(x => x._id === prodId)
 
@@ -63,9 +74,9 @@ useEffect(() => {
                 <Link to={`/catalog/${season}/${currentProd._id}/edit`}  className="button">
                     Edit
                 </Link>
-                <Link to="#" className="button">
+                <button onClick={productDeletehandler} className="button">
                     Delete
-                </Link>
+                </button>
             </div>
             }
             
