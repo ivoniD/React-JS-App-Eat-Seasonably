@@ -53,7 +53,7 @@ function App() {
 
   const editProduct = (prodId, prodData) => {
     setSeasonProducts(state => state.map(x => x._id === prodId ? prodData : x))
-    navigate('/seasons')
+    navigate(`/catalog/${prodData.season}/${prodId}`)
   }
 
   const deleteProduct = (prodId, season) => {
@@ -77,15 +77,17 @@ function App() {
           <Route path = '/' element={<Home />} />
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
-          <Route path='/seasons' element={<Seasons />}/>
+          <Route path='/catalog' element={<Seasons />}/>
           <Route path='/create' element={<PrivateRoute><CreateNew /></PrivateRoute>}  />
-          <Route path= '/facts' element= {<Facts/>} />
+
           <Route path='/catalog/:season' element = {<SeasonallProducts/>} />
           <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><Edit /></PrivateRoute>} />
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
-          <Route path='/catalog/:season/:prodId' element = {<PrivateRoute><ProductDetails/></PrivateRoute>} />
+          <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
           <Route path="*" element= {<NotFound />} />
+
+          {/* <Route path= '/facts' element= {<Facts/>} /> */}
       </Routes>
 
     </div>

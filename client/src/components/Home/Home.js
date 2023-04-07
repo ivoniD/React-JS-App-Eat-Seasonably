@@ -3,7 +3,10 @@ import './Home.css'
 export const Home = () => {
   return(
    <>
-   <div className="row">
+   <div className='home-cont'>
+
+   </div>
+   {/* <div className="row">
         <div className="grid_4">
           <div className="banner">
             <div className="gall_block">
@@ -48,7 +51,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        </div>
+        </div> */}
    </>
   )
 }

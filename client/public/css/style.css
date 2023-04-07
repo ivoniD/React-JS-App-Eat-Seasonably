@@ -13,8 +13,10 @@
 @import url(//fonts.googleapis.com/css?family=Dosis);
 
 html {
-    width: 100%;
-    background-color: #6abba7;
+    /* width: 100%;
+    background-color: #6abba7; */
+    background-image: url("https://unsplash.com/photos/ZiEzxxXDH5s");
+
 }
 
 
@@ -30,7 +32,7 @@ a[href^="tel:"] {
 body {
     position: relative;
     background-color: #8d45458f;
-    color: #969696;
+    /* color: #969696; */
     font: 300 14px/20px 'Open Sans', sans-serif;
 }
 
@@ -160,7 +162,7 @@ a {
 }
 
 a:hover {
-    color: #aaccaa;
+    color: rgb(150, 17, 0);;
 }
 
 .btn {
@@ -174,7 +176,7 @@ a:hover {
 
 .btn:hover {
     color: #fff;
-    border-color: #aaccaa;
+    border-color: #ccaaaa;
     background-color: #aaccaa;
 }
 

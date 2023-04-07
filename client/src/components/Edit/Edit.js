@@ -30,7 +30,6 @@ export const Edit = () => {
     .then(result => {
       // console.log(result);
       editProduct(prodId, result)
-      navigate(`/catalog/${season}/${prodId}`)
     })
   }
 

@@ -17,21 +17,60 @@
 .nav-btns{
   text-decoration: none;
 }
+/* .nav-btns {
+  transition: color 0.3s ease;
+} */
 
 
 .nav-btns:hover,
 .nav:hover {
   text-decoration: none;
-  color: rgb(212, 122, 122);
+  color:  #fa0000bd(212, 122, 122);
+  font-size: 1.8rem;
+  text-shadow: 0px 0px 15px #115708;
 }
 
-.nav-btns:active,
+.nav-btns.highlight:hover {
+  color: #f70000bd(212, 122, 122);
+  }
+
+/* .nav-btns:active,
 .nav:active {
   text-decoration: none;
   color: rgb(212, 122, 122);
-}
+} */
 
 /* .main-title{
 text-align: left;
 padding-top: 50%;
 } */
+
+.title{
+  color: black;
+  font-family: 'Economica', sans-serif;;
+  color: rgb(150, 17, 0);
+  font-size:3rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 30px;
+  /* margin-left: 100px; */
+  text-shadow: 1px 1px 2px #02301dbd;
+  text-decoration: none;
+}
+.title:hover{
+  text-decoration: none;
+  font-size:3.2rem;
+}
+
+.title-box{
+  padding-top: 40px;
+  margin-bottom: -90px;
+}
+
+.sf-menu{
+  margin-bottom: -5px;
+}
+
+.nav-btns{
+  margin-bottom: 4px;
+}

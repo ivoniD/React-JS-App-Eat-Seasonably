@@ -12,7 +12,7 @@ body {
   margin-top: 5%;
 }
 
-  .err {
+ .err {
     color: #f55d5d;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 11rem;
@@ -21,7 +21,7 @@ body {
     top: 8%;
     margin-top: 20%;
     text-align: center;
-  }
+  } 
 
 
 .msg {
@@ -43,4 +43,4 @@ a {
 
 a:hover {
   text-decoration: underline;
-}
+} 

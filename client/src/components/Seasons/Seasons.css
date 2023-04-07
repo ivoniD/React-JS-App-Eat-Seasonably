@@ -2,3 +2,26 @@
 {
   border-radius: 10%;
 }
+
+.spring:hover  {
+  text-decoration: none;
+  color: rgb(56, 56, 56);
+  font-size: 1.9rem;
+}
+.summer:hover{
+  text-decoration: none;
+  color: rgb(56, 56, 56);
+  font-size: 1.9rem;
+}
+
+.autumn:hover{
+  text-decoration: none;
+  color: rgb(56, 56, 56);
+  font-size: 1.9rem;
+}
+
+.winter:hover{
+  text-decoration: none;
+  color: rgb(56, 56, 56);
+  font-size: 1.9rem;
+}

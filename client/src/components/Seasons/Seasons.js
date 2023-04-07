@@ -3,7 +3,7 @@ import './Seasons.css'
 export const Seasons = () => {
   return (
     <>
-
+ <div className='home-cont'>
       <div className="seasons">
         <div className="grid_4">
           <Link to="/catalog/spring" className="gall_item">
@@ -42,7 +42,7 @@ export const Seasons = () => {
           <div className="clear" />
         </div>
       </div>
-
+      </div>
     </>
   )
 }

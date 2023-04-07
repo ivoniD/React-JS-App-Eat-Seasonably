@@ -1,12 +1,12 @@
 
 
-.skills .personalInfo {
+ .skills .personalInfo {
   font-family: 'Economica', sans-serif;
-    margin-top: 30px;
+    margin-top: 80px;
     width: 20%;
-}
+} 
 .skills {
-    background: rgb(6, 80, 58);
+    background: rgba(0, 0, 0, 0.267);
     color: #f5f5f5;
     width: 40%;
 }
@@ -32,9 +32,9 @@
 }
 .fav{
   font-weight: bold;
-  color: #ffffff;
+  color: #630000;
   font-family: 'Economica', sans-serif;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-top: -35px;
   margin-bottom: 30px;
 }
@@ -42,4 +42,63 @@
   text-align: center;
   color: rgb(255, 136, 0);
   font-size: 1rem;
+}
+
+.my-added-item {
+  text-transform:uppercase;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Economica', sans-serif;
+  font-size: 2rem;
+  text-shadow: 0px 1px 3px #161616;
+}
+
+.my-added-item:hover {
+  text-decoration: none;
+  font-size: 2.5rem;
+  text-shadow: 4px 3px 6px #000000;
+  /* text-shadow: 2px 3px 15px #161616; */
+  /* color: rgb(255, 0, 0);
+  */
+
+}
+.summer-item {
+  color: #f0d53f;
+
+}
+.summer-item:hover{
+  color: #f0d53f;
+
+
+}
+
+.winter-item {
+  color: #47cfd5;
+}
+.winter-item:hover{
+  color: #47cfd5;
+}
+
+.autumn-item {
+  color: #ec6a3f;
+}
+.autumn-item:hover{
+  color: #ec6a3f;
+}
+
+.spring-item {
+  color: #27b327;
+}
+.spring-item:hover{
+  color: #27b327;
+}
+
+
+.default-item {
+  color: grey;
+}
+
+.my-item{
+  margin-top: 17px;
+  margin-bottom: 10px;
 }

@@ -17,11 +17,16 @@ const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
 
   <section className="container">
   <div className="col-md-12 col-sm-12">
-          <img
-            src="images/rihana.jpg"
-            className="img-responsive img-circle tm-border"
-            alt="templatemo easy profile"
-          />
+  <img
+  // src={user.imageUrl}
+  // className="img-responsive img-circle tm-border"
+  // style={{
+  //   width: "180px",
+  //   height: "200px",
+  // }}
+  alt="profile picture"
+/>
+ 
           <hr />
           <h2 className="personName tm-title bold shadow">{user.name} </h2>
           <h2 className="personEmail white bold shadow">{user.email}</h2>
@@ -31,9 +36,17 @@ const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
         <div className="skills">
           <h2 className="fav">My Season Foods</h2>
           <ul>
-            {userFtuits && userFtuits.map(x => <li> <Link to={`/catalog/summer/${x._id}`} key={x._id} className="favFood">{x.name}</Link></li>)}
-            {/* <li className="favFood">Strawbery</li>
-            <li className="favFood">Cherry</li> */}
+            {userFtuits && userFtuits.map(x => 
+            <li className='my-item'>
+               <Link 
+                  // className="my-added-item" 
+                  className={`my-added-item ${ x.season === "summer" ? "summer-item" : x.season === "winter" ? "winter-item" : x.season === "autumn" ? "autumn-item" : x.season === "spring" ? "spring-item" : "default"}`}
+                  to={`/catalog/${x.season}/${x._id}`} key={x._id}
+                  
+                  >{x.name}
+               </Link>
+            </li>)}
+
           </ul>
         </div>
       </div>

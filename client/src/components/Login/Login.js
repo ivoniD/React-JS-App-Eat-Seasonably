@@ -27,8 +27,9 @@ export const Login = () => {
 
   return(
     <>
-  <div className="cont">
-    <form className="form sign-in" onSubmit={onSubmit}>
+    <div className='home-cont'>
+  <div className="cont-login">
+    <form className="login-form" onSubmit={onSubmit}>
       <h2>Login</h2>
       <label>
         <span>Email</span>
@@ -38,22 +39,18 @@ export const Login = () => {
         <span>Password</span>
         <input type="password" name="password" />
       </label>
-      <p className="forgot-pass">dont match</p>
+      <label style={{ color: "red", 'font-size': '1rem', 'font-style': 'italic' }}>All fields are required!</label>
       <button type="submit" className="submit">
         Sign In
       </button>
-    </form>
-    <div className="sub-cont">
-      <div className="img">
-        <div className="img__text m--up">
-          <h3 className='message'>Don't have an account? Please Sign up!</h3>
-          <h3></h3>
-        </div>
-        <div className="img__btn">
-        <Link to='/register'><span className="m--up">Sign Up</span></Link>
-        </div>
+      <div className='no-account'>
+      <h3 >Don't have an account? </h3>
+      <Link className='go-to-register' to="/register">REGISTER HERE</Link>
       </div>
-    </div>
+
+    </form>
+
+  </div>
   </div>
       </>
   )
