@@ -1,27 +1,57 @@
 .seasonImg 
 {
   border-radius: 10%;
+  margin-right: 80px;
+  border: 2px solid #000000;
 }
 
 .spring:hover  {
   text-decoration: none;
   color: rgb(56, 56, 56);
-  font-size: 1.9rem;
+  font-size: 1.6rem;
 }
 .summer:hover{
   text-decoration: none;
   color: rgb(56, 56, 56);
-  font-size: 1.9rem;
+  font-size: 1.6rem;
+}
+
+.autumn, .winter, .summer, .spring{
+  border: 1px solid #000000;
+  border-radius: 20px;
 }
 
 .autumn:hover{
   text-decoration: none;
   color: rgb(56, 56, 56);
-  font-size: 1.9rem;
+  font-size: 1.6rem;
 }
 
 .winter:hover{
   text-decoration: none;
   color: rgb(56, 56, 56);
-  font-size: 1.9rem;
+  font-size: 1.6rem;
 }
+
+.seasons{
+  border: 2px solid #000000;
+  width: 80%;
+  height: 400px;
+  padding-top: 50px;
+  padding-left: 40px;
+  margin-right: 150px;
+
+  /* background: #ff050525; */
+  background: #030303b6;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 100px;
+    top: 15%
+}
+
+.grid_4{
+  margin-right: 50px;
+  
+}
+

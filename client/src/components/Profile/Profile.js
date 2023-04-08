@@ -14,8 +14,8 @@ const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
     <>
 
   {/* about and skills section */}
-
-  <section className="container">
+  <div className='home-cont'>
+  <section className="container-profil">
   <div className="col-md-12 col-sm-12">
   <img
   // src={user.imageUrl}
@@ -28,10 +28,10 @@ const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
 />
  
           <hr />
-          <h2 className="personName tm-title bold shadow">{user.name} </h2>
-          <h2 className="personEmail white bold shadow">{user.email}</h2>
+          <h2 className="personName tm-title bold shadow profil-text">{user.name} </h2>
+          <h2 className="personEmail white bold shadow profil-text">{user.email}</h2>
         </div>
-    <div className="row">
+    <div className="fav-row ">
       <div className="col-md-6 col-sm-12">
         <div className="skills">
           <h2 className="fav">My Season Foods</h2>
@@ -62,6 +62,7 @@ const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
       </div>
     </div>
   </section> */}
+  </div>
 </>
 
   )

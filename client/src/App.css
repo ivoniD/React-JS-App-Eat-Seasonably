@@ -5,3 +5,11 @@
 } */
 
 /* //#458d7b8f; */
+
+.loading{
+  font-size: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

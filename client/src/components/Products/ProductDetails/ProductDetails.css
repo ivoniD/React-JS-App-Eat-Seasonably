@@ -23,11 +23,13 @@
   width: 40%;
   height: 50%;
   margin-left: 27%;
-  margin-top: 5%;
+  margin-top: 10%;
   background-blend-mode: multiply;
   z-index: 2;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.233);
+  border: 1px solid #000000;
+  background: #a500001c;
 }
 
 .game-header {

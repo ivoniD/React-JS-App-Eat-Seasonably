@@ -1,5 +1,6 @@
 .headerEl{
   background-color: rgb(6, 80, 58);
+  position: fixed;
   
 }
 
@@ -11,7 +12,7 @@
   margin-top: 32px;
   margin-left: 30px;
   /* margin-left: 100px; */
-  text-shadow: 1px 1px 2px #02301dbd;
+  text-shadow: 1px 1px 2px #000000bd;
 }
 
 .nav-btns{
@@ -74,3 +75,9 @@ padding-top: 50%;
 .nav-btns{
   margin-bottom: 4px;
 }
+
+.headerEl{
+  width: 100%;
+
+}
+

@@ -14,6 +14,7 @@ body {
 
 
 
+
 input,
 button {
     border: none;
@@ -30,7 +31,7 @@ button {
     position: relative;
     overflow: hidden;
     margin: 0 auto 100px;
-    margin-top: 7%;
+    top: 15%
 
 }
 
@@ -109,10 +110,26 @@ font-weight: bold;
     font-size: 0.9rem;
     text-decoration: underline;
 }
-
+/* 
 html {
-    /* width: 100%;
-    background-color: #6abba7; */
+    
     background-image: url("https://unsplash.com/photos/ZiEzxxXDH5s");
   
+  } */
+
+  /* .home-cont {
+    position: relative;
+    height: 100vh;
+    background-image: url('https://unsplash.com/photos/ZiEzxxXDH5s');
+
   }
+  
+  .home-cont::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+  } */

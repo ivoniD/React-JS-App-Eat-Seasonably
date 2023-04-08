@@ -38,6 +38,8 @@ useEffect(() => {
   return (
     <>
 
+<div className='home-cont'>
+
 
         <div className="info-section">
             <div className="game-header">
@@ -80,6 +82,7 @@ useEffect(() => {
             </div>
             }
             
+        </div>
         </div>
     </>
        

@@ -8,7 +8,7 @@ export const Header = () => {
   // console.log(`user: ${user.accessToken}`);
   return(
     <header className ="headerEl">
-    <section id="stuck_container"className ="headerEl">
+    <section id="stuck_container"className ="headerEl-section ">
     {/* <h1>
     </h1 > */}
      {/* <div className="main-title">Eat Seasonally</div> */}

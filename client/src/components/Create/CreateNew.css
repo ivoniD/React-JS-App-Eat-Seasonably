@@ -9,7 +9,7 @@
 } */
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  background: #8b8b8b;
+  
 
 }
 
@@ -33,9 +33,9 @@ body {
   width: 1000px;
   height: 300px;
   margin: 0 auto 50px;
-  background: #fff;
+  /* background: #a500001c; */
+  background: #030303b6;
   box-shadow: -10px -10px 15px rgba(14, 13, 13, 0.3), 10px 10px 15px rgba(8, 7, 7, 0.15), inset -10px -10px 15px rgba(255, 255, 255, 0.3), inset 10px 10px 15px rgba(70, 70, 70, 0.15);
-  margin-top: 3%;
   margin-left: 20%;
   margin-right: 20%; 
 } 
@@ -45,6 +45,7 @@ body {
   text-align: center;
 
 }
+
 
 .error-message{
   margin-left: 40%;
@@ -61,4 +62,16 @@ body {
 
 .submitBtn {
   margin-left: 24%;
+}
+
+.create-form{
+  width: 700px;
+  height: 600px;
+  box-align: center;
+  border: 1px solid #000000;
+  background: #a500001c;
+  /* margin-left: 50%; */
+  margin-left: 32%;
+  position: fixed;
+  top: 10%
 }

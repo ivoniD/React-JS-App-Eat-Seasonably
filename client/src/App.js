@@ -22,10 +22,12 @@ import * as productService from './services/productsService'
 import { Logout } from "./components/Logout/Logout";
 import { useLocalStorage } from "./services/useLocalStorage";
 import { NotFound } from "./components/NotFound/NotFound";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
   const [user, setUser] = useLocalStorage('user', {})
+  const [isPending, setIsPending] = useState(true)
   const navigate = useNavigate();
   // const location = useLocation();
   // const isNotFound = location.pathname === '*';
@@ -34,6 +36,7 @@ function App() {
       productService.getAll()
         .then(data => {
           setSeasonProducts(data)
+          setIsPending(false)
         })
  },[]);
 
@@ -63,7 +66,7 @@ function App() {
   
 
 
-  const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct};
+  const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct, isPending};
   const authContextValue = { user, userLogin, userLogout};
 
   return (
@@ -90,6 +93,7 @@ function App() {
           {/* <Route path= '/facts' element= {<Facts/>} /> */}
       </Routes>
 
+    <Footer />
     </div>
     </AuthContext.Provider>
 </ProductsContext.Provider>

@@ -23,19 +23,13 @@ const {addNewProductHandler} = useContext(ProductsContext)
   }
 
   return(
-    <div className="content createCont">
-  <div className="container">
-    <div className="row">
-    <div className="col-md-5 mr-auto">
-        <h3 className="mb-3"></h3>
-        <p>
-        
-        </p>
-        
-      </div>
+    <>
 
-        <div className="box">
-          <h2 className="heading">Add New Seasonal Product</h2>
+ 
+
+        <div className="home-cont">
+          <div className='create-form'>
+          <h2 className="heading-create">Add New Seasonal Product</h2>
           <form
             className="mb-5"
             method="post"
@@ -114,10 +108,10 @@ const {addNewProductHandler} = useContext(ProductsContext)
           <div id="form-message-warning mt-4" />
           <p className="error-message" id="form-message-success">Your message was sent, thank you!</p>
         </div>
+        </div>
 
-    </div>
-  </div>
-</div>
+
+</>
 
   )
 }

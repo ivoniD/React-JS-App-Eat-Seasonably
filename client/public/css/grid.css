@@ -296,7 +296,8 @@ table {
     width: 380px;
   }
   .grid_4 {
-    width: 500px;
+    width: 400px;
+    margin-left: -150px;
   }
   .grid_3 {
     width: 220px;
