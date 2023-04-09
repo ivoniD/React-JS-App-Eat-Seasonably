@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import './Register.css'
 import { register } from '../../services/authService';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -7,8 +7,10 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 export const Register = () => {
+  const [errorMessage, setErrorMessage] = useState(null)
   const { userLogin } = useContext(AuthContext)
   const navigate = useNavigate();
+
 
   const onSubmit = (e) => {
     e.preventDefault()
@@ -18,17 +20,27 @@ export const Register = () => {
     const password = formData.get('password')
     const rePass = formData.get('repeat-password')
 
-    // console.log(name);
-    if(password !== password){
-      return
-      //error - 404?
-    }
+    // if(name === '' || email === '' || password === '' || rePass=== ''){
+    //   setErrorMessage('All fields are required!')
+    // }else(
+    //   setErrorMessage(null)
+    // )
 
-    register(name, email, password)
+    // if(password !== rePass){
+    //     setErrorMessage("Passwords don't match")
+    // }else{
+    //   setErrorMessage(null)
+    // }
+    
+
+
+      register(name, email, password)
       .then(authData => {
         userLogin(authData)
+        setErrorMessage('')
         navigate('/')
       })
+    
 
 
   }
@@ -54,7 +66,8 @@ export const Register = () => {
           <span>Repeat Password</span>
           <input type="password" name="repeat-passowrd"/>
         </label>
-        <label style={{ color: "red", 'font-size': '1rem', 'font-style': 'italic' }}>All fields are required!</label>
+        {errorMessage !== '' && <label style={{ color: "red", 'font-size': '1rem', 'font-style': 'italic' }}>{errorMessage}</label>}
+        
 
         <button type="submit" className="submit">
           Sign Up

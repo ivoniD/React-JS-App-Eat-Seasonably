@@ -24,7 +24,7 @@ button {
 }
 
 .cont-login{
-    background: #a500001c;
+    background: #0320048e;
     border-radius: 20px;
     width: 600px;
     height: 450px;
@@ -109,6 +109,25 @@ input {
 font-weight: bold;
     font-size: 0.9rem;
     text-decoration: underline;
+}
+
+.error-msg{
+
+    text-decoration: none;
+    color: rgb(58, 58, 58);
+    font-size: 1rem;
+    text-shadow: 0px 0px 1px #000000;
+
+}
+
+h2 {
+ color: white;
+}
+span{
+    color: white;
+}
+h3{
+    color: white;
 }
 /* 
 html {

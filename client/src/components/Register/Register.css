@@ -30,7 +30,7 @@ button {
 }
 
 .cont-reg{
-    background: #a500001c;
+    background:#0320048e;
     border-radius: 20px;
     width: 700px;
     height: 600px;
@@ -72,7 +72,7 @@ label {
 
 label span {
     font-size: 12px;
-    color: #555252;
+    color: #f0f0f0;
     text-transform: uppercase;
 }
 

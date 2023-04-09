@@ -8,7 +8,7 @@ const request = async (method, url, data) => {
 
       if (auth.accessToken) {
           headers['X-Authorization'] = auth.accessToken;
-          console.log(`auth = ${headers['X-Authorization']}`);
+
       }else{
         console.log('no auth');
       }
@@ -28,15 +28,17 @@ const request = async (method, url, data) => {
               body: JSON.stringify(data)
           });
       }
+
       const response = await buildRequest;
 
-      console.log(response);
+      console.log(`response = ${response.status}`);
 
       const result = await response.json();
 
+
       return result;
   } catch (error) {
-      console.log(error);
+      console.log(`hio`);
   }
 };
 

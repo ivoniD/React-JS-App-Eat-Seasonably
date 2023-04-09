@@ -4,7 +4,17 @@ export const Home = () => {
   return(
    <>
    <div className='home-cont'>
-
+   <div className="centered-text">
+      <p className='welcome'>Welcome to the Be Healthy Team</p>
+      <p className='welcome2'>where eating seasonally is always in season! </p>
+      <p className="welcome-text">Get to know your fruits and veggies like never before </p>
+      <p className="welcome-text">with our fun and informative healthy fact collection. </p>
+      <p className="welcome-text">And if you're feeling adventurous, join our team </p>
+      <p className="welcome-text"> and help us grow even more! </p>
+      <p className="welcome-text"> With Be Healthy, you'll have all the tools </p>
+      <p className="welcome-text"> you need to be your healthiest self.</p>
+    </div>
+      
    </div>
    {/* <div className="row">
         <div className="grid_4">

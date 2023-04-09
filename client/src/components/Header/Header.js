@@ -14,7 +14,7 @@ export const Header = () => {
      {/* <div className="main-title">Eat Seasonally</div> */}
     
 
-<div className='title-box'><Link className='title' to="/">EAT SEASONALLY</Link></div>
+<div className='title-box'><Link className='title' to="/">Be Helalthy </Link></div>
                     
 
       <div className="container">
@@ -30,7 +30,10 @@ export const Header = () => {
                     <Link className='nav-btns' to="/">Home</Link>
                   </li>
                   <li className='nav-btns'>
-                    <Link className='nav' to="/catalog">Season Products</Link>
+                    <Link className='nav' to="/catalog">Eat Seasonally</Link>
+                  </li>
+                  <li className='nav-btns'>
+                    <Link className='nav' to="/facts">Healthy Facts</Link>
                   </li>
                   
                   {/* <li>

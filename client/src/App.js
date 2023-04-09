@@ -88,6 +88,7 @@ function App() {
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
           <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
+          <Route path='/facts' element = {<Facts />} />
           <Route path="*" element= {<NotFound />} />
 
           {/* <Route path= '/facts' element= {<Facts/>} /> */}

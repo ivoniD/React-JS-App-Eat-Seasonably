@@ -68,8 +68,8 @@ body {
   width: 700px;
   height: 600px;
   box-align: center;
-  border: 1px solid #000000;
-  background: #a500001c;
+  /* border: 1px solid #000000; */
+  background: #0320048e;
   /* margin-left: 50%; */
   margin-left: 32%;
   position: fixed;

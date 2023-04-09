@@ -1,5 +1,5 @@
 import './SeasonallProducts.css'
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { SingleProduct } from '../SingleProduct/SingleProduct';
 import { ProductsContext } from '../../../contexts/ProductsContext';
@@ -26,6 +26,72 @@ console.log(isPending);
       : seasonProducts && seasonProducts.filter(x => x.season === (season)).map(x => <SingleProduct key={x._id} {...x} />)
     }
     
+
+    <div className="grid_4 prod row-items">
+      <div className="single-item">
+      <img className='prodImg' alt="" />
+      <div className="details" >
+        TEST
+        <br />
+        <Link to={`/`} className="dtl">
+          READ MORE
+        </Link>
+      </div>
+      </div>
+    </div>
+
+    <div className="grid_4 prod row-items">
+      <div className="single-item">
+      <img className='prodImg' alt="" />
+      <div className="details" >
+        TEST
+        <br />
+        <Link to={`/`} className="dtl">
+          READ MORE
+        </Link>
+      </div>
+      </div>
+    </div>
+
+    <div className="grid_4 prod row-items">
+      <div className="single-item">
+      <img className='prodImg' alt="" />
+      <div className="details" >
+        TEST
+        <br />
+        <Link to={`/`} className="dtl">
+          READ MORE
+        </Link>
+      </div>
+      </div>
+    </div>
+
+    <div className="grid_4 prod row-items">
+      <div className="single-item">
+      <img className='prodImg' alt="" />
+      <div className="details" >
+        TEST
+        <br />
+        <Link to={`/`} className="dtl">
+          READ MORE
+        </Link>
+      </div>
+      </div>
+    </div>
+
+    <div className="grid_4 prod row-items">
+      <div className="single-item">
+      <img className='prodImg' alt="" />
+      <div className="details" >
+        TEST
+        <br />
+        <Link to={`/`} className="dtl">
+          READ MORE
+        </Link>
+      </div>
+      </div>
+    </div>
+
       
     </div>
     </div>

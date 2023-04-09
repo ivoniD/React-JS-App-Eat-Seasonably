@@ -2,23 +2,30 @@ import './Login.css'
 import { Link } from 'react-router-dom';
 import { login } from '../../services/authService';
 import {useNavigate} from 'react-router-dom'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
 export const Login = () => {
+  const[errorMessage, setErrorMessage] = useState('')
   const {userLogin} = useContext(AuthContext)
   const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
-
+let errorMsg = ''
     const {email, password} = Object.fromEntries(new FormData(e.target));
     // console.log(email);
     // console.log(password);
     login(email, password)
       .then(authData => {
-        console.log(authData);
-        userLogin(authData)
-        navigate('/')
+        // console.log(`authdata status ${}`);
+        if(authData.name){
+          userLogin(authData)
+          setErrorMessage('')
+          navigate('/')
+        }else{
+          setErrorMessage(authData.message)
+        }
+       
       })
       .catch(() => {
         navigate('/404') //TODO 
@@ -30,16 +37,17 @@ export const Login = () => {
     <div className='home-cont'>
   <div className="cont-login">
     <form className="login-form" onSubmit={onSubmit}>
-      <h2>Login</h2>
+      <h2 clasName="login-text">Login</h2>
       <label>
-        <span>Email</span>
+        <span clasName="login-text">Email</span>
         <input type="email" name="email" />
       </label>
       <label>
-        <span>Password</span>
+        <span clasName="login-text">Password</span>
         <input type="password" name="password" />
       </label>
-      <label style={{ color: "red", 'font-size': '1rem', 'font-style': 'italic' }}>All fields are required!</label>
+      {errorMessage !== '' &&   <label className="error-msg" style={{ color: "red", 'font-size': '1.2rem', 'font-style': 'bold' }}>{errorMessage}</label>}
+    
       <button type="submit" className="submit">
         Sign In
       </button>
