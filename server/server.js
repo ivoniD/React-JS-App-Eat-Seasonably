@@ -1336,92 +1336,123 @@
     };
     var seedData = {
         seasons: {
-            "d953e5fb": 
-            {"_id": "d953e5fb",
-            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8", 
-            "season": "spring",
-            "name": "spinaci", 
-            "imageUrl": "https://www.ilgiornaledelcibo.it/wp-content/uploads/2019/02/spinaci-proprieta.jpg",
-            "description": "spi spi spinaaachiiiiii"
+            "d953e5fb":
+            {
+                "_id": "d953e5fb",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "season": "spring",
+                "name": "spinach",
+                "imageUrl": "https://www.ilgiornaledelcibo.it/wp-content/uploads/2019/02/spinaci-proprieta.jpg",
+                "description": "spi spi spinaaachiiiiii"
             },
             "ee90697398a0": {
-                "_id": "ee90697398a0", 
+                "_id": "ee90697398a0",
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "spring",
-                    "name": "cherry", 
-                    "imageUrl": 
+                "name": "cherry",
+                "imageUrl":
                     "https://cdn.freshfruitportal.com/2022/07/Cerezas-shutterstock_605088707.jpg",
-                    "description": "che che cheeerryyyy"
+                "description": "che che cheeerryyyy"
             },
-            "cf46757a585": 
-            {"_id": "cf46757a585",
-            "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-            "season": "summer",
-             "name": "strawberry", 
-             "imageUrl": "http://clv.h-cdn.co/assets/15/22/2048x2048/square-1432664914-strawberry-facts1.jpg",
-             "description": "straw straw strawwwberrryyyy"
+            "cf46757a585":
+            {
+                "_id": "cf46757a585",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "season": "summer",
+                "name": "strawberry",
+                "imageUrl": "http://clv.h-cdn.co/assets/15/22/2048x2048/square-1432664914-strawberry-facts1.jpg",
+                "description": "straw straw strawwwberrryyyy"
             },
             "fgfd56chn76": {
-                "_id": "fgfd56chn76", 
+                "_id": "fgfd56chn76",
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "summer",
-                "name": "blueberry", 
-                "imageUrl": "https://www.tastingtable.com/img/gallery/15-types-of-blueberries-and-what-makes-them-unique/l-intro-1656439699.jpg", 
+                "name": "blueberry",
+                "imageUrl": "https://www.tastingtable.com/img/gallery/15-types-of-blueberries-and-what-makes-them-unique/l-intro-1656439699.jpg",
                 "description": "blue blue bluebeeerryyyy"
             },
             "56r5yg": {
                 "_id": "56r5yg",
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "season": "autumn",
-                "name": "apple", 
-                "imageUrl": "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/05/03114105/7-5.jpg", 
+                "name": "apple",
+                "imageUrl": "https://blog-images-1.pharmeasy.in/blog/production/wp-content/uploads/2022/05/03114105/7-5.jpg",
                 "description": "aaa aaa apppleee"
             },
             "11378732932": {
-                "_id": "11378732932", 
+                "_id": "11378732932",
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "autumn",
-                "name": "pumpkin", 
-                "imageUrl": "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2019/11/a-bunch-of-pumpkins-in-a-box.jpg?w=1155&h=1734", 
+                "name": "pumpkin",
+                "imageUrl": "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2019/11/a-bunch-of-pumpkins-in-a-box.jpg?w=1155&h=1734",
                 "description": "pum pum pummpkiiin"
             },
             "gty743": {
                 "_id": "gty743",
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "season": "winter",
-                "name": "orange", 
-                "imageUrl": "https://www.bhg.com/thmb/kErCUI58WFaAAjWnAhjFqgQ7w68=/2000x0/filters:no_upscale():strip_icc()/types-of-oranges-4d6a86c11fe14668ad798774e16697f8.jpg", 
+                "name": "orange",
+                "imageUrl": "https://www.bhg.com/thmb/kErCUI58WFaAAjWnAhjFqgQ7w68=/2000x0/filters:no_upscale():strip_icc()/types-of-oranges-4d6a86c11fe14668ad798774e16697f8.jpg",
                 "description": "oo oooo ooorangee"
             },
             "jdd749djs": {
                 "_id": "jdd749djs",
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8", 
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "season": "winter",
-                "name": "cauliflower", 
-                "imageUrl": "https://img.taste.com.au/DBCUD8iO/taste/2007/05/cauliflower-181864-2.jpg", 
+                "name": "cauliflower",
+                "imageUrl": "https://img.taste.com.au/DBCUD8iO/taste/2007/05/cauliflower-181864-2.jpg",
                 "description": "caul caul cauuulifloooowerrr"
             },
             "357jf4s": {
                 "_id": "357jf4s",
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "season": "spring",
-                "name": "radishes", 
-                "imageUrl": "https://www.southernliving.com/thmb/82kujfn4Oh1fAjpTEYmIYOfn2jE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2610701_Radis_Opener_003-2000-018b1100993346138a7fcaa6ccc184d8.jpg", 
+                "name": "radishes",
+                "imageUrl": "https://www.southernliving.com/thmb/82kujfn4Oh1fAjpTEYmIYOfn2jE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/2610701_Radis_Opener_003-2000-018b1100993346138a7fcaa6ccc184d8.jpg",
                 "description": "raa raa radiiisheeees"
             },
             "357jf4s": {
                 "_id": "357jf4s",
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
                 "season": "summer",
-                "name": "watermelon", 
-                "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2019/07/Watermelon-slices-eaecaae.jpg", 
+                "name": "watermelon",
+                "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2019/07/Watermelon-slices-eaecaae.jpg",
                 "description": "waat waat waatermelloonn"
             }
         },
-        likes: {
-
+        facts: {
+            "sns64fnds":
+            {
+                "_id": "sns64fnds",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "product": "spinachi",
+                "name": "Is good for the skin",
+                "description": "Spinach's benefits for the skin are many. Drinking a glass of spinach juice regularly can nourish the skin, offer protection from the sun, and keep away pigmentation and other skin disorders. Palak leaves are rich in minerals, vitamins and antioxidants. Vitamin A and vitamin C are powerful natural antioxidants present in spinach that prevent damage to the skin cells caused by sun exposure. Antioxidants inhibit the action of free radicals which can cause skin cancer and cell damage. Vitamin C also plays a role in collagen synthesis which makes your skin appear younger and healthier. Magnesium promotes faster skin healing, reduces acne and skin dryness, and protects the skin from ageing. It plays a role in immune function and prevents the breakout of acne and allergies. Vitamin K and folate help in minimizing dark circles around the eyes, acne and stretch marks"
+            },
+            "5558dfd49aj": {
+                "_id": "5558dfd49aj",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "season": "spring",
+                "name": "Aids weight loss",
+                "description": "Wondering about spinach for weight loss? Well, if you are on a weight loss diet, spinach is your answer. It is not only low in calories and high in fibre and nutrients but also reduces your craving for food. This finding is based on a study done by Rebello et al on 60 overweight and obese individuals published in the Journal of the American College of Nutrition in 2015. It was found that a single meal supplemented with 5g of concentrated thylakoid extract from spinach increases satiety over the 2-hour period following consumption."
+            },
+            "74nms0a4n":
+            {
+                "_id": "74nms0a4n",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "product": "spinachi",
+                "name": "Ensures good vision",
+                "description": "Spinach contains two carotenoid pigments - lutein and zeaxanthin, which are essential to prevent age-related sight loss and cataracts. Both lutein and zeaxanthin are present in the macula of the human eye. The antioxidant activity of these carotenoids prevents damage caused by exposure to harmful ultraviolet rays to the underlying retinal structures."
+            },
+            "nvmkd78nsc7": {
+                "_id": "nvmkd78nsc7",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "season": "cherry",
+                "name": "May improve sleep quality",
+                "description": "Eating cherries or drinking tart cherry juice may help improve your sleep quality. Additionally, cherries contain melatonin, a substance that helps regulate your sleep-wake cycle. A study in 20 people showed that those who drank tart cherry juice concentrate for 7 days experienced significant increases in melatonin levels, sleep duration, and sleep quality, compared to a placebo. Similarly, a 2-week study in older adults with insomnia found that drinking 1 cup (240 ml) of tart cherry juice before bed increased sleep time by 84 minutes. However, these studies use concentrated cherry products. It’s unclear whether eating fresh cherries before bed would have the same effect."
+            },
         }
-       
+
     }
 
 
@@ -1477,7 +1508,7 @@
     //         }
     //     },
     //     comments: {
-        
+
     //     }
     // };
 
@@ -1512,11 +1543,11 @@
     //         }
     //     },
     //     comments: {
-        
+
     //     }
     // };
 
-    
+
     var rules$1 = {
         users: {
             ".create": false,
