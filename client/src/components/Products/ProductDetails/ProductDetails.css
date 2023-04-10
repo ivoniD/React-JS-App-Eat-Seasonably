@@ -2,7 +2,7 @@
   position: relative;
   display: block;
   width: 500px;
-  margin: 90px auto;
+  margin: 20px auto;
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.4s;
@@ -21,7 +21,7 @@
 .info-section {
   position: relative;
   width: 40%;
-  height: 70%;
+
   margin-left: 27%;
   background-blend-mode: multiply;
   z-index: 2;
@@ -30,7 +30,8 @@
   border: 1px solid #000000;
   /* background: #a500001c; */
   background: #0320048e;
-  top: 10%
+  top: 10%;
+  height: auto;
 }
 
 .game-header {
@@ -41,7 +42,6 @@
 
 .game_header>h1 {
   color: rgb(255, 5, 5);
-  margin-top: 5px;
   font-size: 36px;
   font-weight: 400;
 }
@@ -83,6 +83,8 @@
   box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
   font-size: 3rem;
   text-shadow: 0px 0px 2px #000000;
+  text-transform: uppercase;
+  color: #e7ddb9;
 
 }
 
@@ -99,7 +101,6 @@
 .info-section>.text {
   margin-top: 30px;
   padding: 60px;
-  height: 50%;
 }
 
 .game-summary {
@@ -234,4 +235,66 @@ background-color: #0000004b;
 
 .fact-product{
   color: #e7ddb9;
+}
+
+/* .facts-about{
+  background-color: #A52A2A;
+  width: fit-content;
+  position: center;
+} */
+
+.fact-one{
+  background-color: #ffbd679d;
+  width: fit-content;
+  position: center;
+  padding: 1%;
+  margin: 5%;
+  border-radius: 10%;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #f3f3f3;
+  text-shadow: 0px 0px 4px #000000;
+  text-decoration: underline;
+
+}
+
+.fact-li{
+  margin: 3%;
+}
+
+.details-cont{
+  height: auto;
+}
+
+
+
+
+/* .fact-span{
+  display: inline;
+  margin-top: 10px;
+} */
+
+.fact-div{
+  display: inline;
+  margin-top: 50px;
+  margin-bottom: 50%;
+}
+
+.create-here{
+  text-decoration: underline;
+}
+.no-facts{
+  margin-left: 30%;
+  margin-top: 40%;
+  font-weight: bold;
+  color: #e7ddb9;
+  font-size: 15px;
+}
+
+.div-no-facts{
+  margin-top: 10%;
+}
+
+.prod-btns{
+  padding-bottom: 5%;
 }

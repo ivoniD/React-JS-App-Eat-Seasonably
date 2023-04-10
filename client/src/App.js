@@ -41,9 +41,10 @@ function App() {
         .then(data => {
           setSeasonProducts(data)
           setIsPending(false)
-          console.log(data);
+          // console.log(data);
         })
  },[]);
+ 
  useEffect(() => {
   factService.getAll()
     .then(data => {
