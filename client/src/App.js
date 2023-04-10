@@ -26,6 +26,7 @@ import { useLocalStorage } from "./services/useLocalStorage";
 import { NotFound } from "./components/NotFound/NotFound";
 import { Footer } from "./components/Footer/Footer";
 import { FactDetails } from "./components/Facts/FactDetails/FactDetails";
+import { CreateFact } from "./components/Create/CreateFact/CreateFact";
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
@@ -66,6 +67,10 @@ function App() {
       setSeasonProducts(state => [...state, {...newProduct}]);
       navigate(`/catalog/${newProduct.season}`)
   }
+  const addNewFactHandler = (fact) => {
+    setFacts(state => [...state, {...fact}]);
+    navigate(`/facts/${fact._id}`)
+}
   
 
   const editProduct = (prodId, prodData) => {
@@ -87,7 +92,7 @@ const deleteFact = (factId) => {
 
   const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct, isPending};
   const authContextValue = { user, userLogin, userLogout};
-  const factContextValue = { facts, deleteFact }
+  const factContextValue = { facts, deleteFact, addNewFactHandler }
 
   return (
   <ProductsContext.Provider value={productContextValue}>
@@ -104,6 +109,7 @@ const deleteFact = (factId) => {
           <Route path='/register' element={<Register />}/>
           <Route path='/catalog' element={<Seasons />}/>
           <Route path='/create' element={<PrivateRoute><CreateNew /></PrivateRoute>}  />
+          <Route path='/fact/create' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
           <Route path='/catalog/:season' element = {<ProductsList/>} />
           <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><Edit /></PrivateRoute>} />
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />

@@ -3,7 +3,7 @@
 .fact-cont{
   /* display: flex; */
   flex-wrap: wrap;
-  height: 760px; 
+  /* height: 760px;  */
   overflow: auto; 
   padding-top: 3%;
 }

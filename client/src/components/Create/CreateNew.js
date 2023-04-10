@@ -38,7 +38,7 @@ const {addNewProductHandler} = useContext(ProductsContext)
             onSubmit = {onSubmit}
           >
             <div className="row">
-              <div className="col-md-6 form-group">
+              <div className="col-md-6 form-group name-div">
                 <label htmlFor="name" className="col-form-label">
                   Name*
                 </label>
@@ -46,7 +46,6 @@ const {addNewProductHandler} = useContext(ProductsContext)
                   type="text"
                   className="formInput"
                   name="name"
-                  id="name"
                   // placeholder="Name of Dish"
                 />
               </div>
@@ -55,15 +54,15 @@ const {addNewProductHandler} = useContext(ProductsContext)
                 <label htmlFor="budget" className="col-form-label">
                  Season*
                 </label>
-                <select className="custom-select"name="season">
-                  <option selected="">Choose...</option>
-                  <option value='spring'>SPRING</option>
-                  <option value='summer'>SUMMER</option>
-                  <option value='autumn'>AUTUMN</option>
-                  <option value='winter'>WINTER</option>
+                <select className="custom-select"name="season" placeholder='Choose...'>
+                  {/* <option selected="">Choose...</option> */}
+                  <option className="spr" value='spring'>SPRING</option>
+                  <option className="sum" value='summer'>SUMMER</option>
+                  <option className="aut" value='autumn'>AUTUMN</option>
+                  <option className="win" value='winter'>WINTER</option>
                 </select>
               </div>
-              <div className="col-md-6 form-group">
+              {/* <div className="col-md-6 form-group">
                 <label htmlFor="imageUrl" className="col-form-label">
                   Image*
                 </label>
@@ -72,12 +71,12 @@ const {addNewProductHandler} = useContext(ProductsContext)
                   className="formInput"
                   name="imageUrl"
                 />
-              </div>
+              </div> */}
 
             </div>
             
-            <div className="row">
-              <div className="col-md-12 form-group">
+            {/* <div className="row"> */}
+              {/* <div className="col-md-12 form-group">
                 <label htmlFor="message" className="col-form-label">
                   Benefits *
                 </label>
@@ -89,24 +88,25 @@ const {addNewProductHandler} = useContext(ProductsContext)
                   rows={7}
                   defaultValue={""}
                 />
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
             
               
             </div>
             <div className="row">
+            <div id="form-message-warning mt-4" />
+          <p className="error-message"  style={{ color: 'red', 'font-size': '15px', fontWeight: 'bold'}}>All fields are required!</p>
               <div className="col-md-12">
                 <input
                   type="submit"
                   value="Create"
-                  className="submitBtn formInput btn btn-block btn-primary rounded-0 py-2 px-4"
+                  className="create-btn formInput btn btn-block btn-primary rounded-0 py-2 px-4"
                 />
                 <span className="submitting" />
               </div>
             </div>
           </form>
-          <div id="form-message-warning mt-4" />
-          <p className="error-message" id="form-message-success">Your message was sent, thank you!</p>
+          
         </div>
         </div>
 

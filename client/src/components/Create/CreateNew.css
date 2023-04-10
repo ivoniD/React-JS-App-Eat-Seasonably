@@ -57,7 +57,8 @@ body {
 }
 
 .formInput {
-  width: 50%;
+  width: 400px;
+  background-color: rgba(255, 228, 196, 0.603);
 }
 
 .submitBtn {
@@ -66,12 +67,39 @@ body {
 
 .create-form{
   width: 700px;
-  height: 600px;
+  height: 450px;
   box-align: center;
-  /* border: 1px solid #000000; */
+  border: 1px solid #000000;
   background: #0320048e;
   /* margin-left: 50%; */
   margin-left: 32%;
   position: fixed;
-  top: 10%
+  top: 15%;
+  border-radius: 10%;
+  padding-top: 2%;
+}
+
+.col-form-label{
+  color: rgba(240, 248, 255, 0.829);
+  font-weight: bold;
+}
+.btn-primary{
+  color: aliceblue; 
+  font-weight: bold;
+}
+
+.mt-4{
+  padding-top: 5px;
+}
+
+.custom-select{
+  background-color: rgb(219, 136, 87);
+  padding: 6px;
+  font-weight: bold;
+}
+.create-btn{
+  margin-left: 20%;
+}
+.name-div{
+  margin-right: 25px;
 }

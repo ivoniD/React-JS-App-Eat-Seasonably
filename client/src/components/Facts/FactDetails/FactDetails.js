@@ -30,10 +30,7 @@ useEffect(() => {
                 })
         }
     }   
-
-
-//  console.log(user._id);
-//  console.log(currentFact._ownerId);
+console.log(`current fact ${currentFact}`);
 
   return (
     <>

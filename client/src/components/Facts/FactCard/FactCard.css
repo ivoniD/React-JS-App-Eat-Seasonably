@@ -42,28 +42,30 @@
   font-weight: bold;
   text-transform: uppercase;
   font-size: 0.9rem;
-  background-color: rgba(26, 128, 29, 0.726);
+  background-color: rgba(36, 21, 17, 0.726);
   color: antiquewhite;
   /* border: 1px solid #6b6b6b; */
   padding-top: 4%;
   padding-bottom: 4%;
   text-shadow: 0px 0px 15px #000000;
+  margin-bottom: 15px;
 }
 
 .fact-title{
-  background-color: rgb(0, 75, 31);
+  background-color: rgb(170, 122, 0);
   font-size: 1.2rem;
 }
 
 
 .btnMore{
-  background-color: rgb(5, 44, 21);
+  background-color: rgb(77, 16, 16);
   color: antiquewhite;
+  border-radius: 8px;
 }
 
 .btnMore:hover{
 text-decoration: none;
-background-color: rgba(1, 37, 16, 0.726);
+background-color: rgba(1, 10, 5, 0.726);
 font-size: 25px;
 }
 
@@ -78,11 +80,12 @@ font-size: 25px;
 }
 
 .even {
-  background-color: #e400003f;
+  background-color: #46464644;
+  
 }
 
 .odd {
-  background-color: #d2d60044;
+  background-color: #1d0000b4;
 }
 
 .facts-all{

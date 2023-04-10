@@ -50,7 +50,8 @@ export const Header = () => {
                       <li className='nav-btns'><Link className='nav-btns' to="/register">Register</Link></li>
                     </>
                   : <>
-                      <li className='nav-btns'><Link className='nav-btns' to="/create">Create</Link></li>
+                      <li className='nav-btns'><Link className='nav-btns' to="/create">Add seasonall product</Link></li>
+                      <li className='nav-btns'><Link className='nav-btns' to="/fact/create">Create new fact</Link></li> 
                       <li className='nav-btns'><Link className='nav-btns' to="/profil">Profile</Link></li>
                       <li className='nav-btns'><Link className='nav-btns' to="/logout">Logout</Link></li>
                     </> }

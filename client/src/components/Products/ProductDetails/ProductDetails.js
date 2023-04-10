@@ -63,7 +63,7 @@ const currentFacts = facts.filter(x => x.product === currentProd.name)  || ''
             <div className="facts-about">
            
 {currentFacts != '' ? currentFacts.map(x =><div className="fact-div"> <span className="fact-span"> <Link to={`/facts/${x._id}`} className="fact-one">{x.name}</Link></span></div>)  
-                    : <div className="div-no-facts"><span className="no-facts">No facts about {currentProd.name}. Create one <Link className="create-here" to="/">HERE</Link>.</span></div>
+                    : <div className="div-no-facts"><span className="no-facts">No facts about {currentProd.name}. Create one <Link className="create-here" to="/fact/create">HERE</Link>.</span></div>
                     }
 
            
