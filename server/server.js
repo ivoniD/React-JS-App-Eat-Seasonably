@@ -1432,7 +1432,7 @@
             "5558dfd49aj": {
                 "_id": "5558dfd49aj",
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "season": "spring",
+                "product": "spring",
                 "name": "Aids weight loss",
                 "description": "Wondering about spinach for weight loss? Well, if you are on a weight loss diet, spinach is your answer. It is not only low in calories and high in fibre and nutrients but also reduces your craving for food. This finding is based on a study done by Rebello et al on 60 overweight and obese individuals published in the Journal of the American College of Nutrition in 2015. It was found that a single meal supplemented with 5g of concentrated thylakoid extract from spinach increases satiety over the 2-hour period following consumption."
             },
@@ -1447,7 +1447,7 @@
             "nvmkd78nsc7": {
                 "_id": "nvmkd78nsc7",
                 "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
-                "season": "cherry",
+                "product": "cherry",
                 "name": "May improve sleep quality",
                 "description": "Eating cherries or drinking tart cherry juice may help improve your sleep quality. Additionally, cherries contain melatonin, a substance that helps regulate your sleep-wake cycle. A study in 20 people showed that those who drank tart cherry juice concentrate for 7 days experienced significant increases in melatonin levels, sleep duration, and sleep quality, compared to a placebo. Similarly, a 2-week study in older adults with insomnia found that drinking 1 cup (240 ml) of tart cherry juice before bed increased sleep time by 84 minutes. However, these studies use concentrated cherry products. It’s unclear whether eating fresh cherries before bed would have the same effect."
             },

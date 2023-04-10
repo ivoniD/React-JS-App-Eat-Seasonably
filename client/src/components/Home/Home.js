@@ -6,7 +6,7 @@ export const Home = () => {
    <div className='home-cont'>
    <div className="centered-text">
       <p className='welcome'>Welcome to the Be Healthy Team</p>
-      <p className='welcome2'>where eating seasonally is always in season! </p>
+      <p className='welcome2'>Where Eating Seasonally Is Always in Season! </p>
       <p className="welcome-text">Get to know your fruits and veggies like never before </p>
       <p className="welcome-text">with our seasons and healthy fact collections. </p>
       <p className="welcome-text">And if you're feeling adventurous, join our team </p>

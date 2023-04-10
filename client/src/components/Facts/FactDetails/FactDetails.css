@@ -132,14 +132,14 @@
   text-align: center;
 } */
 
-.buttons {
+/* .buttons {
   height: 10%;
   text-align: right;
-  padding-right: 15px;
-  padding-bottom: 40px;
-}
+  padding-right: 500px;
+  padding-bottom: 50px;
+} */
 
-.button {
+/* .button {
   height: 15%;
   background-color: #A52A2A;
   padding: 14px;
@@ -147,7 +147,7 @@
   margin: 10px;
   font-size: 21px;
   color: rgb(255, 255, 255);
-}
+} */
 
 .button:hover {
   background-color: #06503A;

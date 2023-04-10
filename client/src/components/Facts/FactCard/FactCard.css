@@ -10,38 +10,38 @@
 }
 
 .factRow {
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+
 }
 
 
 .product-name  {
-
   border: 2px solid #a81818;
   background-color: rgba(250, 235, 215, 0.671);
   font-size: 2rem;
   font-weight: bold;
   text-shadow: 0px 0px 15px #000000;
   /* padding-bottom: 10%; */
+
 }
 
 .block1 .count {
-  width: 150px;
+
   margin: 0 auto;
-  height: 95px;
   text-align: center;
   font: 17px/95px 'Dosis', sans-serif;
   border-radius: 500px;
   border: 1px solid #939393;
-  margin-bottom: 25px;
+
+
 }
 
 .fact-name{
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   background-color: rgba(26, 128, 29, 0.726);
   color: antiquewhite;
   /* border: 1px solid #6b6b6b; */
@@ -52,7 +52,7 @@
 
 .fact-title{
   background-color: rgb(0, 75, 31);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 
@@ -70,9 +70,32 @@ font-size: 25px;
 .block1{
 
   border: 0.2px solid #000000;
-  border-radius: 10%;
-  background-color: #0036034d;
+  border-radius: 25%;
   margin-top: 30%;
+  width: 250px;
+  height: 250px;
+
 }
 
+.even {
+  background-color: #e400003f;
+}
 
+.odd {
+  background-color: #d2d60044;
+}
+
+.facts-all{
+margin-right: -5%;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+/* .block1:nth-child(2n) {
+  background-color: #f2f2f2;
+}
+
+.block1:nth-child(2n+1) {
+  background-color: #ff26004b;
+} */

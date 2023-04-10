@@ -15,17 +15,21 @@ import { Facts } from "./components/Facts/Facts";
 import { Edit } from "./components/Edit/Edit";
 import { Profile } from "./components/Profile/Profile";
 import { ProductDetails } from "./components/Products/ProductDetails/ProductDetails";
-import { SeasonallProducts } from "./components/Products/SeasonallProducts/SeasonallProducts";
+import { ProductsList } from "./components/Products/ProductsList/ProductsList";
 import { ProductsContext } from "./contexts/ProductsContext";
 import { AuthContext } from "./contexts/AuthContext";
+import { FactContext } from "./contexts/FactContext";
 import * as productService from './services/productsService'
+import * as factService from './services/factService'
 import { Logout } from "./components/Logout/Logout";
 import { useLocalStorage } from "./services/useLocalStorage";
 import { NotFound } from "./components/NotFound/NotFound";
 import { Footer } from "./components/Footer/Footer";
+import { FactDetails } from "./components/Facts/FactDetails/FactDetails";
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
+  const [facts, setFacts] = useState([]);
   const [user, setUser] = useLocalStorage('user', {})
   const [isPending, setIsPending] = useState(true)
   const navigate = useNavigate();
@@ -37,8 +41,17 @@ function App() {
         .then(data => {
           setSeasonProducts(data)
           setIsPending(false)
+          console.log(data);
         })
  },[]);
+ useEffect(() => {
+  factService.getAll()
+    .then(data => {
+      setFacts(data)
+      // setIsPending(false)
+    })
+},[]);
+
 
   const userLogin = (user) => {
     //TODO if ....
@@ -63,15 +76,23 @@ function App() {
     setSeasonProducts(oldState => oldState.filter(x => x._id !== prodId))
     navigate(`/catalog/${season}`)
 } 
+
+const deleteFact = (factId) => {
+  setFacts(oldState => oldState.filter(x => x._id !== factId))
+  navigate('/facts')
+}
   
 
 
   const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct, isPending};
   const authContextValue = { user, userLogin, userLogout};
+  const factContextValue = { facts, deleteFact }
 
   return (
   <ProductsContext.Provider value={productContextValue}>
   <AuthContext.Provider value={authContextValue}>
+  <FactContext.Provider value={factContextValue}>
+
     <div className="content">
 
     <Header />
@@ -82,22 +103,26 @@ function App() {
           <Route path='/register' element={<Register />}/>
           <Route path='/catalog' element={<Seasons />}/>
           <Route path='/create' element={<PrivateRoute><CreateNew /></PrivateRoute>}  />
-
-          <Route path='/catalog/:season' element = {<SeasonallProducts/>} />
+          <Route path='/catalog/:season' element = {<ProductsList/>} />
           <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><Edit /></PrivateRoute>} />
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
           <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
           <Route path='/facts' element = {<Facts />} />
+          <Route path='/facts/:factId' element = {<FactDetails />} />
+          
           <Route path="*" element= {<NotFound />} />
 
           {/* <Route path= '/facts' element= {<Facts/>} /> */}
       </Routes>
 
     <Footer />
+
     </div>
-    </AuthContext.Provider>
-</ProductsContext.Provider>
+
+  </FactContext.Provider>
+  </AuthContext.Provider>
+  </ProductsContext.Provider>
   );
 }
 

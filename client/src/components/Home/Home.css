@@ -48,14 +48,21 @@
 }
 .welcome-text{
   margin-bottom: 50px;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  margin-top: 10px;
+  color: #002016;
 }
 
 .centered-text{
-  padding-left: 25%;
-  padding-top: 7%;
+  padding-left: 29%;
+  padding-top: 3%;
+  padding-bottom: 1%;
   font-size: 2.5em;
-  position: center
-
+  position: center;
+  background-color: rgba(39, 39, 39, 0.288);
+  margin-top: 5%;
+  border-radius: 15%;
 }
 
 .welcome2{
@@ -63,3 +70,40 @@
   margin-bottom: 50px;
   font-size: 3rem;
 }
+
+.text {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.text h2 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.text p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  font-weight: bold;
+}
+
+.welcome-text{
+margin-left: 100px;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.welcome{
+  margin-left: -100px;
+  font-weight: bold;
+  color: antiquewhite;
+}
+
+
+

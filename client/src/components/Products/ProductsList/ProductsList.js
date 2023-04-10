@@ -1,11 +1,11 @@
-import './SeasonallProducts.css'
+import './ProductsList.css'
 import { Link, useParams } from 'react-router-dom';
 import { useContext } from 'react';
 import { SingleProduct } from '../SingleProduct/SingleProduct';
 import { ProductsContext } from '../../../contexts/ProductsContext';
 
 
-export const SeasonallProducts = () => {
+export const ProductsList = () => {
   const {season} = useParams()
 
   // const [data] = useContext(ProductsContext)
@@ -27,7 +27,7 @@ console.log(isPending);
     }
     
 
-    <div className="grid_4 prod row-items">
+    {/* <div className="grid_4 prod row-items">
       <div className="single-item">
       <img className='prodImg' alt="" />
       <div className="details" >
@@ -90,7 +90,7 @@ console.log(isPending);
         </Link>
       </div>
       </div>
-    </div>
+    </div> */}
 
       
     </div>

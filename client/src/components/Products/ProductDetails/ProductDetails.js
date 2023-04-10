@@ -6,18 +6,27 @@ import { ProductsContext } from "../../../contexts/ProductsContext";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { getOne, del } from "../../../services/productsService";
 
+
 export const ProductDetails = () => {
   const [ currentProd, setCurrentProd] = useState({})  
+
   const {prodId, season} = useParams()
   const {deleteProduct, seasonProducts} = useContext(ProductsContext);
   const {user} = useContext(AuthContext);
-const navigate = useNavigate()
+
+
+
+
 useEffect(() => {
     getOne(prodId)
     .then(result => {
         setCurrentProd(result)
     })
 }, [])
+
+
+
+
 
     const productDeletehandler = () => {
         const deleteIt = window.confirm('Do you want to delete this product!')
@@ -56,31 +65,24 @@ useEffect(() => {
             {currentProd.description}
             </p>
             </div>
-     
-            {/* <div className="details-comments">
-                <h2>Comments:</h2>
-                <ul>
-                    {/* {game.comments?.map(x => 
-                        <li className="comment">
-                            <p>{x}</p>
-                        </li>
-                    )} */}
-                {/* </ul> */}
 
-                {/* {!game.comments &&
-                    <p className="no-comment">No comments.</p>
-                } */}
-            {/* </div> */} 
-{(user.name && user._id === currentProd._ownerId) &&
-    <div className="buttons">
-                <Link to={`/catalog/${season}/${currentProd._id}/edit`}  className="button">
-                    Edit
-                </Link>
-                <button onClick={productDeletehandler} className="button">
-                    Delete
-                </button>
+
+<div className="buttons">
+            {(user.name && user._id === currentProd._ownerId) &&
+            <>
+              <Link to={`/catalog/${season}/${currentProd._id}/edit`} className="button edit-btn">
+                Edit
+              </Link>
+              <button onClick={productDeletehandler} className="button del-btn">
+                Delete
+              </button>
+              </>
+               }
+              <Link to={`/${season}`} className="button close-btn">
+                Close
+              </Link>
+              
             </div>
-            }
             
         </div>
         </div>
