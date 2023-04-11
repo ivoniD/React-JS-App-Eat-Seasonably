@@ -12,7 +12,6 @@ import './App.css'
 import {PrivateRoute}  from "./components/common/PrivateRoute";
 
 import { Facts } from "./components/Facts/Facts";
-import { Edit } from "./components/Edit/Edit";
 import { Profile } from "./components/Profile/Profile";
 import { ProductDetails } from "./components/Products/ProductDetails/ProductDetails";
 import { ProductsList } from "./components/Products/ProductsList/ProductsList";
@@ -27,6 +26,7 @@ import { NotFound } from "./components/NotFound/NotFound";
 import { Footer } from "./components/Footer/Footer";
 import { FactDetails } from "./components/Facts/FactDetails/FactDetails";
 import { CreateFact } from "./components/Create/CreateFact/CreateFact";
+import { EditProduct } from "./components/Edit/EditProduct/EditProduct";
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
@@ -42,7 +42,6 @@ function App() {
         .then(data => {
           setSeasonProducts(data)
           setIsPending(false)
-          // console.log(data);
         })
  },[]);
  
@@ -111,12 +110,11 @@ const deleteFact = (factId) => {
           <Route path='/create' element={<PrivateRoute><CreateNew /></PrivateRoute>}  />
           <Route path='/fact/create' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
           <Route path='/catalog/:season' element = {<ProductsList/>} />
-          <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><Edit /></PrivateRoute>} />
+          <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><EditProduct /></PrivateRoute>} />
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
           <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
-          <Route path='/facts' element = {<Facts />} />
-          <Route path='/facts/:factId' element = {<FactDetails />} />
+          <Route path='/catalog/:season/:prodId/fact/:factId' element = {<FactDetails />} />
           
           <Route path="*" element= {<NotFound />} />
 

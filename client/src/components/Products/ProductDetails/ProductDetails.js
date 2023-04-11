@@ -40,14 +40,11 @@ const currentFacts = facts.filter(x => x.product === currentProd.name)  || ''
 
 //   const product = seasonProducts.filter(x => x._id === prodId)
 
- console.log('--------');
- console.log(currentFacts);
 
   return (
     <>
 
 <div className='home-cont'>
-
 
         <div className="info-section details-cont">
             <div className="game-header">
@@ -59,10 +56,10 @@ const currentFacts = facts.filter(x => x.product === currentProd.name)  || ''
             {/* <p className="type"></p> */}
             </div>
             <div className="details-comments">
-            <h2 className="health">{currentProd.name} facts</h2>
+            <h2 className="health"> Did you know about {currentProd.name}? </h2>
             <div className="facts-about">
            
-{currentFacts != '' ? currentFacts.map(x =><div className="fact-div"> <span className="fact-span"> <Link to={`/facts/${x._id}`} className="fact-one">{x.name}</Link></span></div>)  
+{currentFacts != '' ? currentFacts.map(x =><div className="fact-div"> <span className="fact-span"> <Link to={`/catalog/${season}/${currentProd._id}/fact/${x._id}`} className="fact-one">{x.name}</Link></span><span className="no-facts">Create more <Link className="create-here" to="/fact/create">HERE</Link>.</span></div>)  
                     : <div className="div-no-facts"><span className="no-facts">No facts about {currentProd.name}. Create one <Link className="create-here" to="/fact/create">HERE</Link>.</span></div>
                     }
 
@@ -72,18 +69,18 @@ const currentFacts = facts.filter(x => x.product === currentProd.name)  || ''
             </div>
 
 
-<div className="buttons">
+<div className="delete-close">
             {(user.name && user._id === currentProd._ownerId) &&
             <>
-              <Link to={`/catalog/${season}/${currentProd._id}/edit`} className="button edit-btn prod-btns">
+              {/* <Link to={`/catalog/${season}/${currentProd._id}/edit`} className="button edit-btn prod-btns">
                 Edit
-              </Link>
-              <button onClick={productDeletehandler} className="button del-btn prod-btns">
-                Delete
+              </Link> */}
+              <button onClick={productDeletehandler} className="button  prod-btns del-prod">
+                Delete Product
               </button>
               </>
                }
-              <Link to={`/${season}`} className="button close-btn prod-btns">
+              <Link to={`/catalog/${season}`} className="prod-close">
                 Close
               </Link>
               

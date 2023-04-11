@@ -32,9 +32,9 @@ export const Header = () => {
                   <li className='nav-btns'>
                     <Link className='nav' to="/catalog">Eat Seasonally</Link>
                   </li>
-                  <li className='nav-btns'>
+                  {/* <li className='nav-btns'>
                     <Link className='nav' to="/facts">Did you know?</Link>
-                  </li>
+                  </li> */}
                   
                   {/* <li>
                     <Link to="/facts">Did you know</Link>

@@ -6,17 +6,18 @@ import { FactContext } from "../../../contexts/FactContext";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { getOne, del } from "../../../services/factService";
 
+
 export const FactDetails = () => {
   const [ currentFact, setCurrentFact] = useState({})  
-  const {factId} = useParams()
+  const {factId, prodId, season} = useParams()
   const {deleteFact} = useContext(FactContext);
   const {user} = useContext(AuthContext);
+  
 
 
 useEffect(() => {
     getOne(factId)
     .then(result => {
-      // console.log(`currentfact ${result.name}`);
       setCurrentFact(result)
     })
 }, [])
@@ -30,7 +31,7 @@ useEffect(() => {
                 })
         }
     }   
-console.log(`current fact ${currentFact}`);
+// console.log(`current fact ${currentFact}`);
 
   return (
     <>
@@ -59,7 +60,7 @@ console.log(`current fact ${currentFact}`);
               </button>
               </>
                }
-              <Link to='/facts' className="button close-btn">
+              <Link to={`/catalog/${season}/${prodId}`} className="button close-btn">
                 Close
               </Link>
               

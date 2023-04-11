@@ -26,3 +26,7 @@ body {
 .container{
   margin-top: 2%;
 }
+
+.box-edit{
+ height: 300px;
+}

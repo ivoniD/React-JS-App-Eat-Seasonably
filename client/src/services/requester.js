@@ -31,14 +31,14 @@ const request = async (method, url, data) => {
 
       const response = await buildRequest;
 
-      console.log(`response = ${response.status}`);
+      console.log(`requestewr : response.status = ${response.status}`);
 
       const result = await response.json();
 
 
       return result;
   } catch (error) {
-      console.log(`pp`);
+      console.log(`requester chatch error`);
   }
 };
 

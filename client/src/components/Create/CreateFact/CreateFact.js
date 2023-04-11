@@ -14,7 +14,6 @@ export const CreateFact = () => {
 
     create(factData)
       .then(result => {
-        console.log(`new fact result ${result}`);
         addNewFactHandler(result)
       })
 

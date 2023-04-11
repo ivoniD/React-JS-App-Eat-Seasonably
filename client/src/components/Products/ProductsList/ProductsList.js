@@ -10,7 +10,7 @@ export const ProductsList = () => {
 
   // const [data] = useContext(ProductsContext)
   const { seasonProducts, isPending } = useContext(ProductsContext);
-console.log(isPending);
+// console.log(isPending);
   return(
     <div className='catalog-cont'>
 <div className="products">
