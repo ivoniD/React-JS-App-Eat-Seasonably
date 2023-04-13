@@ -3,12 +3,14 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 4%;
+  height: 3%;
   background-color: rgb(6, 80, 58);
   color: white;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
  
 }
 .footer-text{
   text-align: center;
   margin-top: 6px;
+  font-size: 10px
 }

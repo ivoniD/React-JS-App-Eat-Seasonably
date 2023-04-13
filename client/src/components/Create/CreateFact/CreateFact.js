@@ -2,16 +2,27 @@ import './CreateFact.css'
 import { create } from '../../../services/factService';
 import { useContext } from 'react';
 import { FactContext } from '../../../contexts/FactContext';
+import { ProductsContext } from '../../../contexts/ProductsContext';
+import { Link, useParams } from 'react-router-dom';
 
 
 export const CreateFact = () => {
   const { addNewFactHandler } = useContext(FactContext)
+  const { seasonProducts } = useContext(ProductsContext)
+  // const {prodId, season} = useParams();
+
+  // const currentProduct = ''
+  // if(prodId){
+  //   let productData = seasonProducts.filter(x=> x.id === prodId)
+  //   currentProduct = productData.name
+//   // }
+// console.log(`currentproduct fo create ${currentProduct}`);
+// console.log(`pr id ${prodId}`);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     const factData = Object.fromEntries(new FormData(e.target))
-
     create(factData)
       .then(result => {
         addNewFactHandler(result)
@@ -21,77 +32,65 @@ export const CreateFact = () => {
 
   return (
     <>
-
-      <div className="home-cont">
-        <div className='create-form create-fact'>
-          <h2 className="heading-create">Create Fact Abourt Product</h2>
-          <form
-            className="mb-5"
-            method="post"
-            id="contactForm"
-            name="contactForm"
-            onSubmit={onSubmit}
-          >
-            <div className="row">
-              <div className="col-md-6 form-group name-div">
-                <label htmlFor="name" className="col-form-label">
-                  Product name*
-                </label>
-                <input
-                  type="text"
-                  className="formInput"
-                  name="product"
-                />
-              </div>
-
-              <div className="row">
-              <div className="col-md-6 form-group name-div">
-                <label htmlFor="name" className="col-form-label">
-                 Fact title*
-                </label>
-                <input
-                  type="text"
-                  className="formInput"
-                  name="name"
-                />
-              </div>
-              </div>
-              
-              <div className="row">
-                <div className="col-md-12 form-group">
-                  <label htmlFor="message" className="col-form-label">
-                    Fact details*
+    <div className="home-cont">
+      <div className='av'>
+        <h2 className="sec-title">Create New Fact</h2>
+        <form
+          className="create-form-fact"
+          method="post"
+          onSubmit={onSubmit}
+        >
+          <div className="div-cr-fact">
+              <label htmlFor="season" className="label-season">
+                Fact about product*
+              </label>
+              <select className="custom-select" name="product">
+              <option value="" disabled selected>Select Product</option>
+             { seasonProducts.map(x =>  <option className="spr opt" >{x.name}</option>) }
+              </select>
+            </div>
+          <div className='div-cr-fact'>
+            <div className="name-div">
+              <label htmlFor="name">
+                Fact title*
+              </label>
+              <input
+                type="text"
+                className="form-input"
+                name="name"
+              />
+            </div>
+          </div>
+          <div className='create-fact-div'>
+                <div className="form-group">
+                  <label htmlFor="message">
+                    Fact information*
                   </label>
                   <textarea
-                    className="formInput"
                     name="description"
-                    id="message"
                     cols={30}
                     rows={7}
-                    defaultValue={""}
                   />
                 </div>
               </div>
+          
 
-
+          <div className='create-prod-div'>
+            <p className='error-message' style={{ color: 'red', 'font-size': '15px', fontWeight: 'bold' }}>All fields are required!</p>
+            <div >
+              <button
+                type="submit"
+                className='sbm-btn'>CREATE</button>
             </div>
-            <div className="row">
-              <div id="form-message-warning mt-4" />
-              <p className="error-message" style={{ color: 'red', 'font-size': '15px', fontWeight: 'bold' }}>All fields are required!</p>
-              <div className="col-md-12">
-                <input
-                  type="submit"
-                  value="Create"
-                  className="create-btn formInput btn btn-block btn-primary rounded-0 py-2 px-4"
-                />
-                <span className="submitting" />
-              </div>
-            </div>
-          </form>
-
-        </div>
+            <div className="product-close-actions">
+        <Link to={`/`} className="product-close-button">Close</Link>
       </div>
-    </>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </>
 
   )
 }

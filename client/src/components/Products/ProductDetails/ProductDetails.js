@@ -9,86 +9,71 @@ import { getOne, del } from "../../../services/productsService";
 
 
 export const ProductDetails = () => {
-  const [ currentProd, setCurrentProd] = useState({})  
+  const [currentProd, setCurrentProd] = useState({})
 
-  const {prodId, season} = useParams()
-  const {deleteProduct, seasonProducts} = useContext(ProductsContext);
+  const { prodId, season } = useParams()
+  const { deleteProduct, seasonProducts } = useContext(ProductsContext);
   const { facts } = useContext(FactContext)
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-useEffect(() => {
+  useEffect(() => {
     getOne(prodId)
-    .then(result => {
+      .then(result => {
         setCurrentProd(result)
-    })
+      })
 
-}, [])
+  }, [])
 
-const currentFacts = facts.filter(x => x.product === currentProd.name)  || ''
-// console.log(x.product === currentProd.name); 
+  const currentFacts = facts.filter(x => x.product === currentProd.name) || ''
 
-    const productDeletehandler = () => {
-        const deleteIt = window.confirm('Do you want to delete this product!')
-        if(deleteIt){
-            del(prodId)
-                .then(() => {
-                    deleteProduct(prodId, season)
-                })
-        }
-    }   
-    
-
-//   const product = seasonProducts.filter(x => x._id === prodId)
-
+  const productDeletehandler = () => {
+    const deleteIt = window.confirm('Do you want to delete this product!')
+    if (deleteIt) {
+      del(prodId)
+        .then(() => {
+          deleteProduct(prodId, season)
+        })
+    }
+  }
 
   return (
-    <>
-
-<div className='home-cont'>
-
-        <div className="info-section details-cont">
-            <div className="game-header">
-                <img className="game-img" alt="product img" src={currentProd.imageUrl} />
-                <h2 className="name-product">{currentProd.name}</h2>
-           {/* <span className="levels">MaxLevel: {}</span> */}
-                {/* <p className="type">{product[0].season}</p> */}
-                <h2 className="name-season">{currentProd.season}</h2>
-            {/* <p className="type"></p> */}
-            </div>
-            <div className="details-comments">
-            <h2 className="health"> Did you know about {currentProd.name}? </h2>
-            <div className="facts-about">
-           
-{currentFacts != '' ? currentFacts.map(x =><div className="fact-div"> <span className="fact-span"> <Link to={`/catalog/${season}/${currentProd._id}/fact/${x._id}`} className="fact-one">{x.name}</Link></span><span className="no-facts">Create more <Link className="create-here" to="/fact/create">HERE</Link>.</span></div>)  
-                    : <div className="div-no-facts"><span className="no-facts">No facts about {currentProd.name}. Create one <Link className="create-here" to="/fact/create">HERE</Link>.</span></div>
-                    }
-
-           
-            </div>
-   
-            </div>
-
-
-<div className="delete-close">
-            {(user.name && user._id === currentProd._ownerId) &&
-            <>
-              {/* <Link to={`/catalog/${season}/${currentProd._id}/edit`} className="button edit-btn prod-btns">
-                Edit
-              </Link> */}
-              <button onClick={productDeletehandler} className="button  prod-btns del-prod">
-                Delete Product
-              </button>
-              </>
-               }
-              <Link to={`/catalog/${season}`} className="prod-close">
-                Close
-              </Link>
-              
-            </div>
-            
+    <div className='home-cont'>
+    <div className="product-details pr-det">
+      <div className="product-header">
+        <img className="product-image" src={currentProd.imageUrl} alt='' />
+        <h1 className="product-name title-name-pr pr-n">{currentProd.name}</h1>
+        <h2 className="product-season seas-prod">Season: <em>{currentProd.season}</em></h2>
+        {/* <textarea className="product-season seas-prod">{currentProd.description}</textarea> */}
+        <label htmlFor="dsc" className="dsc-label">Origin:</label>
+        <p name='dsc' className="product-season seas-prod descr" >
+             {currentProd.description}
+            </p>
+      </div>
+      <div className="product-facts">
+        <h2 className="product-facts-title ">Did you know about {currentProd.name}?</h2>
+        <div className="product-facts-list">
+        {currentFacts != '' ? (
+            currentFacts.map((x) => (
+              <div className="product-fact" key={x._id}>
+                <Link to={`/catalog/${season}/${currentProd._id}/fact/${x._id}`} className="product-fact-link">{x.name}</Link>
+              </div>
+            ))
+          ) : (
+            <div className="product-no-facts"><em>No facts about {currentProd.name}. Create one <Link to={`/create/fact`} className="product-create-fact-link">HERE</Link>.</em></div>
+          )}
         </div>
+      </div>
+      <div className="product-actions">
+        {/* {(user.name && user._id === currentProd._ownerId)  && (
+          <div className="product-owner-actions">
+            <button className="product-delete-button" onClick={productDeletehandler}>Delete Product</button>
+          </div>
+        )} */}
+        <div className="product-close-actions">
+          <Link to={`/catalog/${season}`} className="product-close-button">Close</Link>
         </div>
-    </>
-       
-        )
+      </div>
+    </div>
+    </div>
+  )
 }

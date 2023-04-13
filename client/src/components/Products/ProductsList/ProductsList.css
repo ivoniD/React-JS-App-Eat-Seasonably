@@ -1,176 +1,49 @@
-/* .catalog-cont{
-
-  width: 100%;
-  height: 750px;
-  border: 1px solid #000000;
-  padding-left: 10px;
-  background-image: url("https://images.unsplash.com/photo-1452724222179-950de6f4a3ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  background-color: rgba(255, 255, 255, 0.8);  
-  background-color: rgba(255, 255, 255, 0.8); 
-  backdrop-filter: blur(5px);
-} */
-
-.catalog-cont{
-  transform: rotatex(180deg);
-  width: 100%;
-  height: 750px;
-  /* border: 1px solid #000000; */
-  padding-left: 10px;
-  background-image: url("https://images.unsplash.com/photo-1452724222179-950de6f4a3ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
-  /* background-color: rgba(255, 255, 255, 0.8);  */
-  /* filter: blur(1.5px); */
-  /* backdrop-filter: blur(5px); */
-  /* filter: blur(10px); 
-  z-index: -1; */
-  position: relative;
-  
-
-}
-
-.products{
-  margin-bottom: 400%;
-  transform: rotatex(180deg);
-  width: 100%;
-  height: 650px;
-  /* border: 1px solid #000000; */
-  margin-top: 25px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80%;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.catalog-cont::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1452724222179-950de6f4a3ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-  filter: blur(7px);
-  -webkit-backdrop-filter: blur(5px);
-  z-index: -1;
-}
-
-.prod{
-  margin-left: 50px;
-  margin-right: -100px;
-  margin-bottom: 50px;
-
-}
-
-.prodImg {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 20%;
-  margin-right: 40%;
-  margin-left: 20%;
-  filter: none;
-  border: 3px solid #383838;
-  /* filter: none;
-    
-  backdrop-filter: none; */
-
-}
-
-.details {
-  /* background-color: #ffd5009f; */
-  margin-top: 5px;
-  margin-right: 40%;
-  display: block;
-  float: right;
-  color: #070707;
-  font-size: 14px;
-  line-height: 36px;
-  width: 100px;
-  height: 40px;
-  text-align: center;
+.catalog-title {
+  font-size: 36px;
   font-weight: bold;
-  margin-bottom: 55px;
-  border-radius: 80%;
-
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.autumn-food {
-  font-family: 'Economica', sans-serif;
-  font-weight: 400;
-  font-size: 6rem;
-  text-shadow: 4px 4px 10px #272727;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: #e96900;
-  margin-top: 20px;
-  margin-left: 50%;
-  margin-bottom: 110px;
-  text-shadow: 5px 5px 0px #50ffc5, 
-    10px 10px 0px #fffc62, 
-}
-
-.spring-food {
-  font-family: 'Economica', sans-serif;
-  font-weight: 400;
-  font-size: 6rem;
-  text-shadow: 4px 8px 12px #272727;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: #44d40b;
-  margin-top: 20px;
-  margin-left: 50%;
-  margin-bottom: 110px;
-  text-shadow: 5px 5px 0px #50ffc5, 
-    10px 10px 0px #fffc62, 
-}
-
-.summer-food {
-  font-family: 'Economica', sans-serif;
-  font-weight: 400;
-  font-size: 6rem;
-
-  text-shadow: 4px 8px 12px #272727;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: #e9e500;
-  margin-top: 20px;
-  margin-left: 50%;
-  margin-bottom: 110px;
-  text-shadow: 5px 5px 0px #50ffc5, 
-    10px 10px 0px #fffc62, 
-}
-
-.winter-food {
-  font-family: 'Economica', sans-serif;
-  font-weight: 400;
-  font-size: 6rem;
-  text-shadow: 4px 8px 8px #272727;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: #04c4ff;
-  margin-top: 20px;
-  margin-left: 50%;
-  margin-bottom: 110px;
-  text-shadow: 5px 5px 0px #50ffc5, 
-    10px 10px 0px #fffc62, 
-
+.catalog-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  /* grid-gap: 30px; */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  white-space: nowrap;
 
 }
 
 .seasonName{
-  /* border: 1px solid #000000; */
-  text-shadow: 2px 2px 1px #050505bd;
+  color: black;
+  font-size: 4rem;
+  font-weight: bold;
+}
+.summer-food{
+color: yellow;
+text-shadow: 0px 0px 4px #000000;
+}
+.winter-food{
+  color: rgb(97, 133, 201);
+  text-shadow: 0px 0px 4px #000000;
+}
+.spring-food{
+  color: green;
+  text-shadow: 0px 0px 4px #000000;
+}
+.autumn-food{
+  color: orange;
+  text-shadow: 0px 0px 4px #000000;
+}
+
+/* @media (max-width: 768px) {
+  .catalog-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */
+
+.se-n{
+  margin-bottom: 130px;
 }

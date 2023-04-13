@@ -8,10 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home } from "./components/Home/Home";
 import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
-import './App.css'
 import {PrivateRoute}  from "./components/common/PrivateRoute";
-
-import { Facts } from "./components/Facts/Facts";
 import { Profile } from "./components/Profile/Profile";
 import { ProductDetails } from "./components/Products/ProductDetails/ProductDetails";
 import { ProductsList } from "./components/Products/ProductsList/ProductsList";
@@ -27,6 +24,9 @@ import { Footer } from "./components/Footer/Footer";
 import { FactDetails } from "./components/Facts/FactDetails/FactDetails";
 import { CreateFact } from "./components/Create/CreateFact/CreateFact";
 import { EditProduct } from "./components/Edit/EditProduct/EditProduct";
+import { EditFact } from "./components/Edit/EditFact/EditFact";
+import './App.css'
+
 
 function App() {
   const [seasonProducts, setSeasonProducts] = useState([]);
@@ -34,8 +34,6 @@ function App() {
   const [user, setUser] = useLocalStorage('user', {})
   const [isPending, setIsPending] = useState(true)
   const navigate = useNavigate();
-  // const location = useLocation();
-  // const isNotFound = location.pathname === '*';
 
   useEffect(() => {
       productService.getAll()
@@ -53,12 +51,12 @@ function App() {
     })
 },[]);
 
-
   const userLogin = (user) => {
     //TODO if ....
     setUser(user)
   }
 
+console.log(seasonProducts[0]);
   const userLogout = () => {
     setUser({})
   }
@@ -66,61 +64,62 @@ function App() {
       setSeasonProducts(state => [...state, {...newProduct}]);
       navigate(`/catalog/${newProduct.season}`)
   }
-  const addNewFactHandler = (fact) => {
-    setFacts(state => [...state, {...fact}]);
-    navigate(`/facts/${fact._id}`)
-}
-  
-
   const editProduct = (prodId, prodData) => {
     setSeasonProducts(state => state.map(x => x._id === prodId ? prodData : x))
     navigate(`/catalog/${prodData.season}/${prodId}`)
   }
-
   const deleteProduct = (prodId, season) => {
     setSeasonProducts(oldState => oldState.filter(x => x._id !== prodId))
     navigate(`/catalog/${season}`)
 } 
 
+
+const addNewFactHandler = (fact) => {
+  setFacts(state => [...state, {...fact}]);
+  console.log(`fact ${fact.product}`);
+  const currentProd = (seasonProducts.filter(x=> x.name === fact.product)) 
+  console.log(currentProd[0]._id);
+  navigate(`/catalog/${currentProd[0].season}/${currentProd[0]._id}`)
+}
+const editFact = (factId, factData, season, prodId) => {
+  setFacts(oldState => oldState.map(x => x._id === factId ? factData : x))
+  navigate(`catalog/${season}/${prodId}/fact/${factId}`)
+}
+
 const deleteFact = (factId) => {
   setFacts(oldState => oldState.filter(x => x._id !== factId))
   navigate('/facts')
 }
-  
 
 
   const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct, isPending};
   const authContextValue = { user, userLogin, userLogout};
-  const factContextValue = { facts, deleteFact, addNewFactHandler }
+  const factContextValue = { facts, deleteFact, addNewFactHandler, editFact }
 
   return (
   <ProductsContext.Provider value={productContextValue}>
   <AuthContext.Provider value={authContextValue}>
   <FactContext.Provider value={factContextValue}>
 
-    <div className="content">
+    <div className="root">
 
     <Header />
-
       <Routes>
           <Route path = '/' element={<Home />} />
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/catalog' element={<Seasons />}/>
           <Route path='/create' element={<PrivateRoute><CreateNew /></PrivateRoute>}  />
-          <Route path='/fact/create' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
+          <Route path='/create/fact' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
           <Route path='/catalog/:season' element = {<ProductsList/>} />
           <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><EditProduct /></PrivateRoute>} />
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
           <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
           <Route path='/catalog/:season/:prodId/fact/:factId' element = {<FactDetails />} />
-          
+          <Route path='/catalog/:season/:prodId/fact/:factId/edit' element = {<EditFact />} />
           <Route path="*" element= {<NotFound />} />
-
-          {/* <Route path= '/facts' element= {<Facts/>} /> */}
       </Routes>
-
     <Footer />
 
     </div>

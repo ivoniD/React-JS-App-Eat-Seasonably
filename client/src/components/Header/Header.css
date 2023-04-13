@@ -1,83 +1,40 @@
-.headerEl{
-  background-color: rgb(6, 80, 58);
-  position: fixed;
-  
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  height: 60px;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-.main-title{
-  color: rgb(150, 17, 0);
-  font-size:3rem;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 32px;
-  margin-left: 30px;
-  /* margin-left: 100px; */
-  text-shadow: 1px 1px 2px #000000bd;
-}
-
-.nav-btns{
+.header__logo a {
+  font-size: 24px;
+  font-weight: bold;
   text-decoration: none;
+  color: #000;
 }
-/* .nav-btns {
-  transition: color 0.3s ease;
-} */
 
+.header__nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-.nav-btns:hover,
-.nav:hover {
+.header__nav ul li {
+  margin: 0 10px;
+}
+
+.header__nav ul li a {
+  font-size: 18px;
   text-decoration: none;
-  color:  #fa0000bd(212, 122, 122);
-  font-size: 1.8rem;
-  text-shadow: 0px 0px 15px #115708;
+  color: #000;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
 }
 
-.nav-btns.highlight:hover {
-  color: #f70000bd(212, 122, 122);
-  }
-
-/* .nav-btns:active,
-.nav:active {
-  text-decoration: none;
-  color: rgb(212, 122, 122);
-} */
-
-/* .main-title{
-text-align: left;
-padding-top: 50%;
-} */
-
-.title{
-  color: black;
-  font-family: 'Economica', sans-serif;;
-  color: rgb(150, 17, 0);
-  font-size:3rem;
-  text-transform: uppercase;
-  text-align: center;
-  margin-left: 30px;
-  /* margin-left: 100px; */
-  text-shadow: 1px 1px 2px #02301dbd;
-  text-decoration: none;
+.header__nav ul li a:hover {
+  background-color: #f2f2f2;
 }
-.title:hover{
-  text-decoration: none;
-  font-size:3.2rem;
-}
-
-.title-box{
-  padding-top: 40px;
-  margin-bottom: -90px;
-}
-
-.sf-menu{
-  margin-bottom: -5px;
-}
-
-.nav-btns{
-  margin-bottom: 4px;
-}
-
-.headerEl{
-  width: 100%;
-
-}
-

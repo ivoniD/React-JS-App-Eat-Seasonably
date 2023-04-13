@@ -1,237 +1,122 @@
-#game-details {
-  position: relative;
-  display: block;
-  width: 500px;
-  margin: 90px auto;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: all 0.4s;
-}
-
-#game-details>h1 {
-  color: #fff;
-  font-family: "Agency FB";
-  font-size: 55px;
-  font-weight: 700;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.info-section {
-  position: relative;
-  width: 40%;
-  height: 70%;
-  margin-left: 27%;
-  background-blend-mode: multiply;
-  z-index: 2;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.233);
-  border: 1px solid #000000;
-  /* background: #a500001c; */
-  background: #0320048e;
-  top: 10%
-}
-
-.game-header {
-  position: relative;
-  padding: 25px;
-  height: 40%;
-}
-
-.game_header>h1 {
-  color: rgb(255, 5, 5);
-  margin-top: 5px;
-  font-size: 36px;
-  font-weight: 400;
-}
-
-.game_header>h4 {
-  color: #ff0000;
-  font-size: 23px;
-  font-weight: 400;
-  display: inline-block;
-}
-
-/* .levels {
-  display: inline-block;
-  margin-top: 15px;
-  color: #ff0000;
-  padding: 7px;
+.dtl-sec {
+  /* background-color: #131313a1;
   border-radius: 5px;
-  background-color: #1d8f00;
-
-} */
-
-.name-product {
-  color: #880000;
-  font-size: 2.5rem;
-  position: static;
-  text-transform: uppercase;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.63); */
+  background-color: #03190394;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.63);
+  max-width: 800px;
+  width: 100%;
+  padding: 150px;
 }
 
-.name-season {
-  color: #000000fb;
-  font-size: 1.8rem;
-  position: static;
-  text-transform: uppercase;
-  
-}
-.health{
-  color: #dcdddc;
-  text-align: center;
-  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
-  font-size: 3rem;
-  text-shadow: 0px 0px 2px #000000;
-
+.fact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.game-img {
-  position: relative;
-  float: left;
-  /* margin-left: 15px;
-  margin-right: 22px; */
-  height: 170px;
-  border-radius: 50%;
-  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.5);
+.nm-product {
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 5px;
 }
 
-.info-section>.text {
-  margin-top: 30px;
-  padding: 60px;
-  height: 50%;
+.nm-fact {
+  color: #666;
+  font-size: 20px;
+  margin: 0;
 }
 
-.game-summary {
-  margin-top: 15px;
-  padding: 60px;
-  height: 50%;
-}
-
-.text {
-  font-size: 19px;
-  color: #ffffff;
-  margin-left: 75px;
-  margin-right: 75px;
-  margin-bottom: 45px;
-  margin-top: 25px;
-  padding-bottom: 25px;
-  /* border: 1px solid rgb(0, 0, 0); */
-/* background-color: #ff00003a; */
-}
-
-/* .movie_social {
-  height: 10%;
-  padding-left: 15px;
-  padding-bottom: 20px;
-} */
-
-/* .movie_social {
-  font-size: 1.6rem;
-  padding-top: 20px;
-  text-align: center;
-} */
-
-/* .buttons {
-  height: 10%;
-  text-align: right;
-  padding-right: 500px;
-  padding-bottom: 50px;
-} */
-
-/* .button {
-  height: 15%;
-  background-color: #A52A2A;
-  padding: 14px;
-  margin-top: auto;
-  margin: 10px;
-  font-size: 21px;
-  color: rgb(255, 255, 255);
-} */
-
-.button:hover {
-  background-color: #06503A;
-  color: white;
-}
-
-h2{
-  margin-top: -35px;
-  font-size: 2rem;;
-}
-
-.dtl-section{
-  width: 50%;
-  height: auto;
-}
-
-.edit-btn{
-  border-radius: 30%;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  font-size: 21px;
-}
-
-.del-btn{
-  border-radius: 30%;
-  width: 10%;
+.text-fact-desc {
+  color: #333;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .buttons {
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
-  margin-top: 1rem;
-  margin-left: 1rem;
+  margin-top: 30px;
+}
 
-  padding: 0.5rem 1rem; 
+.bt-ed,
+.bt-del {
+  background-color: #007bff;
+  color: #920000;
+  /* border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 20px; */
+  cursor: pointer;
+}
+.bt-ed:hover{
+  text-decoration: none;
+}
+.close-btn:hover{
+  text-decoration: none;
+}
+
+.bt-del {
+  background-color: #dc3545;
 }
 
 .button {
-  margin-left: 1rem;
-  font-size: 15px;
-}
-
-.edit-btn, .del-btn {
-  margin-right: 1rem;
+  background-color: #e04545;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
 .close-btn {
-  margin-left: auto;
-  border-radius: 30%;
-  background-color: rgba(240, 248, 255, 0.514);
-  color: #000000;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  font-weight: bold;
+  background-color: #f13636;
+  color: #333;
+  margin-right: 0;
 }
 
-.close-btn:hover{
-text-decoration: none;
-font-weight: bold;
-background-color: #0000004b;
+.bt-del {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-.edit-btn{
-  background-color: #06503A;
+.bt-ed {
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
   font-weight: bold;
-}
-.edit-btn:hover{
-  text-decoration: none;
-  background-color: rgba(0, 185, 31, 0.514);
-  color: #000000;
-  font-weight: bold;
-}
-
-.del-btn{
-  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
 }
 
-.del-btn:hover{
-  text-decoration: none;
-  background-color: rgba(253, 33, 26, 0.514);
-  color: #000000;
-  font-weight: bold;
+.button.close-btn {
+  background-color: white;
+  color: black;
 }
 
-.fact-product{
-  color: #e7ddb9;
+.nn-p{
+  color: antiquewhite;
+}
+.text-fact-desc{
+  color: antiquewhite;
 }

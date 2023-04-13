@@ -35,41 +35,68 @@ useEffect(() => {
 
   return (
     <>
-      <div className='home-cont'>
-        <div className="info-section dtl-section">
-          <div className="game-header">
-          <h2 className="name-season fact-product">{currentFact.product}</h2>
-            <h2 className="name-product">{currentFact.name}</h2>
- 
-          </div>
-          <div className="details-comments">
-            <p className="text">
-              {currentFact.description}
-            </p>
-          </div>
-
-         
-            <div className="buttons">
-            {(user.name && user._id === currentFact._ownerId) &&
-            <>
-              <Link to={`/facts/${currentFact._id}/edit`} className="button edit-btn">
-                Edit
-              </Link>
-              <button onClick={factDeleteHandler} className="button del-btn">
-                Delete
-              </button>
-              </>
-               }
-              <Link to={`/catalog/${season}/${prodId}`} className="button close-btn">
-                Close
-              </Link>
-              
-            </div>
-         
-
+    <div className='home-cont'>
+      <div className="dtl-sec">
+        <div className="fact-header">
+        <h2 className="nm-product nn-p">{currentFact.product} - {currentFact.name}</h2>
+        <h2 className="nm-fact"></h2>
+          
         </div>
+        <div className="dt">
+          <p className="text-fact-desc">
+          {currentFact.description}
+          </p>
+        </div>
+          <div className="buttons">
+          {(user.name && user._id === currentFact._ownerId) &&
+          <>
+            <Link to={`/catalog/${season}/${prodId}/fact/${currentFact._id}/edit`} className="bt-ed">
+              Edit
+            </Link>
+            <button onClick={factDeleteHandler} className="bt-del">
+              Delete
+            </button>
+            </>
+             }
+            <Link to={`/catalog/${season}/${prodId}`} className="button close-btn">
+              Close
+            </Link>    
+          </div>
       </div>
-    </>
+    </div>
+  </>
 
-  )
+)
 }
+
+{/* <>
+<div className='home-cont'>
+  <div className="dtl-sec">
+    <div className="fact-header">
+    <h2 className="nm-product">{currentFact.product}</h2>
+      <h2 className="nm-fact">{currentFact.name}</h2>
+    </div>
+    <div className="dt">
+      <p className="text-fact-desc">
+        {currentFact.description}
+      </p>
+    </div>
+      <div className="buttons">
+      {(user.name && user._id === currentFact._ownerId) &&
+      <>
+        <Link to={`/catalog/${season}/${prodId}/fact/${currentFact._id}/edit`} className="bt-ed">
+          Edit
+        </Link>
+        <button onClick={factDeleteHandler} className="bt-del">
+          Delete
+        </button>
+        </>
+         }
+        <Link to={`/catalog/${season}/${prodId}`} className="button close-btn">
+          Close
+        </Link>    
+      </div>
+  </div>
+</div>
+</> */}
+

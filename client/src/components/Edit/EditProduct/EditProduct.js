@@ -21,6 +21,7 @@ export const EditProduct = () => {
     e.preventDefault();
 
     const productData = Object.fromEntries(new FormData(e.target))
+  
 
 
     productsService.edit(prodId, productData)

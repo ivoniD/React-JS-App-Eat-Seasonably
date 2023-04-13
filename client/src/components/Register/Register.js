@@ -45,40 +45,36 @@ export const Register = () => {
 
   }
   return(
-    <>
-     <div className='home-cont'>
-    <div className="cont-reg">
-      <form className='reg-form' onSubmit = {onSubmit}>
-        <h2>Register</h2>
+    <div className='home-cont'>
+    <div className="cont-register">
+      <form className="register-form" onSubmit={onSubmit}>
+        <h2 className="register">Register</h2>
         <label>
-          <span>Name</span>
+          <span className="register-text">Name</span>
           <input type="text" name="name" />
         </label>
         <label>
-          <span>Email</span>
+          <span className="register-text">Email</span>
           <input type="email" name="email" />
         </label>
         <label>
-          <span>Password</span>
+          <span className="register-text">Password</span>
           <input type="password" name="password" />
         </label>
         <label>
-          <span>Repeat Password</span>
-          <input type="password" name="repeat-passowrd"/>
+          <span className="register-text">Repeat Password</span>
+          <input type="password" name="repeat-password" />
         </label>
-        {errorMessage !== '' && <label style={{ color: "red", 'font-size': '1rem', 'font-style': 'italic' }}>{errorMessage}</label>}
-        
-
+        {errorMessage !== '' && <span className="error-msg">{errorMessage}</span>}
         <button type="submit" className="submit">
           Sign Up
         </button>
-        <div className='no-account'>
-      <h3>If you already has an account? </h3>
-      <Link className='go-to-login' to="/login">LOGIN HERE</Link>
-      </div>
-        </form>
-      </div>
-      </div>
-      </>
+        <div className='have-account'>
+          <h3>Already have an account? </h3>
+          <Link className='go-to-login' to="/login">LOG IN HERE</Link>
+        </div>
+      </form>
+    </div>
+  </div>
   )
 }

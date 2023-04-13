@@ -1343,7 +1343,33 @@
                 "season": "spring",
                 "name": "spinach",
                 "imageUrl": "https://www.ilgiornaledelcibo.it/wp-content/uploads/2019/02/spinaci-proprieta.jpg",
-                "description": "spi spi spinaaachiiiiii"
+                "description": "spi spi spinaaachiiiiii",
+                "facts": {
+                    "sns64fnds":
+            {
+                "_id": "sns64fnds",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "product": "spinach",
+                "name": "Is good for the skin",
+                "description": "Spinach's benefits for the skin are many. Drinking a glass of spinach juice regularly can nourish the skin, offer protection from the sun, and keep away pigmentation and other skin disorders. Palak leaves are rich in minerals, vitamins and antioxidants. Vitamin A and vitamin C are powerful natural antioxidants present in spinach that prevent damage to the skin cells caused by sun exposure. Antioxidants inhibit the action of free radicals which can cause skin cancer and cell damage. Vitamin C also plays a role in collagen synthesis which makes your skin appear younger and healthier. Magnesium promotes faster skin healing, reduces acne and skin dryness, and protects the skin from ageing. It plays a role in immune function and prevents the breakout of acne and allergies. Vitamin K and folate help in minimizing dark circles around the eyes, acne and stretch marks"
+            },
+            "5558dfd49aj": {
+                "_id": "5558dfd49aj",
+                "_ownerId": "847ec027-f659-4086-8032-5173e2f9c93a",
+                "product": "spinach",
+                "name": "Aids weight loss",
+                "description": "Wondering about spinach for weight loss? Well, if you are on a weight loss diet, spinach is your answer. It is not only low in calories and high in fibre and nutrients but also reduces your craving for food. This finding is based on a study done by Rebello et al on 60 overweight and obese individuals published in the Journal of the American College of Nutrition in 2015. It was found that a single meal supplemented with 5g of concentrated thylakoid extract from spinach increases satiety over the 2-hour period following consumption."
+            },
+            "74nms0a4n":
+            {
+                "_id": "74nms0a4n",
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "product": "spinach",
+                "name": "Ensures good vision",
+                "description": "Spinach contains two carotenoid pigments - lutein and zeaxanthin, which are essential to prevent age-related sight loss and cataracts. Both lutein and zeaxanthin are present in the macula of the human eye. The antioxidant activity of these carotenoids prevents damage caused by exposure to harmful ultraviolet rays to the underlying retinal structures."
+            }
+                }
+                
             },
             "ee90697398a0": {
                 "_id": "ee90697398a0",
@@ -1385,15 +1411,7 @@
                 "season": "autumn",
                 "name": "pumpkin",
                 "imageUrl": "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2019/11/a-bunch-of-pumpkins-in-a-box.jpg?w=1155&h=1734",
-                "description": "pum pum pummpkiiin"
-            },
-            "gty743": {
-                "_id": "gty743",
-                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "season": "winter",
-                "name": "orange",
-                "imageUrl": "https://www.bhg.com/thmb/kErCUI58WFaAAjWnAhjFqgQ7w68=/2000x0/filters:no_upscale():strip_icc()/types-of-oranges-4d6a86c11fe14668ad798774e16697f8.jpg",
-                "description": "oo oooo ooorangee"
+                "description": "Native to North America (northeastern Mexico and the southern United States), C. pepo pumpkins are one of the oldest domesticated plants, having been used as early as 7,000 to 5,500 BC."
             },
             "jdd749djs": {
                 "_id": "jdd749djs",
