@@ -86,7 +86,7 @@ export const CreateProduct = () => {
             <div className='div-cr-fact'>
               <div className="name-div">
                 <label htmlFor="name">
-                  Product name*
+                  Product name* (banana, apple...etc)
                 </label>
                 <input
                   type="text"

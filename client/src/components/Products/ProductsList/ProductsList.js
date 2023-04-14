@@ -9,19 +9,10 @@ export const ProductsList = () => {
   const {season} = useParams()
   const { seasonProducts, isPending } = useContext(ProductsContext);
   const { user } = useContext(AuthContext)
-  const [picture, setPicture] = useState(null);
   let productName = 'cherry'
   let product = 'cherry'
   
-  useEffect(() => {
-    fetch(`https://api.unsplash.com/search/photos?query=${product}&per_page=1&client_id=lAiKcO1Fgtuf5I63kns_SKP2VOl2FWF5RxGluAI47tE`)
-    .then(response => response.json())
-    .then(data => {
-      let url = Object.entries(data)[2][1][0].urls.small
-      setPicture(url)
-    })
-  }, [])
-
+console.log(`seasonProducts.season.length ${seasonProducts.season}`);
 
   return(
     <div className='home-cont'>
@@ -31,14 +22,10 @@ export const ProductsList = () => {
 {season === 'winter' && <div className="seasonName winter-food se-n">  Winter is good to eat...</div>}
 
 <div className='catalog-container'>
-
-  
-      {!seasonProducts.length && <div className="seasonName summer-food se-n no-pr-yet" style={{ fontSize: "35px", color: "white", "margin-left": '300px' }}>
-          No propducts yet... <Link className="lnk-to"to="/create/product">CREATE ONE</Link></div>}
-
       {seasonProducts.length && seasonProducts.filter(x => x.season === (season)).map(x => <SingleProduct key={x._id} {...x} />)}
-     
-     
+
+      {!(seasonProducts.some(x => x.season === (season))) &&  <div className="seasonName summer-food se-n no-pr-yet" style={{ fontSize: "35px", color: "white", "margin-left": '300px' }}>
+          No added propducts yet... </div>}
 </div>
 </div>
 
