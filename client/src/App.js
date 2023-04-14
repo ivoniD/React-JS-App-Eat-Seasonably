@@ -25,7 +25,7 @@ import { CreateFact } from "./components/Create/CreateFact/CreateFact";
 import { EditProduct } from "./components/Edit/EditProduct/EditProduct";
 import { EditFact } from "./components/Edit/EditFact/EditFact";
 import './App.css'
-import { CreateProduct } from "./components/Create/CreateProduct";
+import { CreateProduct } from "./components/Create/CreateProduct/CreateProduct";
 
 
 function App() {

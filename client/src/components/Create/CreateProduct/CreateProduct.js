@@ -1,7 +1,7 @@
 import './CreateProduct.css'
-import { create } from '../../services/productsService';
+import { create } from '../../../services/productsService';
 import { useContext } from 'react';
-import { ProductsContext } from '../../contexts/ProductsContext';
+import { ProductsContext } from '../../../contexts/ProductsContext';
 import { Link } from 'react-router-dom';
 
 
@@ -52,6 +52,23 @@ export const CreateProduct = () => {
                 </select>
               </div>
             </div>
+            
+            <div className='create-fact-div'>
+                <div className="form-group">
+                  <label htmlFor="message">
+                    Origin*
+                  </label>
+                  <textarea
+                    name="description"
+                    cols={30}
+                    rows={7}
+                    // onBlur={validateDescription}
+                  />
+                </div>
+                {/* {error.description && <span style={{color: 'red', 'font-size': '20px'}}>{error.description}</span>} */}
+              </div>
+          
+
 
             <div className='create-prod-div'>
               <p className='error-message' style={{ color: 'red', 'font-size': '15px', fontWeight: 'bold' }}>All fields are required!</p>

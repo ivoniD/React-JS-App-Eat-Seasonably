@@ -125,7 +125,7 @@ export const CreateFact = () => {
 
           <div className='create-prod-div'>
             {/* <p className='error-message' style={{ color: 'red', 'font-size': '15px', fontWeight: 'bold' }}>All fields are required!</p> */}
-            <div >
+            <div>
       
               
             <button
