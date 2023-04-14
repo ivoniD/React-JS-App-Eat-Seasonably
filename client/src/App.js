@@ -38,23 +38,18 @@ function App() {
   useEffect(() => {
       productService.getAll()
         .then(data => {
-          setSeasonProducts(data)
-
-          setIsPending(false)
-        })
+          !data.message && setSeasonProducts(Object.values(data))
+        }).catch(err => console.log(err))
  },[]);
  
  useEffect(() => {
   factService.getAll()
     .then(data => {
-      setFacts(data)
-
-      // setIsPending(false)
-    })
+      !data.message && setFacts(Object.values(data))
+    }).catch(err => console.log(err))
 },[]);
 
   const userLogin = (user) => {
-    //TODO if ....
     setUser(user)
   }
 
@@ -63,7 +58,7 @@ function App() {
     setUser({})
   }
   const addNewProductHandler = (newProduct) => {
-      setSeasonProducts(state => [...state, {...newProduct}]);
+      setSeasonProducts(state => [...state, newProduct]);
       navigate(`/catalog/${newProduct.season}`)
   }
   const editProduct = (prodId, prodData) => {
@@ -77,7 +72,7 @@ function App() {
 
 
 const addNewFactHandler = (fact) => {
-  setFacts(state => [...state, {...fact}]);
+  setFacts(state => [...state, fact]);
   const currentProd = (seasonProducts.filter(x=> x.name === fact.product)) 
   navigate(`/catalog/${currentProd[0].season}/${currentProd[0]._id}`)
 }
@@ -101,10 +96,10 @@ const deleteFact = (factId, season, prodId) => {
   <ProductsContext.Provider value={productContextValue}>
   <AuthContext.Provider value={authContextValue}>
   <FactContext.Provider value={factContextValue}>
-
+  <Header />
     <div className="root">
 
-    <Header />
+  
       <Routes>
           <Route path = '/' element={<Home />} />
           <Route path='/login' element={<Login />}/>

@@ -1335,7 +1335,7 @@
         }
     };
     var seedData = {
-        seasons: {
+        x: {
             "d953e5fb":
             {
                 "_id": "d953e5fb",
@@ -1412,7 +1412,7 @@
                 "description": "waat waat waatermelloonn"
             }
         },
-        facts: {
+        x: {
             "sns64fnds":
             {
                 "_id": "sns64fnds",

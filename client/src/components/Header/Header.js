@@ -18,7 +18,7 @@ export const Header = () => {
         <li><NavLink to="/catalog" 
         style={(navLinkProps) => {
           return navLinkProps.isActive
-          ? {backgroundColor: 'lightgreen'}
+          ? {backgroundColor: 'lightgreen', color: 'black'}
           : undefined
         }
         }>Eat Seasonally</NavLink></li>
@@ -27,14 +27,14 @@ export const Header = () => {
             <li><NavLink to="/login"
              style={(navLinkProps) => {
               return navLinkProps.isActive
-              ? {backgroundColor: 'lightgreen'}
+              ? {backgroundColor: 'lightgreen', color: 'black'}
               : undefined
             }}
             >Login</NavLink></li>
             <li><NavLink to="/register"
                style={(navLinkProps) => {
                 return navLinkProps.isActive
-                ? {backgroundColor: 'lightgreen'}
+                ? {backgroundColor: 'lightgreen', color: 'black'}
                 : undefined
               }}
               >Register</NavLink></li>
@@ -44,21 +44,21 @@ export const Header = () => {
             <li><NavLink to="/create/product"
              style={(navLinkProps) => {
               return navLinkProps.isActive
-              ? {backgroundColor: 'lightgreen'}
+              ? {backgroundColor: 'lightgreen', color: 'black'}
               : undefined
             }}
             >Add Seasonal Product</NavLink></li>
             {/* <li><NavLink to="/create/fact"
              style={(navLinkProps) => {
               return navLinkProps.isActive
-              ? {backgroundColor: 'lightgreen'}
+              ? {backgroundColor: 'lightgreen', color: 'black'}
               : undefined
             }}
             >Create New Fact</NavLink></li> */}
             <li><NavLink to="/profil"
              style={(navLinkProps) => {
               return navLinkProps.isActive
-              ? {backgroundColor: 'lightgreen'}
+              ? {backgroundColor: 'lightgreen', color: 'black'}
               : undefined
             }}
             >Profile</NavLink></li>

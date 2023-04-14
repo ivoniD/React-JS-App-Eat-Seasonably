@@ -24,7 +24,10 @@ export const ProductDetails = () => {
 
   }, [])
 
-  const currentFacts = facts.filter(x => x.product === currentProd.name) || ''
+  let currentFacts = ''
+  if(facts.length){
+   currentFacts = facts.filter(x => x.product === currentProd.name) || ''
+  }
 
   const productDeletehandler = () => {
     const deleteIt = window.confirm('Do you want to delete this product!')
@@ -40,7 +43,7 @@ export const ProductDetails = () => {
     <div className='home-cont'>
     <div className="product-details pr-det">
       <div className="product-header">
-        <img className="product-image" src={currentProd.imageUrl} alt='' />
+        {/* <img className="product-image" src={currentProd.imageUrl} alt='' /> */}
         <h1 className="product-name title-name-pr pr-n">{currentProd.name}</h1>
         <h2 className="product-season seas-prod">Season: <em>{currentProd.season}</em></h2>
         {/* <textarea className="product-season seas-prod">{currentProd.description}</textarea> */}
@@ -52,7 +55,7 @@ export const ProductDetails = () => {
       <div className="product-facts">
         <h2 className="product-facts-title ">Interesting facts about {currentProd.name}?</h2>
         <div className="product-facts-list">
-        {currentFacts != '' ? (
+        {currentFacts ? (
             currentFacts.map((x) => (
               <div className="product-fact" key={x._id}>
                 <Link to={`/catalog/${season}/${currentProd._id}/fact/${x._id}`} className="product-fact-link">{x.name}</Link>

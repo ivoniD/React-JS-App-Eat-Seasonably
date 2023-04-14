@@ -32,16 +32,11 @@ export const ProductsList = () => {
 
 <div className='catalog-container'>
 
-     {seasonProducts.length 
-        ? seasonProducts && seasonProducts.filter(x => x.season === (season)).map(x => <SingleProduct key={x._id} {...x} />)
-        : user.email 
-          ? <div className="seasonName summer-food se-n no-pr-yet" style={{ fontSize: "35px", color: "white", "margin-left": '300px' }}>
-          No propducts yet... <Link className="lnk-to"to="/create/product">CREATE ONE</Link></div>
-          : <div className="seasonName summer-food se-n no-pr-yet" style={{ fontSize: "35px", color: "white", "margin-left": '300px' }}>
-          No propducts yet... <Link className='lnk-to' to="/login">LOGIN</Link> and create one</div>
+  
+      {!seasonProducts.length && <div className="seasonName summer-food se-n no-pr-yet" style={{ fontSize: "35px", color: "white", "margin-left": '300px' }}>
+          No propducts yet... <Link className="lnk-to"to="/create/product">CREATE ONE</Link></div>}
 
-      } 
-        
+      {seasonProducts.length && seasonProducts.filter(x => x.season === (season)).map(x => <SingleProduct key={x._id} {...x} />)}
      
      
 </div>
