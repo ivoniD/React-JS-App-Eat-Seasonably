@@ -57,7 +57,7 @@ const animal = userFacts.length <= 3 ? {level: 'MOUSE', more: (4 - userFacts.len
         {userFacts && userFacts.map(x => 
         <li className='my-item '>
           <Link to={`/catalog/${(seasonProducts.filter(p=> p.product = x.name))[0].season}/${(seasonProducts.filter(p=> p.product = x.name))[0]._id}/fact/${x._id}`} 
-            className='fav-item-name .my-added-item'>{(x.product.toUpperCase())} - {x.name}
+            className='fav-item-name .my-added-item'>{(x.product)} - {x.name}
           </Link>
         </li>)}
         </ul>
