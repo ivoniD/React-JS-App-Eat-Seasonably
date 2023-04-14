@@ -39,7 +39,6 @@ function App() {
       productService.getAll()
         .then(data => {
           setSeasonProducts(data)
-
           setIsPending(false)
         })
  },[]);
@@ -48,7 +47,6 @@ function App() {
   factService.getAll()
     .then(data => {
       setFacts(data)
-
       // setIsPending(false)
     })
 },[]);
@@ -78,7 +76,9 @@ function App() {
 
 const addNewFactHandler = (fact) => {
   setFacts(state => [...state, {...fact}]);
+  // console.log(`fact ${fact.product}`);
   const currentProd = (seasonProducts.filter(x=> x.name === fact.product)) 
+  // console.log(currentProd[0]._id);
   navigate(`/catalog/${currentProd[0].season}/${currentProd[0]._id}`)
 }
 const editFact = (factId, factData, season, prodId) => {
@@ -111,11 +111,14 @@ const deleteFact = (factId) => {
           <Route path='/create/product' element={<PrivateRoute><CreateProduct /></PrivateRoute>}  />
           <Route path='/create/fact' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
           <Route path='/catalog' element={<Seasons />}/>
-          <Route path='/catalog/:season' element = {<ProductsList/>} />
-          <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
+          <Route path='/catalog/:season' element = {<ProductsList/>} >
+          <Route path=':prodId/' element = {<ProductDetails />} />
+          </Route>
+          
           <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><EditProduct /></PrivateRoute>} />
           <Route path='/catalog/:season/:prodId/fact/:factId' element = {<FactDetails />} />
           <Route path='/catalog/:season/:prodId/fact/:factId/edit' element = {<EditFact />} />
+
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
           {/* <Route path='/catalog/:season/:prodId/*' element = {<ProductDetails/>} /> */}

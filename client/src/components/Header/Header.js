@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import './Header.css'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, NavLink } from 'react-router-dom'
 
 export const Header = () => {
   const { user } = useContext(AuthContext)
@@ -11,22 +11,58 @@ export const Header = () => {
   return (
     <header className="header">
     <div className="header__logo">
-      <Link to="/">Be Healthy</Link>
+      <NavLink to="/">Be Healthy</NavLink>
     </div>
     <nav className="header__nav">
       <ul>
-        <li><Link to="/catalog">Eat Seasonally</Link></li>
+        <li><NavLink to="/catalog" 
+        style={(navLinkProps) => {
+          return navLinkProps.isActive
+          ? {backgroundColor: 'lightgreen'}
+          : undefined
+        }
+        }>Eat Seasonally</NavLink></li>
         {Object.keys(user).length === 0 ? (
           <>
-            <li><Link to="/login">Login</Link></li>
-            <li><Link to="/register">Register</Link></li>
+            <li><NavLink to="/login"
+             style={(navLinkProps) => {
+              return navLinkProps.isActive
+              ? {backgroundColor: 'lightgreen'}
+              : undefined
+            }}
+            >Login</NavLink></li>
+            <li><NavLink to="/register"
+               style={(navLinkProps) => {
+                return navLinkProps.isActive
+                ? {backgroundColor: 'lightgreen'}
+                : undefined
+              }}
+              >Register</NavLink></li>
           </>
         ) : (
           <>
-            <li><Link to="/create">Add Seasonal Product</Link></li>
-            <li><Link to="/create/fact">Create New Fact</Link></li>
-            <li><Link to="/profil">Profile</Link></li>
-            <li><Link to="/logout">Logout</Link></li>
+            <li><NavLink to="/create/product"
+             style={(navLinkProps) => {
+              return navLinkProps.isActive
+              ? {backgroundColor: 'lightgreen'}
+              : undefined
+            }}
+            >Add Seasonal Product</NavLink></li>
+            <li><NavLink to="/create/fact"
+             style={(navLinkProps) => {
+              return navLinkProps.isActive
+              ? {backgroundColor: 'lightgreen'}
+              : undefined
+            }}
+            >Create New Fact</NavLink></li>
+            <li><NavLink to="/profil"
+             style={(navLinkProps) => {
+              return navLinkProps.isActive
+              ? {backgroundColor: 'lightgreen'}
+              : undefined
+            }}
+            >Profile</NavLink></li>
+            <li><NavLink to="/logout">Logout</NavLink></li>
           </>
         )}
       </ul>

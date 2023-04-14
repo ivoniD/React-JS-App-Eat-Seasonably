@@ -1,11 +1,11 @@
-import './CreateNew.css'
+import './CreateProduct.css'
 import { create } from '../../services/productsService';
 import { useContext } from 'react';
 import { ProductsContext } from '../../contexts/ProductsContext';
 import { Link } from 'react-router-dom';
 
 
-export const CreateNew = () => {
+export const CreateProduct = () => {
   const { addNewProductHandler } = useContext(ProductsContext)
 
   const onSubmit = (e) => {
