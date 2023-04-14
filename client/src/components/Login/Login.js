@@ -6,12 +6,11 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthContext';
 
 export const Login = () => {
-  const [errorMessage, setErrorMessage] = useState('')
+  const [error, setError] = useState(null)
   const { userLogin } = useContext(AuthContext)
   const navigate = useNavigate();
   const onSubmit = (e) => {
     e.preventDefault();
-    let errorMsg = ''
     const { email, password } = Object.fromEntries(new FormData(e.target));
 
     login(email, password)
@@ -19,15 +18,11 @@ export const Login = () => {
         // console.log(`authdata status ${}`);
         if (authData.name) {
           userLogin(authData)
-          setErrorMessage('')
           navigate('/')
+          setError(null)
         } else {
-          setErrorMessage(authData.message)
+          setError(authData.message)
         }
-
-      })
-      .catch(() => {
-        navigate('/404') //TODO 
       })
   };
 
@@ -44,8 +39,8 @@ export const Login = () => {
         <span className="login-text">Password</span>
         <input type="password" name="password" />
       </label>
-      {errorMessage !== '' && <span className="error-msg">{errorMessage}</span>}
-      <button type="submit" className="submit">
+      {error !== null  && <span style={{ color: 'red', 'font-size': '20px' }}>{error}</span>}
+      <button type="submit" className="submit" >
         Sign In
       </button>
       <div className='no-account'>
