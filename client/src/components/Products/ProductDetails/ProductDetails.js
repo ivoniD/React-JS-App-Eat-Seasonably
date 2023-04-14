@@ -50,7 +50,7 @@ export const ProductDetails = () => {
             </p>
       </div>
       <div className="product-facts">
-        <h2 className="product-facts-title ">Did you know about {currentProd.name}?</h2>
+        <h2 className="product-facts-title ">Interesting facts about {currentProd.name}?</h2>
         <div className="product-facts-list">
         {currentFacts != '' ? (
             currentFacts.map((x) => (
@@ -59,7 +59,7 @@ export const ProductDetails = () => {
               </div>
             ))
           ) : (
-            <div className="product-no-facts"><em>No facts about {currentProd.name}. Create one <Link to={`/create/fact`} className="product-create-fact-link">HERE</Link>.</em></div>
+            <div className="product-no-facts"><em>No facts yet.</em></div>
           )}
         </div>
       </div>
@@ -69,6 +69,7 @@ export const ProductDetails = () => {
             <button className="product-delete-button" onClick={productDeletehandler}>Delete Product</button>
           </div>
         )} */}
+        <Link to={`/catalog/${season}/${prodId}/create`} className="create-fact-button">Create Fact HERE</Link>
         <div className="product-close-actions">
           <Link to={`/catalog/${season}`} className="product-close-button">Close</Link>
         </div>

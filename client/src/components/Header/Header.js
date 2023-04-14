@@ -54,13 +54,13 @@ export const Header = () => {
               ? {backgroundColor: 'lightgreen'}
               : undefined
             }}
-            >Create New Fact</NavLink></li>
-            <li><NavLink to="/profil"
-             style={(navLinkProps) => {
-              return navLinkProps.isActive
-              ? {backgroundColor: 'lightgreen'}
-              : undefined
-            }}
+            // >Create New Fact</NavLink></li>
+            // <li><NavLink to="/profil"
+            //  style={(navLinkProps) => {
+            //   return navLinkProps.isActive
+            //   ? {backgroundColor: 'lightgreen'}
+            //   : undefined
+            // }}
             >Profile</NavLink></li>
             <li><NavLink to="/logout">Logout</NavLink></li>
           </>

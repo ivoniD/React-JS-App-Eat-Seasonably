@@ -27,7 +27,7 @@ useEffect(() => {
         if(deleteIt){
             del(factId)
                 .then(() => {
-                    deleteFact(factId)
+                    deleteFact(factId, season, prodId)
                 })
         }
     }   

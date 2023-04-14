@@ -78,7 +78,7 @@ export const EditFact = () => {
               
     
               <div className='create-prod-div'>
-                <p className='error-message' style={{ color: 'red', 'font-size': '15px', fontWeight: 'bold' }}>All fields are required!</p>
+                <p className='error-message' style={{ color: 'red', 'fontSize': '15px', fontWeight: 'bold' }}>All fields are required!</p>
                 <div >
                   <button
                     type="submit"

@@ -5,7 +5,7 @@ import { Register } from "./components/Register/Register";
 import { Seasons } from "./components/Seasons/Seasons";
 import { Route, Routes } from 'react-router-dom';
 import { Home } from "./components/Home/Home";
-import {useEffect, useState} from 'react'
+import {Suspense, useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import {PrivateRoute}  from "./components/common/PrivateRoute";
 import { Profile } from "./components/Profile/Profile";
@@ -86,9 +86,10 @@ const editFact = (factId, factData, season, prodId) => {
   navigate(`catalog/${season}/${prodId}/fact/${factId}`)
 }
 
-const deleteFact = (factId) => {
+const deleteFact = (factId, season, prodId) => {
   setFacts(oldState => oldState.filter(x => x._id !== factId))
-  navigate('/facts')
+  console.log(`prodId to redirect ${prodId}`);
+  navigate(`/catalog/${season}/${prodId}`)
 }
 
 
@@ -109,8 +110,8 @@ const deleteFact = (factId) => {
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/create/product' element={<PrivateRoute><CreateProduct /></PrivateRoute>}  />
-          <Route path='/create/fact' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
-          <Route path='/catalog' element={<Seasons />}/>
+          <Route path='/catalog/:season/:prodId/create' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
+          <Route path='/catalog' element={<Seasons/>}/>
           <Route path='/catalog/:season' element = {<ProductsList/>} />
           <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
           <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><EditProduct /></PrivateRoute>} />
@@ -118,7 +119,6 @@ const deleteFact = (factId) => {
           <Route path='/catalog/:season/:prodId/fact/:factId/edit' element = {<EditFact />} />
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
-          {/* <Route path='/catalog/:season/:prodId/*' element = {<ProductDetails/>} /> */}
           <Route path="*" element= {<NotFound />} />
       </Routes>
     <Footer />

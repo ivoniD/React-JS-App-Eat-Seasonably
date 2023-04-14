@@ -1,41 +1,32 @@
 import './CreateFact.css'
 import { create } from '../../../services/factService';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { FactContext } from '../../../contexts/FactContext';
 import { ProductsContext } from '../../../contexts/ProductsContext';
 import { Link, useParams } from 'react-router-dom';
+import { getOne } from '../../../services/productsService';
 
 
 export const CreateFact = () => {
   const { addNewFactHandler } = useContext(FactContext)
-  const { seasonProducts } = useContext(ProductsContext)
+  const [currentProd, setCurrentProd] = useState({})
   const [error, setError] = useState({
     name: null,
     description: null,
-    produst: null
   })
-   // const {prodId, season} = useParams();
+   const {prodId} = useParams();
 
-  // const currentProduct = ''
-  // if(prodId){
-  //   let productData = seasonProducts.filter(x=> x.id === prodId)
-  //   currentProduct = productData.name
-//   // }
-// console.log(`currentproduct fo create ${currentProduct}`);
-// console.log(`pr id ${prodId}`);
+   useEffect(() => {
+    getOne(prodId)
+      .then(result => {
+        setCurrentProd(result)
+      })
+
+  }, [])
 
   const onSubmit = (e) => {
     e.preventDefault();
-    let errorMsg = ''
     const factData = Object.fromEntries(new FormData(e.target))
-    if(!factData.product){
-      errorMsg = 'All fields are recuired';
-      setError(state => ({
-        ...state,
-        produst: errorMsg
-      }))
-    }
-    if(factData.product)
     create(factData)
       .then(result => {
         addNewFactHandler(result)
@@ -88,8 +79,8 @@ export const CreateFact = () => {
                 Fact about product*
               </label>
               <select className="custom-select" name="product" >             
-              <option value="" disabled selected  >Select Product</option>
-             { seasonProducts.map(x =>  <option className="spr opt" >{x.name}</option>) }
+              <option value={`${currentProd.name}`}  selected  >{currentProd.name}</option>
+             {/* { seasonProducts.map(x =>  <option className="spr opt" >{x.name}</option>) } */}
               </select>
             </div>
 
@@ -136,7 +127,7 @@ export const CreateFact = () => {
             CREATE
             </button>
             </div>
-            {error.produst && <span style={{color: 'red', 'font-size': '20px'}}>{error.produst}</span>}
+            {/* {error.produst && <span style={{color: 'red', 'font-size': '20px'}}>{error.produst}</span>} */}
             {/* <span className='all-fields' style={{color: 'red', 'font-size': '20px'}}>All fields are required.</span> */}
             <div className="product-close-actions">
         <Link to={`/`} className="product-close-button">Close</Link>

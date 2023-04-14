@@ -118,3 +118,21 @@ color: rgba(250, 235, 215, 0.801);
   color: antiquewhite;
   margin-left: 18px;
 }
+
+.create-fact-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+
+  background-color: #4d013671;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.create-fact-button:hover {
+  background-color: #4d0136;
+  text-decoration: none;
+}
