@@ -13,6 +13,7 @@ export const CreateProduct = () => {
     description: null
   })
 
+  const pattern = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
   const validateName = (e) => {
     const name = e.target.value;
     let errorMsg = '';
@@ -21,6 +22,9 @@ export const CreateProduct = () => {
     }
     if (name.length > 20) {
       errorMsg = 'Product name must be shorter that 20 characters.'
+    }
+    if(pattern.test(name)){
+      errorMsg = 'Invalid input'
     }
     setError(state => ({
       ...state,
@@ -31,10 +35,13 @@ export const CreateProduct = () => {
     const description = e.target.value;
     let errorMsg = '';
     if (description.length < 4) {
-      errorMsg = 'Origin description must be more that 4 characters.'
+      errorMsg = 'Description must be more that 4 characters.'
     }
     if (description.length > 300) {
-      errorMsg = 'Origin description  must be shorter that 300 characters.'
+      errorMsg = 'Description  must be shorter that 300 characters.'
+    }
+    if(pattern.test(description)){
+      errorMsg = 'Invalid input'
     }
     setError(state => ({
       ...state,

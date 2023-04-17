@@ -20,8 +20,8 @@ import { EditProduct } from "./components/Edit/EditProduct/EditProduct";
 import { EditFact } from "./components/Edit/EditFact/EditFact";
 import './App.css'
 import { CreateProduct } from "./components/Create/CreateProduct/CreateProduct";
-import { ProductOwner } from './components/common/ProductOwner';
-import { FactOwner } from './components/common/FactOwner';
+import { ProductOwner } from './components/RouteGuards/ProductOwner';
+import { FactOwner } from './components/RouteGuards/FactOwner';
 
 
 function App() {

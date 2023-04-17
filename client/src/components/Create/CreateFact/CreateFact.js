@@ -23,6 +23,8 @@ export const CreateFact = () => {
 
   }, [])
 
+  const pattern = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+  
   const onSubmit = (e) => {
     e.preventDefault();
     const factData = Object.fromEntries(new FormData(e.target))
@@ -40,6 +42,9 @@ export const CreateFact = () => {
     if(name.length > 20){
       errorMsg = 'Title must be shorter that 20 characters.'
     }
+    if(pattern.test(name)){
+      errorMsg = 'Invalid input'
+    }
     setError(state => ({
       ...state,
       name: errorMsg
@@ -54,6 +59,9 @@ export const CreateFact = () => {
     }
     if(description.length > 140){
       errorMsg = 'Description must be shorter that 140 characters.'
+    }
+    if(pattern.test(description)){
+      errorMsg = 'Invalid input'
     }
     setError(state => ({
       ...state,

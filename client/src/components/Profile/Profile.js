@@ -11,13 +11,13 @@ const {user} = useContext(AuthContext);
 const {seasonProducts} = useContext(ProductsContext)
 const {facts} = useContext(FactContext)
 
-const userFtuits = seasonProducts.filter(x => x._ownerId === user._id);
+const userProd = seasonProducts.filter(x => x._ownerId === user._id);
 const userFacts = facts.filter(x => x._ownerId === user._id)
 
-const animal = userFacts.length <= 3 ? {level: 'MOUSE', more: (4 - userFacts.length), next: 'BUNNY'} :
-               userFacts.length <= 6 ? {level: 'BUNNY', more: (7 - userFacts.length), next: 'PANDA'} :
-               userFacts.length <= 9 ? {level: 'PANDA', more: (10 - userFacts.length), next: 'COALA'} :
-               userFacts.length <= 12 ? {level: 'COALA', more: (13 - userFacts.length), next: 'TIGER'} :
+const animal = userProd.length <= 3 ? {level: 'MOUSE', more: (4 - userProd.length), next: 'BUNNY'} :
+              userProd.length <= 6 ? {level: 'BUNNY', more: (7 - userProd.length), next: 'PANDA'} :
+              userProd.length <= 9 ? {level: 'PANDA', more: (10 - userProd.length), next: 'COALA'} :
+              userProd.length <= 12 ? {level: 'COALA', more: (13 - userProd.length), next: 'TIGER'} :
                {level: 'TIGER'};
   return (
     <>
@@ -34,15 +34,15 @@ const animal = userFacts.length <= 3 ? {level: 'MOUSE', more: (4 - userFacts.len
 
             <h2 className="personName tm-title bold shadow profil-text name-email">{user.name}  </h2>
             <h2 className="personName white bold shadow profil-text email-user">{user.email}</h2>
-            <h2 className="personEmail white bold shadow profil-text added-facts add-f">Added Facts: {userFacts.length}</h2>
+            <h2 className="personEmail white bold shadow profil-text added-facts add-f">Added Facts: {userProd.length}</h2>
             <h2 className="personName tm-title bold shadow profil-text level lvl" >Level: {animal.level} </h2>
-            <h4 className="create-more" ><Link className="link-create" to="/create/fact">CREATE</Link> {animal.more} more fact to become {animal.next} level. </h4>
+            <h4 className="create-more" ><Link to='/create/product'className="link-create" >CREATE</Link> {animal.more} more seasonall products to become {animal.next} level. </h4>
           </div>
           <div className="fav-row ">
             <div className="skills">
-              <h2 className="fav my-fav my">My Season Foods</h2>
+              <h2 className="fav my-fav my">My Season Products</h2>
               <ul>
-                {userFtuits && userFtuits.map(x =>
+                {userProd && userProd.map(x =>
                   <li className='my-item'>
                     <Link
                       className={`my-added-item ${x.season === "summer" ? "summer-item" : x.season === "winter" ? "winter-item" : x.season === "autumn" ? "autumn-item" : x.season === "spring" ? "spring-item" : "default"}`}
@@ -70,3 +70,6 @@ const animal = userFacts.length <= 3 ? {level: 'MOUSE', more: (4 - userFacts.len
 
   )
 }
+
+
+
