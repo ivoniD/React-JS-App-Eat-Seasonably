@@ -33,8 +33,8 @@ export const CreateProduct = () => {
     if (description.length < 4) {
       errorMsg = 'Origin description must be more that 4 characters.'
     }
-    if (description.length > 140) {
-      errorMsg = 'Origin description  must be shorter that 140 characters.'
+    if (description.length > 300) {
+      errorMsg = 'Origin description  must be shorter that 300 characters.'
     }
     setError(state => ({
       ...state,
@@ -112,7 +112,7 @@ export const CreateProduct = () => {
             <div className='create-fact-div'>
               <div className="form-group">
                 <label htmlFor="message">
-                  Origin*
+                  About product*
                 </label>
                 <textarea
                   name="description"

@@ -62,7 +62,7 @@ export const EditProduct = () => {
                     Season*
                   </label>
                   <select className="custom-select" name="season" >             
-              <option value={`${currentProd.season}`}  selected  >{currentProd.season}</option>
+              <option value={`${currentProd.season}`}   >{currentProd.season}</option>
                   </select>
                 </div>
 

@@ -47,7 +47,7 @@ console.log(`currentFacts ${currentFacts.length}`);
         <h1 className="product-name title-name-pr pr-n">{currentProd.name}</h1>
         <h2 className="product-season seas-prod">Season: <em>{currentProd.season}</em></h2>
         {/* <textarea className="product-season seas-prod">{currentProd.description}</textarea> */}
-        <label htmlFor="dsc" className="dsc-label">Origin:</label>
+        <label htmlFor="dsc" className="dsc-label">About {currentProd.name}:</label>
         <p name='dsc' className="product-season seas-prod descr" >
              {currentProd.description}
             </p>

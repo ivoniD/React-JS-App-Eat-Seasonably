@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import './SingleProduct.css'
+import './ProductCard.css'
 import { useState, useEffect } from "react";
 
 
 
-export const SingleProduct = (props) => {
+export const ProductCard = (props) => {
   const [picture, setPicture] = useState(null);
 
   useEffect(() => {

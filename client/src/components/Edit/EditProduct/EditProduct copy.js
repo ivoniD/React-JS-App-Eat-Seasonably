@@ -1,14 +1,13 @@
 import './EditProduct.css'
 import { useContext, useEffect, useState } from 'react';
 import { ProductsContext } from '../../../contexts/ProductsContext';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import * as productsService from '../../../services/productsService'; 
 
 export const EditProduct = () => {
   const [currentProd, setCurrentProd] = useState({})
   const { editProduct } = useContext(ProductsContext)
-  const {season, prodId} = useParams();
-  const navigate = useNavigate()
+  const { prodId} = useParams();
 
   useEffect(() => {
     productsService.getOne(prodId)
@@ -22,8 +21,6 @@ export const EditProduct = () => {
 
     const productData = Object.fromEntries(new FormData(e.target))
   
-
-
     productsService.edit(prodId, productData)
     .then(result => {
       editProduct(prodId, result)
@@ -31,8 +28,6 @@ export const EditProduct = () => {
   }
 
  
-
-  
   return(
     <>
         <div className="home-cont">

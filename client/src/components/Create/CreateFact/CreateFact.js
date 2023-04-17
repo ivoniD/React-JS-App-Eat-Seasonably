@@ -2,7 +2,6 @@ import './CreateFact.css'
 import { create } from '../../../services/factService';
 import { useContext, useEffect, useState } from 'react';
 import { FactContext } from '../../../contexts/FactContext';
-import { ProductsContext } from '../../../contexts/ProductsContext';
 import { Link, useParams } from 'react-router-dom';
 import { getOne } from '../../../services/productsService';
 
@@ -79,7 +78,7 @@ export const CreateFact = () => {
                 Fact about product*
               </label>
               <select className="custom-select" name="product" >             
-              <option value={`${currentProd.name}`}  selected  >{currentProd.name}</option>
+              <option value={`${currentProd.name}`}   >{currentProd.name}</option>
              {/* { seasonProducts.map(x =>  <option className="spr opt" >{x.name}</option>) } */}
               </select>
             </div>
