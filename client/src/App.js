@@ -4,7 +4,7 @@ import { Login } from "./components/Login/Login";
 import { Register } from "./components/Register/Register";
 import { Seasons } from "./components/Seasons/Seasons";
 import { Home } from "./components/Home/Home";
-import { PrivateRoute }  from "./components/common/PrivateRoute";
+import { PrivateRoute }  from "./components/RouteGuards/PrivateRoute";
 import { Profile } from "./components/Profile/Profile";
 import { ProductDetails } from "./components/Products/ProductDetails/ProductDetails";
 import { ProductsList } from "./components/Products/ProductsList/ProductsList";
