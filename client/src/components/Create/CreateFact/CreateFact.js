@@ -62,7 +62,6 @@ export const CreateFact = () => {
   }
   
 
-
   return (
     <>
     <div className="home-cont">
@@ -79,7 +78,6 @@ export const CreateFact = () => {
               </label>
               <select className="custom-select" name="product" >             
               <option value={`${currentProd.name}`}   >{currentProd.name}</option>
-             {/* { seasonProducts.map(x =>  <option className="spr opt" >{x.name}</option>) } */}
               </select>
             </div>
 
@@ -111,13 +109,8 @@ export const CreateFact = () => {
                 </div>
                 {error.description && <span style={{color: 'red', 'font-size': '20px'}}>{error.description}</span>}
               </div>
-          
-
           <div className='create-prod-div'>
-            {/* <p className='error-message' style={{ color: 'red', 'font-size': '15px', fontWeight: 'bold' }}>All fields are required!</p> */}
             <div>
-      
-              
             <button
               type="submit"
               className='sbm-btn'
@@ -126,14 +119,11 @@ export const CreateFact = () => {
             CREATE
             </button>
             </div>
-            {/* {error.produst && <span style={{color: 'red', 'font-size': '20px'}}>{error.produst}</span>} */}
-            {/* <span className='all-fields' style={{color: 'red', 'font-size': '20px'}}>All fields are required.</span> */}
             <div className="product-close-actions">
         <Link to={`/`} className="product-close-button">Close</Link>
       </div>
           </div>
         </form>
-
       </div>
     </div>
   </>

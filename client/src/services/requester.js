@@ -4,7 +4,7 @@ const request = async (method, url, data) => {
       const auth = JSON.parse(user || '{}');
 
       let headers = {}
-      console.log(`parsed auth ${auth}`)
+    //   console.log(`parsed auth ${auth}`)
 
       if (auth.accessToken) {
           headers['X-Authorization'] = auth.accessToken;
@@ -31,7 +31,7 @@ const request = async (method, url, data) => {
 
       const response = await buildRequest;
 
-      console.log(`requestewr : response.status = ${response.status}`);
+    //   console.log(`requestewr : response.status = ${response.status}`);
 
       const result = await response.json();
 

@@ -18,8 +18,6 @@ export const logout = async (accessToken) => {
             }
         });
 
-        // localStorage.clear()
-        //response.status === 204 ??
             return response;
         
     } catch (error) {

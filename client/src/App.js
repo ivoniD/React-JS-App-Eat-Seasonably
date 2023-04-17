@@ -12,14 +12,16 @@ import { ProductsProvider } from "./contexts/ProductsContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import { FactsProvider } from "./contexts/FactContext";
 import { Logout } from "./components/Logout/Logout";
-import { NotFound } from "./components/NotFound/NotFound";
+
 import { Footer } from "./components/Footer/Footer";
-import { FactDetails } from "./components/Facts/FactDetails/FactDetails";
+import { FactDetails } from './components/Products/ProductDetails/FactDetails/FactDetails';
 import { CreateFact } from "./components/Create/CreateFact/CreateFact";
 import { EditProduct } from "./components/Edit/EditProduct/EditProduct";
 import { EditFact } from "./components/Edit/EditFact/EditFact";
 import './App.css'
 import { CreateProduct } from "./components/Create/CreateProduct/CreateProduct";
+import { ProductOwner } from './components/common/ProductOwner';
+import { FactOwner } from './components/common/FactOwner';
 
 
 function App() {
@@ -29,28 +31,28 @@ function App() {
   <ProductsProvider>
   <FactsProvider>
 
-  <Header />
+  <div className="root">
+    <Header />
 
-    <div className="root">
       <Routes>
           <Route path = '/' element={<Home />} />
+          <Route path='/catalog' element={<Seasons/>}/>
+          <Route path='/catalog/:season' element = {<ProductsList/>} />
+          <Route path='/catalog/:season/:prodId/fact/:factId' element = {<FactDetails />} />
+          <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
           <Route path='/create/product' element={<PrivateRoute><CreateProduct /></PrivateRoute>}  />
           <Route path='/catalog/:season/:prodId/create' element={<PrivateRoute><CreateFact /></PrivateRoute>}  />
-          <Route path='/catalog' element={<Seasons/>}/>
-          <Route path='/catalog/:season' element = {<ProductsList/>} />
-          <Route path='/catalog/:season/:prodId' element = {<ProductDetails/>} />
-          <Route path='/catalog/:season/:prodId/edit' element = {<PrivateRoute><EditProduct /></PrivateRoute>} />
-          <Route path='/catalog/:season/:prodId/fact/:factId' element = {<FactDetails />} />
-          <Route path='/catalog/:season/:prodId/fact/:factId/edit' element = {<EditFact />} />
+          <Route path='/catalog/:season/:prodId/edit' element = {<ProductOwner><PrivateRoute><EditProduct /></PrivateRoute></ProductOwner>} />
+          <Route path='/catalog/:season/:prodId/fact/:factId/edit' element = {<PrivateRoute><FactOwner><EditFact /></FactOwner></PrivateRoute>} />
           <Route path='/profil' element = {<PrivateRoute><Profile /></PrivateRoute>} />
           <Route path='/logout' element= {<PrivateRoute><Logout /></PrivateRoute>}/>
-          <Route path="*" element= {<NotFound />} />
+          <Route path="*" element= {<Home />} />
       </Routes>
-  
+
+     <Footer />
     </div>
-    <Footer />
 
     </FactsProvider>
     </ProductsProvider>

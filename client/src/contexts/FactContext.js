@@ -20,6 +20,12 @@ export const FactsProvider = ({
       }).catch(err => console.log(err))
   },[]);
 
+  const currentFact = (factId) => {
+    let fact = facts.filter(x => x._id === factId)
+    return(fact)
+    }
+  
+
   const addNewFactHandler = (fact) => {
     setFacts(state => [...state, fact]);
     const currentProd = (seasonProducts.filter(x=> x.name === fact.product)) 
@@ -36,7 +42,8 @@ export const FactsProvider = ({
     navigate(`/catalog/${season}/${prodId}`)
   }
 
-  const factContextValue = { facts, deleteFact, addNewFactHandler, editFact }
+
+  const factContextValue = { facts, deleteFact, addNewFactHandler, editFact, currentFact }
 
   return(
     <FactContext.Provider value={factContextValue}>

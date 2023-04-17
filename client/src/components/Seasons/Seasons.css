@@ -65,6 +65,7 @@
   border-color: #131313;
   /* border-radius: 50%; */
   border: 1px solid #1f1f1f;
+  border-radius: 5px;
 }
 .seasonLink:hover{
   text-decoration: none;

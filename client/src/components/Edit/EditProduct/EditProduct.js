@@ -1,8 +1,8 @@
-import './EditProduct.css'
 import { useContext, useEffect, useState } from 'react';
 import { ProductsContext } from '../../../contexts/ProductsContext';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import * as productsService from '../../../services/productsService'; 
+import './EditProduct.css'
 
 export const EditProduct = () => {
   const [currentProd, setCurrentProd] = useState({})
@@ -21,16 +21,12 @@ export const EditProduct = () => {
     e.preventDefault();
 
     const productData = Object.fromEntries(new FormData(e.target))
-  
-
 
     productsService.edit(prodId, productData)
     .then(result => {
       editProduct(prodId, result)
     })
   }
-
- 
 
     return (
         <>
@@ -42,7 +38,6 @@ export const EditProduct = () => {
               method="post"
               onSubmit={onSubmit}
             >
-            
                 <div className='div-cr-fact'>
                 <div className="name-div">
                   <label htmlFor="name">
@@ -80,9 +75,6 @@ export const EditProduct = () => {
                   />
                 </div>
               </div>
-             
-              
-    
               <div className='create-prod-div'>
                 <p className='error-message' style={{ color: 'red', 'fontSize': '15px', fontWeight: 'bold' }}>All fields are required!</p>
                 <div >
@@ -95,10 +87,8 @@ export const EditProduct = () => {
           </div>
               </div>
             </form>
-    
           </div>
         </div>
       </>
-    
     );
 };

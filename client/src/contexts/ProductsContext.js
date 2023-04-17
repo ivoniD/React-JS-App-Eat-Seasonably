@@ -13,7 +13,7 @@ export const ProductsProvider = ({
   useEffect(() => {
     productService.getAll()
       .then(data => {
-        console.log(`data: ${data}`);
+        // console.log(`data: ${data}`);
         !data.message && setSeasonProducts(Object.values(data))
       }).catch(err => console.log(err))
 },[]);
@@ -31,8 +31,13 @@ export const ProductsProvider = ({
   navigate(`/catalog/${season}`)
   } 
 
+  const currentProduct = (prodId) => {
+  let result = seasonProducts.filter(x => x._id === prodId)
+  return(result)
+  }
 
-  const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct};
+
+  const productContextValue = { seasonProducts, addNewProductHandler, editProduct, deleteProduct, currentProduct};
 
   return(
     <ProductsContext.Provider value={productContextValue}>

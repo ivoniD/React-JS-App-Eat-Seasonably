@@ -1,7 +1,8 @@
 import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
 import './Header.css'
-import { Routes, Route, Link, NavLink } from 'react-router-dom'
+
 
 export const Header = () => {
   const { user } = useContext(AuthContext)
@@ -22,7 +23,9 @@ export const Header = () => {
           : undefined
         }
         }>Eat Seasonally</NavLink></li>
-        {Object.keys(user).length === 0 ? (
+
+        {Object.keys(user).length === 0 
+        ? (
           <>
             <li><NavLink to="/login"
              style={(navLinkProps) => {
@@ -38,8 +41,8 @@ export const Header = () => {
                 : undefined
               }}
               >Register</NavLink></li>
-          </>
-        ) : (
+          </>)
+        : (
           <>
             <li><NavLink to="/create/product"
              style={(navLinkProps) => {
@@ -48,13 +51,6 @@ export const Header = () => {
               : undefined
             }}
             >Add Seasonal Product</NavLink></li>
-            {/* <li><NavLink to="/create/fact"
-             style={(navLinkProps) => {
-              return navLinkProps.isActive
-              ? {backgroundColor: 'lightgreen', color: 'black'}
-              : undefined
-            }}
-            >Create New Fact</NavLink></li> */}
             <li><NavLink to="/profil"
              style={(navLinkProps) => {
               return navLinkProps.isActive

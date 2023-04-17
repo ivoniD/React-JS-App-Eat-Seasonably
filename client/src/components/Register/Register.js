@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Register.css'
 import { register } from '../../services/authService';
 import { AuthContext } from '../../contexts/AuthContext';
-import { Link, useNavigate } from 'react-router-dom';
+
 
 
 
 export const Register = () => {
-  // const [errorMessage, setErrorMessage] = useState(null)
   const { userLogin } = useContext(AuthContext)
   const navigate = useNavigate();
   const [error, setError] = useState({

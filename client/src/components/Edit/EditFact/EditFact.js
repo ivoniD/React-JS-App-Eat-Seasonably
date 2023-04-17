@@ -1,8 +1,8 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import './EditFact.css'
 import * as factService from '../../../services/factService'; 
 import { FactContext } from "../../../contexts/FactContext";
+import './EditFact.css'
 
 export const EditFact = () => {
     const [currentFact, setCurrentFact] = useState({})
@@ -23,9 +23,7 @@ export const EditFact = () => {
         // console.log(`fact data: ${factData.description}`);
         factService.edit(factId, factData)
         .then(result => {
-            editFact(factId, result, season, prodId)
-  
-           
+            editFact(factId, result, season, prodId)     
         })
       }
     
@@ -75,8 +73,6 @@ export const EditFact = () => {
                       />
                     </div>
                   </div>
-              
-    
               <div className='create-prod-div'>
                 <p className='error-message' style={{ color: 'red', 'fontSize': '15px', fontWeight: 'bold' }}>All fields are required!</p>
                 <div >
@@ -89,10 +85,8 @@ export const EditFact = () => {
           </div>
               </div>
             </form>
-    
           </div>
         </div>
       </>
-    
     );
 };
