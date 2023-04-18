@@ -5,6 +5,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 import './Register.css'
 
 
+
 export const Register = () => {
   const { userLogin } = useContext(AuthContext)
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export const Register = () => {
 			...state,
 			[name]: value
 		}))
-    setError({ server: "" })
+    setError({ server: null })
 		validateInput(e)
   }
 
@@ -51,7 +52,7 @@ export const Register = () => {
           } else if(scripRegex.test(value)){
             newState[name] = 'Invalid input'
           }else {
-            newState[name] = "";
+            newState[name] = null;
           }
           break;
         case "email":
@@ -66,7 +67,7 @@ export const Register = () => {
           } else if(scripRegex.test(value)){
             newState[name] = 'Invalid input'
           }else {
-            newState[name] = "";
+            newState[name] = null;
           }
           break;
         case "password":
@@ -75,7 +76,7 @@ export const Register = () => {
           } else if (value.length < 6) {
             newState[name] = "Password must be at least 6 characters long.";
           } else {
-            newState[name] = "";
+            newState[name] = null;
             if (name === "password" && values.rePass && value !== values.rePass) {
               newState["confirmPassword"] = "Passwords must match.";
             }
@@ -87,7 +88,7 @@ export const Register = () => {
           } else if (value !== values.password) {
             newState[name] = "Passwords don't match.";
           } else {
-            newState[name] = "";
+            newState[name] = null;
           }
           break;
         default:

@@ -7,73 +7,81 @@ import { Link } from 'react-router-dom';
 
 export const CreateProduct = () => {
   const { addNewProductHandler, seasonProducts } = useContext(ProductsContext)
+  const [values, setValues] = useState({
+    name: "",
+    description: ""
+  })
   const [error, setError] = useState({
     name: null,
-    season: null,
     description: null
   })
 
-  const pattern = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
-  const validateName = (e) => {
-    const name = e.target.value;
-    let errorMsg = '';
-    if (name.length < 3) {
-      errorMsg = 'Product name must be more that 3 characters.'
-    }
-    if (name.length > 20) {
-      errorMsg = 'Product name must be shorter that 20 characters.'
-    }
-    if(pattern.test(name)){
-      errorMsg = 'Invalid input'
-    }
-    setError(state => ({
+  const changeHandler = (e) => {
+    let { name, value } = e.target
+    setValues(state => ({
       ...state,
-      name: errorMsg
+      [name]: value
     }))
+    validateInput(e)
   }
-  const validateDescription = (e) => {
-    const description = e.target.value;
-    let errorMsg = '';
-    if (description.length < 4) {
-      errorMsg = 'Description must be more that 4 characters.'
-    }
-    if (description.length > 300) {
-      errorMsg = 'Description  must be shorter that 300 characters.'
-    }
-    if(pattern.test(description)){
-      errorMsg = 'Invalid input'
-    }
-    setError(state => ({
-      ...state,
-      description: errorMsg
-    }))
-  }
+
+
+  const validateInput = (e) => {
+    let { name, value } = e.target;
+
+    const scripRegex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+
+    setError(state => {
+      const newState = { ...state };
+      switch (name) {
+        case "name":
+          if (value.length < 3) {
+            newState[name] = 'Product name must be at lest 3 characters.';
+          } else if (value.length > 25) {
+            newState[name] = 'Product name must be shorter that 25 characters.'
+          } else if (scripRegex.test(value)) {
+            newState[name] = 'Invalid input'
+          } else {
+            newState[name] = null;
+          }
+          break;
+        case "description":
+          if (value.length <= 8) {
+            newState[name] = 'Description must be at lest 8 characters'
+          } else if (value.length > 400) {
+            newState[name] = 'Description must be shorter that 400 characters.'
+          } else if (scripRegex.test(value)) {
+            newState[name] = 'Invalid input'
+          } else {
+            newState[name] = null;
+          }
+          break;
+        default:
+          break;
+      }
+      return newState;
+    })
+  };
+
 
 
   const onSubmit = (e) => {
     e.preventDefault();
-    let errorMsg = null
     const productData = Object.fromEntries(new FormData(e.target))
-    if (!productData.season) {
-      errorMsg = 'All fields are recuired';
+    let errorName = null;
+    let errorSeason = null
+    for (const key in seasonProducts) {
+      if ((seasonProducts[key].name).toLowerCase() === (productData.name).toLocaleLowerCase()) {
+        errorName = 'Product with this name already exist in our collection.'
+      }
       setError(state => ({
         ...state,
-        season: errorMsg
+        name: errorName
       }))
     }
 
-    for (const key in seasonProducts) {
-      if (seasonProducts[key].name === productData.name) {
-        errorMsg = 'Product with this name already exist in our collection.'
-        setError(state => ({
-          ...state,
-          name: errorMsg
-        }))
-      }
-    }
 
-
-    if (!errorMsg)
+    if (!errorName && !errorSeason && productData.season )
       create(productData)
         .then(result => {
           addNewProductHandler(result)
@@ -99,7 +107,9 @@ export const CreateProduct = () => {
                   type="text"
                   className="form-input"
                   name="name"
-                  onBlur={validateName}
+                  value={values.name}
+                  onChange={changeHandler}
+                  onBlur={validateInput}
                 />
               </div>
               {error.name && <span style={{ color: 'red', 'font-size': '20px' }}>{error.name}</span>}
@@ -107,15 +117,16 @@ export const CreateProduct = () => {
                 <label htmlFor="season" className="label-season">
                   Season*
                 </label>
-                <select className="custom-select" name="season">
+                <select className="custom-select" name="season" >
                   <option value="" disabled selected>Select Season</option>
-                  <option className="spr opt" value='spring'>SPRING</option>
+                  <option className="spr opt" value='summer'>SPRING</option>
                   <option className="sum opt" value='summer'>SUMMER</option>
                   <option className="aut opt" value='autumn'>AUTUMN</option>
                   <option className="win opt" value='winter'>WINTER</option>
                 </select>
               </div>
             </div>
+
             <div className='create-fact-div'>
               <div className="form-group">
                 <label htmlFor="message">
@@ -125,18 +136,20 @@ export const CreateProduct = () => {
                   name="description"
                   cols={30}
                   rows={7}
-                  onBlur={validateDescription}
+                  value={values.description}
+                  onChange={changeHandler}
+                  onBlur={validateInput}
                 />
               </div>
               {error.description && <span style={{ color: 'red', 'font-size': '20px' }}>{error.description}</span>}
             </div>
-            {error.season && <span style={{ color: 'red', 'font-size': '20px' }}>{error.season}</span>}
+
             <div className='create-prod-div'>
               <div >
                 <button
                   type="submit"
                   className='sbm-btn'
-                  disabled={error.name || error.description }
+
                 >CREATE</button>
               </div>
               <div className="product-close-actions">

@@ -151,6 +151,7 @@
   text-align: center;
   text-decoration: none;
   text-shadow: 1px 1px 2px #02301dbd;
+  color: white;
 }
 .my-added-item:hover{
   text-decoration: none;
@@ -158,4 +159,7 @@
 
 .ff{
   margin-bottom: 35px;
+}
+.fact{
+  color: aliceblue;
 }

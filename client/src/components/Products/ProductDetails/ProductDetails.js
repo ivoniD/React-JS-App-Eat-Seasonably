@@ -38,7 +38,7 @@ export const ProductDetails = () => {
   //       })
   //   }
   // }
-console.log(`currentFacts ${currentFacts.length}`);
+
   return (
     <div className='home-cont'>
     <div className="product-details pr-det">
@@ -56,7 +56,7 @@ console.log(`currentFacts ${currentFacts.length}`);
         {currentFacts  && (
             currentFacts.map((x) => (
               <div className="product-fact" key={x._id}>
-                <Link to={`/catalog/${season}/${currentProd._id}/fact/${x._id}`} className="product-fact-link">{x.name}</Link>
+                <Link to={`/catalog/${season}/${currentProd._id}/fact/${x._id}`} className="product-fact-link fact-link">{x.name}</Link>
               </div>
             ))
           ) }
