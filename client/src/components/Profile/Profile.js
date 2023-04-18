@@ -11,14 +11,14 @@ const {user} = useContext(AuthContext);
 const {seasonProducts} = useContext(ProductsContext)
 const {facts} = useContext(FactContext)
 
-const userProd = seasonProducts.filter(x => x._ownerId === user._id);
-const userFacts = facts.filter(x => x._ownerId === user._id)
+const userProd = seasonProducts.filter(x => x._ownerId === user._id) ;
+const userFacts = facts.filter(x => x._ownerId === user._id) 
 
 const animal = userProd.length <= 3 ? {level: 'MOUSE', more: (4 - userProd.length), next: 'BUNNY'} :
-              userProd.length <= 6 ? {level: 'BUNNY', more: (7 - userProd.length), next: 'COALA'} :
-              userProd.length <= 9 ? {level: 'COALA', more: (10 - userProd.length), next: 'PANDA'} :
-              userProd.length <= 12 ? {level: 'PANDA', more: (13 - userProd.length), next: 'TIGER'} :
-               {level: 'TIGER'};
+               userProd.length <= 6 ? {level: 'BUNNY', more: (7 - userProd.length), next: 'COALA'} :
+               userProd.length <= 9 ? {level: 'COALA', more: (10 - userProd.length), next: 'PANDA'} :
+               userProd.length <= 12 ? {level: 'PANDA', more: (13 - userProd.length), next: 'TIGER'} :
+                {level: 'TIGER'};
   return (
     <>
 

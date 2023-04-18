@@ -50,14 +50,16 @@
 
 .product-facts {
   margin-bottom: 2rem;
+  
 
 }
 
 .product-facts-title {
   margin-bottom: 1rem;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: bold;
   color: rgba(175, 164, 164, 0.459);
+  text-transform:uppercase;
 
 }
 
@@ -70,7 +72,7 @@
 .product-fact {
   margin: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: #1a1a1a;
+  background-color: #ca6c148e;
   border: 2px solid #747474;
   border-radius: 5px;
   text-decoration: underline;
@@ -140,5 +142,6 @@ color: rgba(250, 235, 215, 0.801);
   text-decoration: none;
 }
 .fact-link{
-  color: aliceblue;
+  color: rgb(8, 8, 8);
+  font-weight: bold;
 }

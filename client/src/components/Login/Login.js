@@ -6,6 +6,8 @@ import { AuthContext } from '../../contexts/AuthContext';
 import './Login.css'
 
 export const Login = () => {
+  const { userLogin } = useContext(AuthContext)
+  const navigate = useNavigate();
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -15,8 +17,7 @@ export const Login = () => {
     password: null,
     server: null
   })
-  const { userLogin } = useContext(AuthContext)
-  const navigate = useNavigate();
+
 
   const changeHandler = (e) => {
     setValues(state => ({
@@ -57,13 +58,11 @@ export const Login = () => {
       .then(authData => {
         if (!authData.message) {
           userLogin(authData)
-          values.email = '';
-          values.password = '';
           navigate('/')
         } else {
           setError(state => ({
             ...state,
-            server: "Email or password don't match"
+            server: "Email or password don't match."
           }))
         }
       })

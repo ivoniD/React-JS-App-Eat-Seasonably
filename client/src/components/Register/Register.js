@@ -58,12 +58,12 @@ export const Register = () => {
         case "email":
           if (!value) {
             newState[name] = "Email is required.";
-          } else if(value.length <= 8){
+          } else if(value.length < 8){
             newState[name] = 'Email must be at lest 8 characters'
           } else if (value.length > 25) {
             newState[name] = 'Email must be shorter that 25 characters.'
           }else if (emailRegex.test(value)) {
-            newState[name] = "Email address must be valid..";
+            newState[name] = "Email address must be valid.";
           } else if(scripRegex.test(value)){
             newState[name] = 'Invalid input'
           }else {
@@ -77,9 +77,6 @@ export const Register = () => {
             newState[name] = "Password must be at least 6 characters long.";
           } else {
             newState[name] = null;
-            if (name === "password" && values.rePass && value !== values.rePass) {
-              newState["confirmPassword"] = "Passwords must match.";
-            }
           }
           break;
         case "rePass":

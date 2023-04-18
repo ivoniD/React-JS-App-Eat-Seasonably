@@ -10,9 +10,7 @@ import { getOne, del } from "../../../services/productsService";
 
 export const ProductDetails = () => {
   const [currentProd, setCurrentProd] = useState({})
-
   const { prodId, season } = useParams()
-  const { deleteProduct, seasonProducts } = useContext(ProductsContext);
   const { facts } = useContext(FactContext)
   const { user } = useContext(AuthContext);
 
@@ -21,7 +19,6 @@ export const ProductDetails = () => {
       .then(result => {
         setCurrentProd(result)
       })
-
   }, [])
 
   let currentFacts = []

@@ -1,14 +1,15 @@
 import { useContext, useEffect, useState } from 'react';
 import { ProductsContext } from '../../../contexts/ProductsContext';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import * as productsService from '../../../services/productsService'; 
 import './EditProduct.css'
 
 export const EditProduct = () => {
   const [currentProd, setCurrentProd] = useState({})
   const { editProduct } = useContext(ProductsContext)
-  const {season, prodId} = useParams();
-  const navigate = useNavigate()
+  const { prodId} = useParams();
+  const [error, setError] = useState(null)
+
 
   useEffect(() => {
     productsService.getOne(prodId)
@@ -17,15 +18,37 @@ export const EditProduct = () => {
       })
   }, [])
 
+  
   const onSubmit = (e) => {
     e.preventDefault();
-
+    
     const productData = Object.fromEntries(new FormData(e.target))
+    let errMsg = null;
+    const scripRegex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
 
-    productsService.edit(prodId, productData)
-    .then(result => {
-      editProduct(prodId, result)
-    })
+    if(!productData.name || !productData.description){
+      errMsg = 'All fields are required!'
+    }else if (productData.description.length < 8) {
+      errMsg = 'Description must be at lest 8 characters';
+    }else if(productData.description.length > 2000){
+      errMsg = 'Description must be shorter that 2000 characters.';
+    }else if (productData.name.length < 3){
+      errMsg = 'Name must be at lest 3 characters.';
+    }else if (productData.name.length > 30){
+      errMsg = 'Name must be shorter that 30 characters.';
+    }else if (scripRegex.test(productData.description)){
+      errMsg = 'Invalid description input.'
+    }else if (scripRegex.test(productData.name)){
+      errMsg = 'Invalid name input.'
+    }
+    setError(errMsg)
+    if(!errMsg){
+      productsService.edit(prodId, productData)
+      .then(result => {
+        editProduct(prodId, result)
+      })
+    }
+   
   }
 
     return (
@@ -48,6 +71,7 @@ export const EditProduct = () => {
                     className="form-input"
                     name="name"
                     defaultValue={currentProd.name}
+
                   />
                 </div>
               </div>
@@ -63,7 +87,7 @@ export const EditProduct = () => {
               <div className='div-cr-fact'>
                 <div className="name-div">
                   <label htmlFor="name">
-                    Product origin*
+                    Product description*
                   </label>
                   <textarea
                         type="text"
@@ -71,12 +95,14 @@ export const EditProduct = () => {
                         name="description"
                         cols={30}
                         rows={7}
+
                         defaultValue={currentProd.description}
                       />
                 </div>
+                {error && <span style={{ color: 'red', 'font-size': '20px' }}>{error}</span>}
               </div>
+
               <div className='create-prod-div'>
-                <p className='error-message' style={{ color: 'red', 'fontSize': '15px', fontWeight: 'bold' }}>All fields are required!</p>
                 <div >
                   <button
                     type="submit"

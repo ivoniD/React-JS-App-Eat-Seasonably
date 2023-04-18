@@ -8,7 +8,7 @@ export const EditFact = () => {
     const [currentFact, setCurrentFact] = useState({})
     const {season, prodId, factId} = useParams();
     const { editFact } = useContext(FactContext)
-
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         factService.getOne(factId)
@@ -20,11 +20,34 @@ export const EditFact = () => {
       const onSubmit = (e) => {
         e.preventDefault();
         const factData = Object.fromEntries(new FormData(e.target))
-        // console.log(`fact data: ${factData.description}`);
-        factService.edit(factId, factData)
-        .then(result => {
-            editFact(factId, result, season, prodId)     
-        })
+
+        const scripRegex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+        let errMsg = null;
+
+        if(!factData.name || !factData.description){
+          errMsg = 'All fields are required!'
+        }else if (factData.description.length < 8) {
+          errMsg = 'Description must be at lest 8 characters';
+        }else if(factData.description.length > 2000){
+          errMsg = 'Description must be shorter that 2000 characters.';
+        }else if (factData.name.length < 3){
+          errMsg = 'Title must be at lest 3 characters.';
+        }else if (factData.name.length > 30){
+          errMsg = 'Title must be shorter that 30 characters.';
+        }else if (scripRegex.test(factData.description)){
+          errMsg = 'Invalid description input.'
+        }else if (scripRegex.test(factData.name)){
+          errMsg = 'Invalid title input.'
+        }
+
+        setError(errMsg)
+
+        if(!errMsg){
+          factService.edit(factId, factData)
+          .then(result => {
+              editFact(factId, result, season, prodId)     
+          })
+        }
       }
     
 
@@ -63,7 +86,7 @@ export const EditFact = () => {
               <div className='create-fact-div'>
                     <div className="form-group">
                       <label htmlFor="message">
-                        Fact information*
+                        Fact description*
                       </label>
                       <textarea
                         name="description"
@@ -73,9 +96,9 @@ export const EditFact = () => {
                       />
                     </div>
                   </div>
+                  {error && <span style={{ color: 'red', 'font-size': '20px' }}>{error}</span>}
               <div className='create-prod-div'>
-                <p className='error-message' style={{ color: 'red', 'fontSize': '15px', fontWeight: 'bold' }}>All fields are required!</p>
-                <div >
+                <div>
                   <button
                     type="submit"
                     className='sbm-btn'>SAVE</button>

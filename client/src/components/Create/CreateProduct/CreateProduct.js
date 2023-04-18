@@ -46,7 +46,7 @@ export const CreateProduct = () => {
           }
           break;
         case "description":
-          if (value.length <= 8) {
+          if (value.length < 8) {
             newState[name] = 'Description must be at lest 8 characters'
           } else if (value.length > 700) {
             newState[name] = 'Description must be shorter that 700 characters.'
@@ -68,20 +68,19 @@ export const CreateProduct = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     const productData = Object.fromEntries(new FormData(e.target))
-    let errorName = null;
-    let errorSeason = null
+    let errorNameExist = null;
     for (const key in seasonProducts) {
       if ((seasonProducts[key].name).toLowerCase() === (productData.name).toLocaleLowerCase()) {
-        errorName = 'Product with this name already exist in our collection.'
+        errorNameExist = 'Product with this name already exist in our collection.'
       }
       setError(state => ({
         ...state,
-        name: errorName
+        name: errorNameExist
       }))
     }
 
 
-    if (!errorName && !errorSeason && productData.season )
+    if (!errorNameExist && productData.season )
       create(productData)
         .then(result => {
           addNewProductHandler(result)

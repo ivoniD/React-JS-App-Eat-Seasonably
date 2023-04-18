@@ -11,6 +11,7 @@ const request = async (method, url, data) => {
 
       }else{
         console.log('no auth');
+        
       }
         
 
@@ -31,14 +32,13 @@ const request = async (method, url, data) => {
 
       const response = await buildRequest;
 
-    //   console.log(`requestewr : response.status = ${response.status}`);
 
       const result = await response.json();
 
 
       return result;
   } catch (error) {
-      console.log(`requester chatch error`);
+      console.log(`requester catch error`);
   }
 };
 
