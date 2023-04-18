@@ -48,7 +48,6 @@ export const EditProduct = () => {
                     className="form-input"
                     name="name"
                     defaultValue={currentProd.name}
-                    // defaultValue={}
                   />
                 </div>
               </div>
@@ -66,13 +65,14 @@ export const EditProduct = () => {
                   <label htmlFor="name">
                     Product origin*
                   </label>
-                  <input
-                    type="text"
-                    className="form-input"
-                    name="description"
-                    defaultValue={currentProd.description}
-                    // defaultValue={}
-                  />
+                  <textarea
+                        type="text"
+                        className="form-input"
+                        name="description"
+                        cols={30}
+                        rows={7}
+                        defaultValue={currentProd.description}
+                      />
                 </div>
               </div>
               <div className='create-prod-div'>

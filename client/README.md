@@ -1,7 +1,7 @@
 # Project Description
 ### ReactJS project for SoftUni.
 
-## 'BE HEALTHY' is...
+## 'BE HEALTHY' is focused on promoting a healthy lifestyle bsed on eating seasonally. Users can create and view different types of healthy products ( as food ) that are associated with different seasons. They can also create and view different facts related to these products, such as nutritional information or how to use them properly. The app have a user authentication system in place, allowing users to create and access their own profiles where they can view their added products and facts, as well as their current level  based on the number of products they have added.
 
 
 ### How to start

@@ -48,8 +48,8 @@ export const CreateProduct = () => {
         case "description":
           if (value.length <= 8) {
             newState[name] = 'Description must be at lest 8 characters'
-          } else if (value.length > 400) {
-            newState[name] = 'Description must be shorter that 400 characters.'
+          } else if (value.length > 700) {
+            newState[name] = 'Description must be shorter that 700 characters.'
           } else if (scripRegex.test(value)) {
             newState[name] = 'Invalid input'
           } else {
@@ -119,7 +119,7 @@ export const CreateProduct = () => {
                 </label>
                 <select className="custom-select" name="season" >
                   <option value="" disabled selected>Select Season</option>
-                  <option className="spr opt" value='summer'>SPRING</option>
+                  <option className="spr opt" value='spring'>SPRING</option>
                   <option className="sum opt" value='summer'>SUMMER</option>
                   <option className="aut opt" value='autumn'>AUTUMN</option>
                   <option className="win opt" value='winter'>WINTER</option>

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import * as factService from '../../../services/factService'; 
 import { FactContext } from "../../../contexts/FactContext";
@@ -8,7 +8,7 @@ export const EditFact = () => {
     const [currentFact, setCurrentFact] = useState({})
     const {season, prodId, factId} = useParams();
     const { editFact } = useContext(FactContext)
-    const navigate = useNavigate()
+
 
     useEffect(() => {
         factService.getOne(factId)
@@ -81,7 +81,7 @@ export const EditFact = () => {
                     className='sbm-btn'>SAVE</button>
                 </div>
                 <div className="product-close-actions">
-            <Link to={`/`} className="product-close-button">Close</Link>
+            <Link to={`/catalog/${season}/${prodId}/facts/${factId}`} className="product-close-button">Close</Link>
           </div>
               </div>
             </form>

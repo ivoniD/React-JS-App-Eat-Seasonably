@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom"
+import { Link } from "react-router-dom"
 import './Seasons.css'
 
 export const Seasons = () => {
@@ -43,7 +43,6 @@ export const Seasons = () => {
             <div className="clear" />
           </div>
         </div>
-        <Outlet />
       </div>
     </>
   )

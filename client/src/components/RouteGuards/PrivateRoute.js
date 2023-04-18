@@ -7,7 +7,7 @@ export const PrivateRoute = ({ children }) => {
 
   if (!user.email) {
     return (
-      <Navigate to="/login" replace /> // don't add route to push state of browser
+      <Navigate to="/login" replace /> 
     )
   }
 

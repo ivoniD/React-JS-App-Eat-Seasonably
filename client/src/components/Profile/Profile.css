@@ -6,7 +6,12 @@
   padding: 20px;
   position: absolute;
   top:30px;
-  bottom: 20px
+  bottom: 20px;
+  width: 60%;
+  margin-top: 50px;
+  min-height: 40%; 
+  min-height: 80%; 
+
 }
 
 
@@ -123,7 +128,7 @@
 
 .my-item {
   list-style: none;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 .personName{
   color: antiquewhite;
@@ -162,4 +167,14 @@
 }
 .fact{
   color: aliceblue;
+  font-family: 'Economica', sans-serif;
+  font-size: 22px;
+  text-decoration: none;
+
+}
+.fact:hover{
+  text-decoration: underline;
+}
+.no-item{
+  color:antiquewhite
 }

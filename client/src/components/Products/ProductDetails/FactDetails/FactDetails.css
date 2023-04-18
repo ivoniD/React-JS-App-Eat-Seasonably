@@ -5,9 +5,10 @@
   background-color: #03190394;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.63);
-  max-width: 800px;
+  max-width: 1500px;
   width: 100%;
   padding: 150px;
+
 }
 
 .fact-header {
@@ -119,4 +120,10 @@
 }
 .text-fact-desc{
   color: antiquewhite;
+}
+.bt-ed {
+  text-decoration: none;
+}
+.close-btn{
+  text-decoration: none;
 }

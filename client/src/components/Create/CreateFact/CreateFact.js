@@ -17,7 +17,7 @@ export const CreateFact = () => {
     name: null,
     description: null,
   })
-  const { prodId } = useParams();
+  const { prodId, season } = useParams();
 
   useEffect(() => {
     getOne(prodId)
@@ -45,8 +45,8 @@ export const CreateFact = () => {
         case "name":
           if (value.length < 3) {
             newState[name] = "Title must be at lest 3 characters.";
-          } else if (value.length > 25) {
-            newState[name] = 'Title must be shorter that 25 characters.'
+          } else if (value.length > 30) {
+            newState[name] = 'Title must be shorter that 30 characters.'
           } else if (scripRegex.test(value)) {
             newState[name] = 'Invalid input'
           } else {
@@ -56,8 +56,8 @@ export const CreateFact = () => {
         case "description":
           if (value.length <= 8) {
             newState[name] = 'Description must be at lest 8 characters'
-          } else if (value.length > 200) {
-            newState[name] = 'Description must be shorter that 200 characters.'
+          } else if (value.length > 2000) {
+            newState[name] = 'Description must be shorter that 2000 characters.'
           } else if (scripRegex.test(value)) {
             newState[name] = 'Invalid input'
           } else {
@@ -79,7 +79,7 @@ export const CreateFact = () => {
     const factData = Object.fromEntries(new FormData(e.target))
     create(factData)
       .then(result => {
-        addNewFactHandler(result)
+        addNewFactHandler(result, prodId, season)
       })
   }
 

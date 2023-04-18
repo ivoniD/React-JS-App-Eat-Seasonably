@@ -1,7 +1,7 @@
 import {  createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as factService from '../services/factService'
-import { ProductsContext } from '../contexts/ProductsContext';
+
 
 
 export const FactContext = createContext()
@@ -11,7 +11,6 @@ export const FactsProvider = ({
 }) => {
   const [facts, setFacts] = useState([]);
   const navigate = useNavigate();
-  const { seasonProducts } = useContext(ProductsContext)
   
   useEffect(() => {
     factService.getAll()
@@ -26,10 +25,10 @@ export const FactsProvider = ({
     }
   
 
-  const addNewFactHandler = (fact) => {
+  const addNewFactHandler = (fact, prodId, season) => {
     setFacts(state => [...state, fact]);
-    const currentProd = (seasonProducts.filter(x=> x.name === fact.product)) 
-    navigate(`/catalog/${currentProd[0].season}/${currentProd[0]._id}`)
+
+    navigate(`/catalog/${season}/${prodId}/fact/${fact._id}`)
   }
   const editFact = (factId, factData, season, prodId) => {
     setFacts(oldState => oldState.map(x => x._id === factId ? factData : x))
@@ -38,7 +37,6 @@ export const FactsProvider = ({
   
   const deleteFact = (factId, season, prodId) => {
     setFacts(oldState => oldState.filter(x => x._id !== factId))
-    console.log(`prodId to redirect ${prodId}`);
     navigate(`/catalog/${season}/${prodId}`)
   }
 

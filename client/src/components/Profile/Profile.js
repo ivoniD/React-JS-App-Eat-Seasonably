@@ -41,9 +41,10 @@ const animal = userProd.length <= 3 ? {level: 'MOUSE', more: (4 - userProd.lengt
           <div className="fav-row ">
             <div className="skills">
               <h2 className="fav my-fav my">My Season Products</h2>
+              {!userProd.length && <h3 className='no-item'>No Products added.</h3>}
               <ul>
                 {userProd && userProd.map(x =>
-                  <li className='my-item'>
+                  <li className='my-item' key={x._id}>
                     <Link
                       className={`my-added-item ${x.season === "summer" ? "summer-item" : x.season === "winter" ? "winter-item" : x.season === "autumn" ? "autumn-item" : x.season === "spring" ? "spring-item" : "default"}`}
                       to={`/catalog/${x.season}/${x._id}`} key={x._id}
@@ -54,13 +55,16 @@ const animal = userProd.length <= 3 ? {level: 'MOUSE', more: (4 - userProd.lengt
             </div>
             <div className="skills my-facts">
               <h2 className="fav my-facts my-fav my ff" >My Facts</h2>
+              {!userFacts.length && <h3 className='no-item'>No facts added.</h3>}
               <ul>
                 {userFacts && userFacts.map(x =>
-                  <li className='my-item '>
+                  <li className='my-item' key={x._id}>
                     <Link to={`/catalog/${(seasonProducts.filter(p => p.product = x.name))[0].season}/${(seasonProducts.filter(p => p.product = x.name))[0]._id}/fact/${x._id}`}
                       className='fav-item-name .my-added-item fact'>{(x.product)} - {x.name}
                     </Link>
                   </li>)}
+
+                 
               </ul>
             </div>
           </div>
