@@ -109,7 +109,7 @@ export const EditProduct = () => {
                     className='sbm-btn'>SAVE</button>
                 </div>
                 <div className="product-close-actions">
-            <Link to={`/`} className="product-close-button">Close</Link>
+            <Link to={`/catalog/${currentProd.season}/${prodId}`} className="product-close-button">Close</Link>
           </div>
               </div>
             </form>

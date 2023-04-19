@@ -63,8 +63,7 @@ const animal = userProd.length <= 3 ? {level: 'MOUSE', more: (4 - userProd.lengt
                       className='fav-item-name .my-added-item fact'>{(x.product)} - {x.name}
                     </Link>
                   </li>)}
-
-                 
+ 
               </ul>
             </div>
           </div>

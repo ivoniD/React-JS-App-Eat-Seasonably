@@ -13,8 +13,6 @@ const request = async (method, url, data) => {
         console.log('no auth');
         
       }
-        
-
       let buildRequest;
 
       if (method === 'GET') {

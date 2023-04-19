@@ -57,13 +57,12 @@ export const ProductDetails = () => {
               </div>
             ))
           ) }
-
           {currentFacts.length === 0 &&  <div className="product-no-facts"><em>No facts yet.</em></div>}
-      
         </div>
       </div>
       <div className="product-actions">
-        <Link to={`/catalog/${season}/${prodId}/create`} className="create-fact-button">Create Fact HERE</Link>
+        {user.name && <Link to={`/catalog/${season}/${prodId}/create`} className="create-fact-button">Create Fact HERE</Link>}
+        
         <div className="product-close-actions">
         {(user.name && user._id === currentProd._ownerId) &&
           <>
