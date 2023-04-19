@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { register } from '../../services/authService';
 import { AuthContext } from '../../contexts/AuthContext';
-import './Register.css'
+import  './Register.css'
 
 
 
@@ -79,15 +79,6 @@ export const Register = () => {
             newState[name] = null;
           }
           break;
-        case "rePass":
-          if (!value) {
-            newState[name] = "Password is required.";
-          } else if (value !== values.password) {
-            newState[name] = "Passwords don't match.";
-          } else {
-            newState[name] = null;
-          }
-          break;
         default:
           break;
       }
@@ -98,9 +89,10 @@ export const Register = () => {
 
   const onSubmit = (event) => {
 		event.preventDefault()
-		const { name, email, password } = Object.fromEntries(new FormData(event.target))
-
-		register(name, email, password)
+		const { name, email, password, rePass } = Object.fromEntries(new FormData(event.target))
+    let errMsg = ''
+    if(password === rePass){
+      register(name, email, password)
       .then(result => {
         if (!result.message) {
           userLogin(result)
@@ -109,6 +101,10 @@ export const Register = () => {
           setError({ server: result.message })
         }
       }).catch(err => console.log(err))
+    }else{
+      errMsg = "Passwords don't match."
+    }
+		setError({ server: errMsg })
 	}
 
   
